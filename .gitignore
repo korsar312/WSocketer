@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 build
+out
 buildTech
 dist
 dist-ssr
@@ -25,3 +26,4 @@ public/images/rosneft/image/background/img.png
 *.njsproj
 *.sln
 *.sw?
+/out/

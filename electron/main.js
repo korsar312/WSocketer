@@ -1,29 +1,32 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
-//import isDev from "electron-is-dev";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function createWindow() {
 	let mainWindow = new BrowserWindow({
 		width: 800,
 		height: 600,
 		webPreferences: {
-			nodeIntegration: false, // Безопасность
-			contextIsolation: true, // Защита
+			nodeIntegration: false,
+			contextIsolation: true,
+			preload: path.join(__dirname, "preload.js"),
 		},
 	});
 
-	//const url = isDev		? "http://localhost:3000" // Для разработки		: `file://${path.join(__dirname, "../build/index.html")}`; // Для продакшн-сборки
-	const url = path.join("file://", path.resolve(`./build/index.html`));
-	console.log("Loading URL:", url);
+	const isDev = process.env.NODE_ENV === "development";
+	const url = isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`;
 
-	mainWindow.loadURL(url).catch((error) => {
-		console.error("Failed to load URL:", error);
+	mainWindow.loadURL(url);
+
+	mainWindow.webContents.on("did-fail-load", (event, errorCode, errorDescription) => {
+		console.error("Error loading page:", errorCode, errorDescription);
 	});
 
 	mainWindow.on("closed", () => (mainWindow = null));
-
-	console.log(2345);
-	console.log(url);
 }
 
 app.on("ready", createWindow);
