@@ -9,6 +9,7 @@ export default ({ mode }) => {
 	process.env = Object.assign(process.env, loadEnv(mode, process.cwd()))
 
 	return defineConfig({
+		base: './',
 		server: {
 			open: true,
 			port: 31415,
