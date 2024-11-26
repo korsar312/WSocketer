@@ -5,12 +5,10 @@
 	"main": "electron/main.js",
 	"version": "2.0.0",
 	"scripts": {
-		"package": "electron-forge package",
-		"make": "electron-forge make",
-		"publish": "electron-forge publish",
-
-		"startV": "electron-forge start",
-		"electron": "electron .",
+		"e_pack": "electron-forge package",
+		"e_make": "electron-forge make",
+		"e_pub": "electron-forge publish",
+		"e_start": "electron-forge start",
 		"start": "vite",
 		"build": "tsc && vite build",
 		"preview": "vite preview",

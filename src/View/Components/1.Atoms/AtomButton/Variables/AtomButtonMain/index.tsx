@@ -12,10 +12,13 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: IButton = {
 		...props,
-		color: StylesInterface.EColor.BLUE_1,
-		textVars: [{ text, font: StylesInterface.EFont.Mont_B_10 }],
-		options: {
-			variant: "contained",
+		color: StylesInterface.EColor.WHITE_1,
+		textVars: {
+			value: [{ text, font: StylesInterface.EFont.Mont_B_10 }],
+		},
+		extStyles: {
+			borderRadius: 8,
+			border: "none",
 		},
 	};
 

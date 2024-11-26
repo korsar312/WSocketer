@@ -3,6 +3,7 @@ import { StylesInterface } from "../../../Styles.interface";
 export class GetColor {
 	static execute(module: StylesInterface.IModules) {
 		return function (
+			theme: StylesInterface.ETheme,
 			color?: StylesInterface.TColorChoice,
 			opacity: number = 0.99,
 		): StylesInterface.TColorRGBFormat | "none" | "undefined" {
@@ -11,7 +12,7 @@ export class GetColor {
 			if (color === undefined || color === "null") return "undefined";
 			if (color === false) return "none";
 
-			const hex = module.domain.getColor(store, color);
+			const hex = module.domain.getColor(store, theme, color);
 
 			return module.domain.hex2rgba(hex, opacity);
 		};

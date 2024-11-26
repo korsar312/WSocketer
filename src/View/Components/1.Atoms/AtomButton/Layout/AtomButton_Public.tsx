@@ -1,18 +1,37 @@
 import styles from "./AtomButton_Public.styles";
 import AtomButtonModel from "../AtomButton.model";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
-import { Button } from "@mui/material";
-import Text from "../../../0.Cores/Text";
+import Text from "View/Components/0.Cores/Text";
+import Images from "View/Components/0.Cores/Images";
+import { TAtomButtonIcon } from "../index";
 
 const AtomButton_Public: NFC<typeof AtomButtonModel> = (props) => {
-	const { options, textChanged, color } = props;
+	const { textChanged, color, extStyles, rightIcon, leftIcon } = props;
+
+	function iconRender(icon: TAtomButtonIcon) {
+		return (
+			<div css={[icon.groupStyle]}>
+				{icon.value.map((el, i) => (
+					<Images key={i} {...el} />
+				))}
+			</div>
+		);
+	}
 
 	return (
-		<Button {...options} css={[styles.wrapper, styles.color(color)]}>
-			{textChanged.map((el) => (
-				<Text key={el.text} {...el} />
-			))}
-		</Button>
+		<button css={[styles.wrapper, styles.color(color), extStyles]}>
+			{leftIcon && iconRender(leftIcon)}
+
+			{textChanged && (
+				<div css={[textChanged.groupStyle]}>
+					{textChanged.value.map((el) => (
+						<Text key={el.text} {...el} />
+					))}
+				</div>
+			)}
+
+			{rightIcon && iconRender(rightIcon)}
+		</button>
 	);
 };
 

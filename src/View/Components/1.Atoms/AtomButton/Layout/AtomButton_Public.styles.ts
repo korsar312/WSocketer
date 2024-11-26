@@ -1,9 +1,11 @@
 import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react";
-import { StylesInterface } from "../../../../../Logic/Core/Modules/Styles/Styles.interface";
+import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 class AtomButton_PublicStyles extends Styles {
-	public wrapper: CSSObject = {};
+	public wrapper: CSSObject = {
+		...this.mixins.flexCenter,
+	};
 
 	public color(color?: StylesInterface.EColor): CSSObject {
 		return {

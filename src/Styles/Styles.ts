@@ -11,7 +11,9 @@ export class Styles {
 	protected variables = Variables;
 
 	protected getColors(color?: StylesInterface.TColorChoice, opacity?: number) {
-		return UseCases.interactor("style", "getColor", color, opacity);
+		const theme = StylesInterface.ETheme.DARK;
+
+		return UseCases.interactor("style", "getColor", theme, color, opacity);
 	}
 
 	protected getFonts(font: StylesInterface.EFont) {

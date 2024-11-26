@@ -1,6 +1,6 @@
 import { IComponent } from "./index";
 import { SyntheticEvent, useEffect, useState } from "react";
-import IconError from "Assets/Images/error.svg";
+import IconError from "Assets/Icons/icon-error.svg";
 import { GlobalVar } from "Logic/Config/GlobalVar";
 import getImage from "./ImageList/ImageList";
 

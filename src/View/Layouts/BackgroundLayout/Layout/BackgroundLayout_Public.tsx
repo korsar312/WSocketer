@@ -3,9 +3,9 @@ import { NFC } from "Logic/Libs/Util/TypesUtils";
 import BackgroundLayoutModel from "../BackgroundLayout.model";
 
 const BackgroundLayout_Public: NFC<typeof BackgroundLayoutModel> = (props) => {
-	const { bgPath } = props;
+	const {} = props;
 
-	return <div css={styles.background(bgPath)} />;
+	return <div css={styles.background()} />;
 };
 
 export default BackgroundLayout_Public;
