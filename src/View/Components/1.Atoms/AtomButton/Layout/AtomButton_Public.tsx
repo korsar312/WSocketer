@@ -6,11 +6,11 @@ import Images from "View/Components/0.Cores/Images";
 import { TAtomButtonIcon } from "../index";
 
 const AtomButton_Public: NFC<typeof AtomButtonModel> = (props) => {
-	const { textChanged, color, extStyles, rightIcon, leftIcon } = props;
+	const { textChanged, color, extStyles, rightIcon, leftIcon, isFullWidth } = props;
 
 	function iconRender(icon: TAtomButtonIcon) {
 		return (
-			<div css={[icon.groupStyle]}>
+			<div css={[icon.groupStyle, styles.icon]}>
 				{icon.value.map((el, i) => (
 					<Images key={i} {...el} />
 				))}
@@ -19,7 +19,7 @@ const AtomButton_Public: NFC<typeof AtomButtonModel> = (props) => {
 	}
 
 	return (
-		<button css={[styles.wrapper, styles.color(color), extStyles]}>
+		<button css={[styles.wrapper(isFullWidth), styles.color(color), extStyles]}>
 			{leftIcon && iconRender(leftIcon)}
 
 			{textChanged && (

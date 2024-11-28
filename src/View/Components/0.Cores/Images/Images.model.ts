@@ -1,11 +1,10 @@
 import { IComponent } from "./index";
 import { SyntheticEvent, useEffect, useState } from "react";
 import IconError from "Assets/Icons/icon-error.svg";
-import { GlobalVar } from "Logic/Config/GlobalVar";
 import getImage from "./ImageList/ImageList";
 
 function ImagesModel(props: IComponent) {
-	const { img, color, extStyle, imageError, isDisable, noCatch } = props;
+	const { img, color, extStyle, size } = props;
 
 	useEffect(() => {
 		setIsShow(true);
@@ -16,14 +15,12 @@ function ImagesModel(props: IComponent) {
 	const imageIcon = img && getImage(img);
 
 	function handleErrorImage(e: SyntheticEvent<HTMLImageElement, Event>) {
-		if (noCatch) setIsShow(false);
-
 		const target = e.target as HTMLImageElement;
 		target.onerror = null;
-		target.src = imageError ? GlobalVar.IMAGE_URL + imageError : IconError;
+		target.src = IconError;
 	}
 
-	return { imageIcon, img, color, extStyle, handleErrorImage, isDisable, isShow };
+	return { imageIcon, img, color, extStyle, handleErrorImage, isShow, size };
 }
 
 export default ImagesModel;

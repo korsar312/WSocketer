@@ -1,15 +1,15 @@
-import { WebsocketInterface } from "./LocalStorage.interface";
+import { LocalStorageInterface } from "./LocalStorage.interface";
 import { LocalStorageCore } from "./LocalStorage.core";
 import { AppStatusInterfaces } from "../../Modules/AppState/AppStatus.interfaces";
 
-const link = WebsocketInterface.Name;
+const link = LocalStorageInterface.Name;
 
-export class LocalStorage extends LocalStorageCore implements WebsocketInterface.TWSRequest {
-	public addMethodEmitter(emitType: WebsocketInterface.EMethodNameInternal, event: WebsocketInterface.TMethodEmitterFn) {
+export class LocalStorage extends LocalStorageCore implements LocalStorageInterface.TWSRequest {
+	public addMethodEmitter(emitType: LocalStorageInterface.EMethodNameInternal, event: LocalStorageInterface.TMethodEmitterFn) {
 		super.addMethodEmitter(emitType, event);
 	}
 
-	public removeMethodEmitter(emitType: WebsocketInterface.EMethodNameInternal, event: WebsocketInterface.TMethodEmitterFn) {
+	public removeMethodEmitter(emitType: LocalStorageInterface.EMethodNameInternal, event: LocalStorageInterface.TMethodEmitterFn) {
 		super.removeMethodEmitter(emitType, event);
 	}
 
@@ -21,10 +21,10 @@ export class LocalStorage extends LocalStorageCore implements WebsocketInterface
 		return this.request<void, AppStatusInterfaces.TErrorData>(link.EMULATE_EXAMPLE, undefined, {
 			isInternal: true,
 			data: {
-				ActionResult: WebsocketInterface.EResponseWsResult.OK,
+				ActionResult: LocalStorageInterface.EResponseWsResult.OK,
 				result: { name: AppStatusInterfaces.EErrorModalList.errorAny },
 				id: "internal",
-				method: WebsocketInterface.EMethodNameInternal.ExampleInternal,
+				method: LocalStorageInterface.EMethodNameInternal.ExampleInternal,
 			},
 		});
 	}

@@ -5,7 +5,7 @@ export class GetColor {
 		return function (
 			theme: StylesInterface.ETheme,
 			color?: StylesInterface.TColorChoice,
-			opacity: number = 0.99,
+			opacity: number = 1,
 		): StylesInterface.TColorRGBFormat | "none" | "undefined" {
 			const store = module.service.store.getStore();
 

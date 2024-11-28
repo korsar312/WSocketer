@@ -1,5 +1,4 @@
 import Util from "../../Libs/Util";
-import { Websocket } from "./Websocket/Websocket";
 import UseCases from "../UseCases/UseCases";
 import { GlobalVar } from "../../Config/GlobalVar";
 import { LocalStorage } from "./LocalStorage/LocalStorage";
@@ -17,14 +16,7 @@ function createRequest<MODULE>(module: MODULE) {
 
 class API {
 	private modules = {
-		ls: new LocalStorage({
-			getUrl: () => GlobalVar.WEBSOCKET_URL,
-			setConnectSuccess: (status: boolean) => UseCases.interactor("appStatus", "setWebsocketStatus", status),
-			removeUpdate: (removeId: string) => UseCases.interactor("appStatus", "removeStatusUpdating", removeId),
-			getConnectSuccess: () => !UseCases.interactor("appStatus", "websocketIsDisabled"),
-			addUpdate: (): string => UseCases.interactor("appStatus", "addStatusUpdating"),
-		}),
-		wc: new Websocket({
+		ws: new LocalStorage({
 			getUrl: () => GlobalVar.WEBSOCKET_URL,
 			setConnectSuccess: (status: boolean) => UseCases.interactor("appStatus", "setWebsocketStatus", status),
 			removeUpdate: (removeId: string) => UseCases.interactor("appStatus", "removeStatusUpdating", removeId),
@@ -33,7 +25,7 @@ class API {
 		}),
 	};
 
-	public createRequestWs = createRequest(this.modules.wc);
+	public createRequestWs = createRequest(this.modules.ws);
 }
 
 const newApi = new API();

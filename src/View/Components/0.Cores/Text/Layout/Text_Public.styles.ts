@@ -9,6 +9,10 @@ class Text_PublicStyles extends Styles {
 		whiteSpace: "pre-line",
 	};
 
+	public position(pos?: "left" | "right" | "center"): CSSObject {
+		return { textAlign: pos };
+	}
+
 	public color(color?: StylesInterface.TColorChoice, opacity?: number) {
 		return {
 			color: this.getColors(color, opacity),

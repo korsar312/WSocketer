@@ -8,17 +8,14 @@ import { EImages } from "./ImageList/ImageList";
 export interface IComponent {
 	extStyle?: TDeepCSSObject;
 	img: TImageComponent;
+	size?: TImagesSize;
 	color?: StylesInterface.TColorChoice;
-	imageError?: string;
-	isDisable?: boolean;
-	noCatch?: boolean;
 }
+
+export type TImagesSize = 20 | 40;
 
 export type TImageComponent = EImages | string | undefined;
 
-/**
- * Обертка для SVG изображений
- */
 const Index: FC<IComponent> = (props) => {
 	const model = ImagesModel(props);
 	return <SVGWrapperPublic {...model} />;

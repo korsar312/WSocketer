@@ -16,6 +16,7 @@ function TextModel(props: IComponent) {
 		addContent,
 		isHidden,
 		dontTransfer,
+		pos,
 	} = props;
 
 	const textFind = UseCases.interactor("language", "getText", text, {
@@ -25,7 +26,7 @@ function TextModel(props: IComponent) {
 		add: addContent,
 	});
 
-	return { textFind, color, extStyle, font, opacity, postfix, prefix, isHidden };
+	return { textFind, color, extStyle, font, opacity, postfix, prefix, isHidden, pos };
 }
 
 export default TextModel;

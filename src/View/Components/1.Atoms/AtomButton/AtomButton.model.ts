@@ -4,7 +4,7 @@ import { IComponent as IImage } from "View/Components/0.Cores/Images";
 import { IComponent as IText } from "View/Components/0.Cores/Text";
 
 function AtomButtonModel(props: IComponent) {
-	const { textVars, color, extStyles, icons } = props;
+	const { textVars, color, extStyles, icons, isFullWidth } = props;
 
 	const leftIcon = spread(icons?.["LEFT"], changeImage);
 	const rightIcon = spread(icons?.["RIGHT"], changeImage);
@@ -26,13 +26,16 @@ function AtomButtonModel(props: IComponent) {
 	function getColorText(): StylesInterface.EColor {
 		switch (color) {
 			case StylesInterface.EColor.BLACK_1:
+			case StylesInterface.EColor.BLACK_2:
+			case StylesInterface.EColor.BLACK_3:
+			case StylesInterface.EColor.BLACK_4:
 				return StylesInterface.EColor.WHITE_1;
 			default:
 				return StylesInterface.EColor.BLACK_1;
 		}
 	}
 
-	return { textChanged, color, extStyles, leftIcon, rightIcon };
+	return { textChanged, color, extStyles, leftIcon, rightIcon, isFullWidth };
 }
 
 export default AtomButtonModel;

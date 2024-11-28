@@ -15,6 +15,7 @@ export interface IComponent {
 	color?: StylesInterface.TColorChoice;
 	opacity?: number;
 	extStyle?: TDeepCSSObject;
+	pos?: "left" | "right" | "center";
 	postfix?: ReactNode;
 	prefix?: ReactNode;
 	dontTranslate?: boolean;

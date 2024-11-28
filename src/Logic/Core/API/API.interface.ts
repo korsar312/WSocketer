@@ -1,5 +1,5 @@
-import { WebsocketInterface } from "./Websocket/Websocket.interface";
 import { RouteInterfaces } from "../Modules/Routes/Route.interfaces";
+import { LocalStorageInterface } from "./LocalStorage/LocalStorage.interface";
 
 export namespace APIInterface {
 	export type TLogParam = {
@@ -21,5 +21,5 @@ export namespace APIInterface {
 		setScan = "setScan",
 	}
 
-	export type TAllRequest = keyof WebsocketInterface.TWSRequest;
+	export type TAllRequest = keyof LocalStorageInterface.TWSRequest;
 }

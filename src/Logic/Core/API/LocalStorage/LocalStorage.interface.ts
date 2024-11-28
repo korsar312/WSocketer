@@ -1,4 +1,4 @@
-export namespace WebsocketInterface {
+export namespace LocalStorageInterface {
 	export type EName = typeof Name;
 
 	const NameWs = {

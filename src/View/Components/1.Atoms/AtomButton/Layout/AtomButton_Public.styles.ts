@@ -3,11 +3,22 @@ import { CSSObject } from "@emotion/react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 class AtomButton_PublicStyles extends Styles {
-	public wrapper: CSSObject = {
+	public wrapper(isFullWidth?: boolean): CSSObject {
+		return {
+			...this.mixins.flexCenter,
+			justifyContent: "space-between",
+			transition: this.variables.transition,
+			width: isFullWidth ? "100%" : "auto",
+			gap: 4,
+		};
+	}
+
+	public icon: CSSObject = {
 		...this.mixins.flexCenter,
+		gap: 4,
 	};
 
-	public color(color?: StylesInterface.EColor): CSSObject {
+	public color(color?: StylesInterface.TColorChoice): CSSObject {
 		return {
 			background: this.getColors(color),
 		};

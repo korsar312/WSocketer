@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { WebsocketInterface } from "./LocalStorage.interface";
+import { LocalStorageInterface } from "./LocalStorage.interface";
 
 export interface IWebsocketCoreInit {
 	getUrl: () => string;
@@ -15,10 +15,13 @@ export class LocalStorageCore {
 	private preloaderId: string = "";
 	private socket: WebSocket | undefined;
 
-	private methodEmitter: WebsocketInterface.TMethodEmitter = Object.keys(WebsocketInterface.EMethodNameInternal).reduce((prev, cur) => {
-		prev[cur as WebsocketInterface.EMethodNameInternal] = [];
-		return prev;
-	}, {} as WebsocketInterface.TMethodEmitter);
+	private methodEmitter: LocalStorageInterface.TMethodEmitter = Object.keys(LocalStorageInterface.EMethodNameInternal).reduce(
+		(prev, cur) => {
+			prev[cur as LocalStorageInterface.EMethodNameInternal] = [];
+			return prev;
+		},
+		{} as LocalStorageInterface.TMethodEmitter,
+	);
 
 	constructor(init: IWebsocketCoreInit) {
 		this.props = init;
@@ -73,7 +76,7 @@ export class LocalStorageCore {
 	};
 
 	private massageHandler(e: MessageEvent) {
-		const res = JSON.parse(String(e.data)) as WebsocketInterface.TRPC<any>;
+		const res = JSON.parse(String(e.data)) as LocalStorageInterface.TRPC<any>;
 		const method = res.method;
 		const isNoRequest = res.id === "internal";
 
@@ -90,13 +93,13 @@ export class LocalStorageCore {
 			};
 
 			const success = (e: MessageEvent) => {
-				const res = JSON.parse(String(e.data)) as WebsocketInterface.TRPC<RES>;
-				const { ERROR } = WebsocketInterface.EResponseWsResult;
+				const res = JSON.parse(String(e.data)) as LocalStorageInterface.TRPC<RES>;
+				const { ERROR } = LocalStorageInterface.EResponseWsResult;
 
 				if (res.id === id) {
 					removeListeners();
 
-					if ((res.result as WebsocketInterface.TResponseWs<RES>)?.ActionResult === ERROR || res.ActionResult === ERROR) {
+					if ((res.result as LocalStorageInterface.TResponseWs<RES>)?.ActionResult === ERROR || res.ActionResult === ERROR) {
 						return reject(res.result);
 					}
 
@@ -114,8 +117,8 @@ export class LocalStorageCore {
 		});
 	}
 
-	private createWsResponse<RES>(data: Partial<WebsocketInterface.TRPC<RES>>, id: string) {
-		const result: Partial<WebsocketInterface.TRPC<RES>> = {
+	private createWsResponse<RES>(data: Partial<LocalStorageInterface.TRPC<RES>>, id: string) {
+		const result: Partial<LocalStorageInterface.TRPC<RES>> = {
 			id,
 			...data,
 		};
@@ -123,7 +126,7 @@ export class LocalStorageCore {
 		return result;
 	}
 
-	private simulateResponse<RES>(data: Partial<WebsocketInterface.TRPC<RES>>) {
+	private simulateResponse<RES>(data: Partial<LocalStorageInterface.TRPC<RES>>) {
 		const simulatedResponse = new MessageEvent("message", { data: JSON.stringify(data) });
 		this.socket?.onmessage?.(simulatedResponse);
 	}
@@ -131,7 +134,7 @@ export class LocalStorageCore {
 	protected request<RES, EMULATE = any>(
 		method: string,
 		data?: Record<string, any>,
-		emulate?: { data: Partial<WebsocketInterface.TRPC<EMULATE>>; isInternal: boolean },
+		emulate?: { data: Partial<LocalStorageInterface.TRPC<EMULATE>>; isInternal: boolean },
 	): Promise<RES> {
 		const id = v4();
 
@@ -172,7 +175,7 @@ export class LocalStorageCore {
 		});
 	}
 
-	protected responseMorph<T>(res: WebsocketInterface.TResponseWs<T> | T) {
+	protected responseMorph<T>(res: LocalStorageInterface.TResponseWs<T> | T) {
 		if (res && typeof res === "object" && "Info" in res) {
 			return res.Info;
 		}
@@ -180,12 +183,12 @@ export class LocalStorageCore {
 		return res;
 	}
 
-	protected addMethodEmitter(emitType: WebsocketInterface.EMethodNameInternal, event: WebsocketInterface.TMethodEmitterFn) {
+	protected addMethodEmitter(emitType: LocalStorageInterface.EMethodNameInternal, event: LocalStorageInterface.TMethodEmitterFn) {
 		const emit = this.methodEmitter[emitType];
 		emit.includes(event) || emit.push(event);
 	}
 
-	protected removeMethodEmitter(emitType: WebsocketInterface.EMethodNameInternal, event: WebsocketInterface.TMethodEmitterFn) {
+	protected removeMethodEmitter(emitType: LocalStorageInterface.EMethodNameInternal, event: LocalStorageInterface.TMethodEmitterFn) {
 		const emit = this.methodEmitter[emitType];
 
 		const index = emit.indexOf(event);

@@ -8,10 +8,11 @@ import { TDeepCSSObject } from "View/ViewUtils";
 
 export interface IComponent {
 	textVars: TAtomButtonText;
-	color?: StylesInterface.EColor;
+	color?: StylesInterface.TColorChoice;
 	isDisable?: boolean;
 	extStyles?: TDeepCSSObject;
-	icons?: Record<EAtomButtonIcon, TAtomButtonIcon>;
+	icons?: Partial<Record<EAtomButtonIcon, TAtomButtonIcon>>;
+	isFullWidth?: boolean;
 }
 
 export enum EAtomButtonIcon {

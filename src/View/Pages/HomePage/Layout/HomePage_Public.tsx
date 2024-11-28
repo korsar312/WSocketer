@@ -1,11 +1,9 @@
 import styles from "./HomePage_Public.styles";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
+import { LanguageInterface } from "../../../../Logic/Core/Modules/Language/Language.interface";
 import HomePageModel from "../HomePage.model";
 import Paper from "../../../Components/0.Cores/Paper";
-import AtomButton from "../../../Components/1.Atoms/AtomButton";
-import { LanguageInterface } from "../../../../Logic/Core/Modules/Language/Language.interface";
-import { StylesInterface } from "../../../../Logic/Core/Modules/Styles/Styles.interface";
-import AtomButtonMain from "../../../Components/1.Atoms/AtomButton/Variables/AtomButtonMain";
+import AtomButtonNav from "../../../Components/1.Atoms/AtomButton/Variables/AtomButtonNav";
 
 const HomePage_Public: NFC<typeof HomePageModel> = (props) => {
 	const { handleClick } = props;
@@ -14,7 +12,8 @@ const HomePage_Public: NFC<typeof HomePageModel> = (props) => {
 		<div css={styles.wrapper} onClick={handleClick}>
 			<Paper />
 
-			<AtomButtonMain text={LanguageInterface.EWord.BUTTON} />
+			<AtomButtonNav text={LanguageInterface.EWord.BUTTON} icon={"IconError"} />
+			<AtomButtonNav text={LanguageInterface.EWord.BUTTON} icon={"IconError"} isActive />
 		</div>
 	);
 };
