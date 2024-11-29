@@ -3,6 +3,14 @@ import { StylesService } from "./Implement/Service/Styles.service";
 import { CSSObject } from "@emotion/react";
 
 export namespace StylesInterface {
+	/**
+	 * Основной стилевой объект
+	 */
+	export type TObj = {
+		color: TColor;
+		font: TFont;
+	};
+
 	export type TColorRGBFormat = `rgba(${string},${number})`;
 	export type TColorHEXFormat = `#${string}`;
 
@@ -48,7 +56,8 @@ export namespace StylesInterface {
 		Mont_S_26 = "Mont_S_26",
 	}
 
-	export type TFont = Record<keyof typeof EFont, CSSObject>;
+	export type TFont = Record<keyof typeof EFont, TFontStyle>;
+	export type TFontStyle = Pick<CSSObject, "fontSize" | "lineHeight" | "fontFamily" | "fontWeight">;
 
 	/**
 	 * Выбор цвета
@@ -59,14 +68,6 @@ export namespace StylesInterface {
 		DARK = "DARK",
 		LIGHT = "LIGHT",
 	}
-
-	/**
-	 * Основной стилевой объект
-	 */
-	export type TObj = {
-		color: TColor;
-		font: TFont;
-	};
 
 	/**
 	 * Домен и сервис

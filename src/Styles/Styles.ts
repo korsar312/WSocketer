@@ -19,6 +19,10 @@ export class Styles {
 	protected getFonts(font: StylesInterface.EFont) {
 		return UseCases.interactor("style", "getFont", font);
 	}
+
+	protected getSizeFonts(font: StylesInterface.EFont) {
+		return UseCases.interactor("style", "getSizeFont", font);
+	}
 }
 
 export default Styles;

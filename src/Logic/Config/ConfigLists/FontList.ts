@@ -22,6 +22,6 @@ export const FontList: StylesInterface.TFont = {
 	Mont_S_26: createFont(26, 28, Family.Montserrat, Weight.SemiBold),
 };
 
-function createFont(fontSize: number, lineHeight: number, fontFamily: Family, fontWeight: Weight) {
+function createFont(fontSize: number, lineHeight: number, fontFamily: Family, fontWeight: Weight): StylesInterface.TFontStyle {
 	return { fontSize: `${fontSize}px`, lineHeight: `${lineHeight}px`, fontFamily, fontWeight };
 }
