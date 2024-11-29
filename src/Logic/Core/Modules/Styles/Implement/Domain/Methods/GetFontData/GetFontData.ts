@@ -9,10 +9,7 @@ export class GetFontData {
 			function fontData(type: TProperty): number {
 				switch (type) {
 					case "size":
-						const fontSize = parseInt(styleObj.font[font].fontSize as string);
-						const lineSize = parseInt(styleObj.font[font].lineHeight as string) / 4;
-
-						return fontSize + lineSize;
+						return parseInt(styleObj.font[font].fontSize as string);
 				}
 			}
 
