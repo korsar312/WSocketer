@@ -1,12 +1,12 @@
 import { FC } from "react";
-import DevTools_Public from "./Layout/DevTools_Public";
-import DevToolsModel from "./DevTools.model";
+import { default as Model } from "./DevTools.model";
+import { default as View } from "./Layout/DevTools_Public";
 
 export interface IComponent {}
 
 const Index: FC<IComponent> = (props) => {
-	const model = DevToolsModel(props);
-	return <DevTools_Public {...model} />;
+	const model = Model(props);
+	return <View {...model} />;
 };
 
 export default Index;

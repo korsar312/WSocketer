@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./PagesLayout.model";
-import { default as View } from "./Layout/PagesLayout_Public";
+import { default as Model } from "./ProtocolPage.model";
+import { default as View } from "./Layout/ProtocolPage_Public";
 import { observer } from "mobx-react";
 
 export interface IComponent {}

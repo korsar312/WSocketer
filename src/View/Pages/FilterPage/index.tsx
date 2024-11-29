@@ -1,13 +1,13 @@
 import { FC } from "react";
-import TestPageModel from "./TestPage.model";
+import { default as Model } from "./FilterPage.model";
+import { default as View } from "./Layout/FilterPage_Public";
 import { observer } from "mobx-react";
-import TestPage_Public from "./Layout/TestPage_Public";
 
 export interface IComponent {}
 
 const Index: FC<IComponent> = (props) => {
-	const model = TestPageModel(props);
-	return <TestPage_Public {...model} />;
+	const model = Model(props);
+	return <View {...model} />;
 };
 
 export default observer(Index);

@@ -6,7 +6,7 @@ export class GoHomePage {
 			const store = module.service.store.getStore();
 			const navigateFunc = module.domain.getNavigateFunc(store);
 
-			module.domain.routerGo(navigateFunc, "HOME_PAGE");
+			module.domain.routerGo(navigateFunc, "CHAT_PAGE");
 		};
 	}
 }

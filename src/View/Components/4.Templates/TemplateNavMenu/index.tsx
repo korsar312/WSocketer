@@ -18,39 +18,39 @@ const Index: FC<IComponent> = (props) => {
 		},
 		titleBtn: {
 			icon: "IconDesktop",
-			text: LanguageInterface.EWord.MESSAGES,
-			...otherProp("HOME_PAGE"),
+			text: LanguageInterface.EWord.CHAT,
+			...otherProp("CHAT_PAGE"),
 		},
 		anyBtn: [
 			{
 				icon: "IconMessage",
 				text: LanguageInterface.EWord.MESSAGES,
-				...otherProp("TEST_PAGE"),
+				...otherProp("MESSAGE_PAGE"),
 			},
 			{
 				icon: "IconGuy",
 				text: LanguageInterface.EWord.AUTOTESTS,
-				...otherProp("TEST_PAGE_2"),
+				...otherProp("AUTOTEST_PAGE"),
 			},
 			{
 				icon: "IconBag",
 				text: LanguageInterface.EWord.FILTERS,
-				...otherProp("TEST_PAGE_2"),
+				...otherProp("FILTER_PAGE"),
 			},
 			{
 				icon: "IconPhone",
 				text: LanguageInterface.EWord.PROTOCOLS,
-				...otherProp("TEST_PAGE_2"),
+				...otherProp("PROTOCOL_PAGE"),
 			},
 			{
 				icon: "IconApple",
 				text: LanguageInterface.EWord.HISTORY,
-				...otherProp("TEST_PAGE_2"),
+				...otherProp("HISTORY_PAGE"),
 			},
 			{
 				icon: "IconPhone",
 				text: LanguageInterface.EWord.SETTINGS,
-				...otherProp("TEST_PAGE_2"),
+				...otherProp("SETTING_PAGE"),
 			},
 		],
 	};
