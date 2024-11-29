@@ -7,6 +7,23 @@ class MixinsVars {
 		alignItems: "center",
 	};
 
+	public flexGorCenter: CSSObject = {
+		display: "flex",
+		justifyContent: "center",
+	};
+
+	public flexCenterCol: CSSObject = {
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		flexDirection: "column",
+	};
+
+	public flexCol: CSSObject = {
+		display: "flex",
+		flexDirection: "column",
+	};
+
 	public absolute: CSSObject = {
 		position: "absolute",
 		top: 0,

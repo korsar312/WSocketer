@@ -4,7 +4,7 @@ import { IComponent as IImage } from "View/Components/0.Cores/Images";
 import { IComponent as IText } from "View/Components/0.Cores/Text";
 
 function AtomButtonModel(props: IComponent) {
-	const { textVars, color, extStyles, icons, isFullWidth } = props;
+	const { textVars, color, extStyles, icons, isFullWidth, click } = props;
 
 	const leftIcon = spread(icons?.["LEFT"], changeImage);
 	const rightIcon = spread(icons?.["RIGHT"], changeImage);
@@ -35,7 +35,11 @@ function AtomButtonModel(props: IComponent) {
 		}
 	}
 
-	return { textChanged, color, extStyles, leftIcon, rightIcon, isFullWidth };
+	function handleClick() {
+		click?.();
+	}
+
+	return { textChanged, color, extStyles, leftIcon, rightIcon, isFullWidth, handleClick };
 }
 
 export default AtomButtonModel;

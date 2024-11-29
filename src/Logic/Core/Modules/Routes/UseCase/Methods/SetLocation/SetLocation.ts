@@ -1,10 +1,10 @@
 import { RouteInterfaces } from "../../../Route.interfaces";
 
-export class SetNavigateFunc {
+export class SetLocation {
 	static execute(module: RouteInterfaces.IModules) {
-		return function (navFunction: RouteInterfaces.TNavigateFunction): void {
+		return function (location: RouteInterfaces.TLocate): void {
 			const storeNavigate = module.service.store.getStore();
-			const newStore = module.domain.setNavigateFunc(storeNavigate, navFunction);
+			const newStore = module.domain.setLocation(storeNavigate, location);
 
 			module.service.store.setStore(newStore);
 		};

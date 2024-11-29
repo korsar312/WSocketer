@@ -4,9 +4,9 @@ import { NFC } from "Logic/Libs/Util/TypesUtils";
 import PaperModel from "../Paper.model";
 
 const Paper: NFC<typeof PaperModel> = (props) => {
-	const {} = props;
+	const { children } = props;
 
-	return <div css={styles.wrapper}>23</div>;
+	return <div css={styles.wrapper}>{children}</div>;
 };
 
 export default observer(Paper);

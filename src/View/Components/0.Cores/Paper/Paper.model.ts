@@ -1,9 +1,9 @@
 import { IComponent } from "./index";
 
 function PaperModel(props: IComponent) {
-	const {} = props;
+	const { children } = props;
 
-	return {};
+	return { children };
 }
 
 export default PaperModel;

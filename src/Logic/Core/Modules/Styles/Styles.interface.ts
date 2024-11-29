@@ -45,6 +45,7 @@ export namespace StylesInterface {
 		Mont_M_10 = "Mont_M_10",
 		Mont_M_14 = "Mont_M_14",
 		Mont_M_36 = "Mont_M_36",
+		Mont_S_26 = "Mont_S_26",
 	}
 
 	export type TFont = Record<keyof typeof EFont, CSSObject>;

@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
-import TextPublic from "./Layout/Text_Public";
+import { default as Model } from "./Text.model";
+import { default as View } from "./Layout/Text_Public";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
-import TextModel from "./Text.model";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TDeepCSSObject } from "View/ViewUtils";
 
@@ -24,12 +24,9 @@ export interface IComponent {
 	isHidden?: boolean;
 }
 
-/**
- * Основной компонент для текста
- */
 const Index: FC<IComponent> = (props) => {
-	const model = TextModel(props);
-	return <TextPublic {...model} />;
+	const model = Model(props);
+	return <View {...model} />;
 };
 
 export default Index;

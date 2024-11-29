@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
-import BaseAnimation_Public from "./Layout/BaseAnimation_Public";
-import BaseAnimationModel from "./BaseAnimation.model";
+import { default as Model } from "./BaseAnimation.model";
+import { default as View } from "./Layout/BaseAnimation_Public";
 import { observer } from "mobx-react";
 import { TDeepCSSObject } from "../../../ViewUtils";
 import { AnimatePresenceProps } from "framer-motion";
@@ -12,11 +12,11 @@ export interface IComponent extends Pick<AnimatePresenceProps, "mode"> {
 	extStyle?: TDeepCSSObject;
 }
 
-export type TBaseAnimationType = "slice";
+export type TBaseAnimationType = "slice" | "sliceBlock";
 
 const Index: FC<IComponent> = (props) => {
-	const model = BaseAnimationModel(props);
-	return <BaseAnimation_Public {...model} />;
+	const model = Model(props);
+	return <View {...model} />;
 };
 
 export default observer(Index);

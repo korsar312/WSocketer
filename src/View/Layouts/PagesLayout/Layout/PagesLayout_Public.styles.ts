@@ -2,12 +2,20 @@ import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react/dist/emotion-react.cjs";
 
 class PagesLayout_PublicStyles extends Styles {
-	public pages: CSSObject = {
+	public wrapper: CSSObject = {
 		position: "relative",
-		height: `100vh`,
 		display: "flex",
-		flexDirection: "column",
-		justifyContent: "center",
+		height: "100vh",
+	};
+
+	public aside: CSSObject = {
+		display: "flex",
+		height: "100%",
+	};
+
+	public pages: CSSObject = {
+		flex: 1,
+		padding: "34px 62px 0 62px",
 	};
 }
 

@@ -1,5 +1,5 @@
 import { RouteInterfaces } from "../../../../Route.interfaces";
-import { generatePath, NavigateFunction, Params } from "react-router-dom";
+import { generatePath, Params } from "react-router-dom";
 
 export class RouterGo {
 	static execute() {
@@ -11,7 +11,7 @@ export class RouterGo {
 		 * @params state - параметры, что не передаются в URL
 		 */
 		return function (
-			navigate: NavigateFunction | null,
+			navigate: RouteInterfaces.TNavigateFunction | null,
 			path: RouteInterfaces.EPathName,
 			params?: Params,
 			state?: Record<string, any>,

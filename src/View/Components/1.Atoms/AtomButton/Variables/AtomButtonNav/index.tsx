@@ -4,7 +4,7 @@ import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interfac
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TImageComponent } from "View/Components/0.Cores/Images";
 
-export interface IComponent extends Pick<IButton, "isDisable" | "isFullWidth"> {
+export interface IComponent extends Pick<IButton, "isDisable" | "isFullWidth" | "click"> {
 	icon: TImageComponent;
 	isActive?: boolean;
 	text: LanguageInterface.EWord;

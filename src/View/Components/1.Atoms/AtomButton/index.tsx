@@ -1,6 +1,6 @@
 import { FC } from "react";
-import AtomButtonModel from "./AtomButton.model";
-import AtomButton_Public from "./Layout/AtomButton_Public";
+import { default as Model } from "./AtomButton.model";
+import { default as View } from "./Layout/AtomButton_Public";
 import { IComponent as IText } from "View/Components/0.Cores/Text";
 import { IComponent as IImage } from "View/Components/0.Cores/Images";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
@@ -13,6 +13,7 @@ export interface IComponent {
 	extStyles?: TDeepCSSObject;
 	icons?: Partial<Record<EAtomButtonIcon, TAtomButtonIcon>>;
 	isFullWidth?: boolean;
+	click?: () => void;
 }
 
 export enum EAtomButtonIcon {
@@ -29,8 +30,8 @@ export type TAtomButtonText = TAtomButtonGeneralGroup<IText>;
 export type TAtomButtonIcon = TAtomButtonGeneralGroup<IImage>;
 
 const Index: FC<IComponent> = (props) => {
-	const model = AtomButtonModel(props);
-	return <AtomButton_Public {...model} />;
+	const model = Model(props);
+	return <View {...model} />;
 };
 
 export default Index;

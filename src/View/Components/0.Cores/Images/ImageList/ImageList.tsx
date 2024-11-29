@@ -9,6 +9,7 @@ import IconDesktop from "Assets/Icons/icon-desktop.svg?react";
 import IconGuy from "Assets/Icons/icon-guy.svg?react";
 import IconMessage from "Assets/Icons/icon-message.svg?react";
 import IconPhone from "Assets/Icons/icon-phone.svg?react";
+import IconCat from "Assets/Icons/icon-cat.svg?react";
 
 type TIcons = Record<string, FunctionComponent<SVGProps<SVGSVGElement>>>;
 
@@ -21,6 +22,7 @@ const icons = {
 	IconGuy,
 	IconMessage,
 	IconPhone,
+	IconCat,
 } satisfies TIcons;
 
 const Images = {

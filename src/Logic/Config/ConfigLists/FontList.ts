@@ -19,6 +19,7 @@ export const FontList: StylesInterface.TFont = {
 	Mont_M_10: createFont(10, 16, Family.Montserrat, Weight.Medium),
 	Mont_M_14: createFont(14, 16, Family.Montserrat, Weight.Medium),
 	Mont_M_36: createFont(36, 40, Family.Montserrat, Weight.Medium),
+	Mont_S_26: createFont(26, 28, Family.Montserrat, Weight.SemiBold),
 };
 
 function createFont(fontSize: number, lineHeight: number, fontFamily: Family, fontWeight: Weight) {

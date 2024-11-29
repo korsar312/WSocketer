@@ -16,6 +16,15 @@ function BaseAnimationModel(props: IComponent) {
 				};
 			}
 
+			case "sliceBlock": {
+				return {
+					initial: { opacity: 0 },
+					exit: { opacity: 0 },
+					animate: { opacity: 1 },
+					transition: { duration: 0.25 },
+				};
+			}
+
 			default:
 				return {
 					initial: { opacity: 0, position: "absolute" },

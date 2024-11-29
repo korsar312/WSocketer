@@ -1,12 +1,14 @@
-import { FC } from "react";
-import TextPublic from "./Layout/Paper_Public";
-import PaperModel from "./Paper.model";
+import { FC, ReactNode } from "react";
+import { default as Model } from "./Paper.model";
+import { default as View } from "./Layout/Paper_Public";
 
-export interface IComponent {}
+export interface IComponent {
+	children: ReactNode;
+}
 
 const Index: FC<IComponent> = (props) => {
-	const model = PaperModel(props);
-	return <TextPublic {...model} />;
+	const model = Model(props);
+	return <View {...model} />;
 };
 
 export default Index;

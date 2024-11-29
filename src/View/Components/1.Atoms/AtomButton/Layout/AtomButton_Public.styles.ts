@@ -7,9 +7,14 @@ class AtomButton_PublicStyles extends Styles {
 		return {
 			...this.mixins.flexCenter,
 			justifyContent: "space-between",
-			transition: this.variables.transition,
+			transition: this.variables.fastTransition,
 			width: isFullWidth ? "100%" : "auto",
 			gap: 4,
+			cursor: "pointer",
+
+			"&:hover": {
+				opacity: 0.5,
+			},
 		};
 	}
 
