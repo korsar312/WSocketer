@@ -9,7 +9,9 @@ class AtomInput_PublicStyles extends Styles {
 			height: this.getSizeFonts(font),
 			minHeight: 10,
 			minWidth: 10,
-			backgroundColor: this.getColors(StylesInterface.EColor.BLACK_1),
+			background: this.getColors(false),
+			outline: "none",
+			border: "none",
 		};
 	}
 

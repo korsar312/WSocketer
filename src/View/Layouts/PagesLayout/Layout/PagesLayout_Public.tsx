@@ -3,7 +3,7 @@ import styles from "./PagesLayout_Public.styles";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 import PagesLayoutModel from "../PagesLayout.model";
 import BaseAnimation from "View/Components/0.Cores/BaseAnimation";
-import TemplateNavMenu from "../../../Components/4.Templates/TemplateNavMenu";
+import TemplateNavMenu from "View/Components/4.Templates/TemplateNavMenu";
 
 const PagesLayout_Public: NFC<typeof PagesLayoutModel> = (props) => {
 	const { Pages, pathname } = props;

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import AtomButton, { IComponent as IInput } from "../../index";
+import AtomInput, { IComponent as IInput } from "../../index";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
@@ -18,7 +18,7 @@ const Index: FC<IComponent> = (props) => {
 		},
 	};
 
-	return <AtomButton {...propsComponent} />;
+	return <AtomInput {...propsComponent} />;
 };
 
 export default Index;

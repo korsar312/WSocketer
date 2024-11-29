@@ -1,8 +1,8 @@
 import styles from "./ChatPage_Public.styles";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 import ChatPageModel from "../ChatPage.model";
-import AtomInput from "../../../Components/1.Atoms/AtomInput";
-import { StylesInterface } from "../../../../Logic/Core/Modules/Styles/Styles.interface";
+import AtomInput from "View/Components/1.Atoms/AtomInput";
+import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 	const {} = props;
