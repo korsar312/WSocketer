@@ -3,9 +3,9 @@ import { NFC } from "Logic/Libs/Util/TypesUtils";
 import MoleculeInputControlModel from "../MoleculeInputControl.model";
 import AtomInputMain from "View/Components/1.Atoms/AtomInput/Variables/AtomInputMain";
 import AtomLineVW from "View/Components/1.Atoms/AtomLine/Variables/AtomLineVW";
-import AtomPaperB from "../../../1.Atoms/AtomPaper/Variables/AtomPaperB";
-import AtomButtonIcon from "../../../1.Atoms/AtomButton/Variables/AtomButtonIcon";
-import { LanguageInterface } from "../../../../../Logic/Core/Modules/Language/Language.interface";
+import AtomPaperB from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperB";
+import AtomButtonIcon from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonIcon";
+import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 
 const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (props) => {
 	const {} = props;

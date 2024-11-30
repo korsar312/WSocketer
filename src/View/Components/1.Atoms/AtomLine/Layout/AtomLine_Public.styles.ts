@@ -4,13 +4,14 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 class AtomLine_PublicStyles extends Styles {
 	public wrapper(color: StylesInterface.EColor, isHorizon: boolean): CSSObject {
-		const min = 2;
+		const min = 1.6;
 		const max = "100%";
 
 		return {
 			height: isHorizon ? min : max,
 			width: isHorizon ? max : min,
 			background: this.getColors(color),
+			borderRadius: 100,
 		};
 	}
 }

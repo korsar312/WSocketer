@@ -8,7 +8,7 @@ class SubstanceAsideMenu_PublicStyles extends Styles {
 		return {
 			...this.mixins.flexGorCenter,
 			flexDirection: "column",
-			width: 220 + 84,
+			width: 220,
 			padding: `${padV}px 42px`,
 			height: `calc(100% - ${padV * 2}px)`,
 		};

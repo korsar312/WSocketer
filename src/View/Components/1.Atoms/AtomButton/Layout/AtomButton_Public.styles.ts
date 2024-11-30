@@ -23,7 +23,7 @@ class AtomButton_PublicStyles extends Styles {
 		gap: 4,
 	};
 
-	public color(color?: StylesInterface.TColorChoice): CSSObject {
+	public color(color: StylesInterface.TColorChoice): CSSObject {
 		return {
 			background: this.getColors(color),
 		};
