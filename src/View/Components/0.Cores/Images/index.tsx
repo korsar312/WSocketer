@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./Images.model";
-import { default as View } from "./Layout/Images_Public";
+import Model from "./Images.model";
+import View from "./Layout/Images_Public";
 import { TDeepCSSObject } from "View/ViewUtils";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { EImages } from "./ImageList/ImageList";

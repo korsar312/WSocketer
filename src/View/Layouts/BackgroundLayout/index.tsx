@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./BackgroundLayout.model";
-import { default as View } from "./Layout/BackgroundLayout_Public";
+import Model from "./BackgroundLayout.model";
+import View from "./Layout/BackgroundLayout_Public";
 import { observer } from "mobx-react";
 
 export interface IComponent {}

@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
-import { default as Model } from "./AtomPaper.model";
-import { default as View } from "./Layout/AtomPaper_Public";
+import Model from "./AtomPaper.model";
+import View from "./Layout/AtomPaper_Public";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent {

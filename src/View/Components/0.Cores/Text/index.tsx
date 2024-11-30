@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
-import { default as Model } from "./Text.model";
-import { default as View } from "./Layout/Text_Public";
+import Model from "./Text.model";
+import View from "./Layout/Text_Public";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TDeepCSSObject } from "View/ViewUtils";

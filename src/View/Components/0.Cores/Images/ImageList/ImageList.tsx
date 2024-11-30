@@ -1,8 +1,8 @@
 import { FunctionComponent, SVGProps } from "react";
 
 import IconError from "Assets/Icons/icon-error.svg?react";
-
 import IconCat from "Assets/Icons/icon-cat.svg?react";
+
 import IconChat from "@material-icons/svg/svg/forum/outline.svg?react";
 import IconTune from "@material-icons/svg/svg/tune/outline.svg?react";
 import IconBug from "@material-icons/svg/svg/bug_report/outline.svg?react";

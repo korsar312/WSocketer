@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./FilterPage.model";
-import { default as View } from "./Layout/FilterPage_Public";
+import Model from "./FilterPage.model";
+import View from "./Layout/FilterPage_Public";
 import { observer } from "mobx-react";
 
 export interface IComponent {}

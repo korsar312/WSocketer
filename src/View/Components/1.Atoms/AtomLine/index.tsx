@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./AtomLine.model";
-import { default as View } from "./Layout/AtomLine_Public";
+import Model from "./AtomLine.model";
+import View from "./Layout/AtomLine_Public";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent {

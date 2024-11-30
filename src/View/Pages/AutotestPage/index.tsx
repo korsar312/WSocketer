@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./AutotestPage.model";
-import { default as View } from "./Layout/AutotestPage_Public";
+import Model from "./AutotestPage.model";
+import View from "./Layout/AutotestPage_Public";
 import { observer } from "mobx-react";
 
 export interface IComponent {}

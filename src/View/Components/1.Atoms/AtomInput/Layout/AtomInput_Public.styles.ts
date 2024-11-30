@@ -7,8 +7,7 @@ class AtomInput_PublicStyles extends Styles {
 	public wrapper(font: StylesInterface.EFont): CSSObject {
 		return {
 			height: this.getSizeFonts(font),
-			minHeight: 10,
-			minWidth: 10,
+			width: "100%",
 			background: this.getColors(false),
 			outline: "none",
 			border: "none",

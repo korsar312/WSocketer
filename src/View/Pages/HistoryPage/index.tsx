@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./HistoryPage.model";
-import { default as View } from "./Layout/HistoryPage_Public";
+import Model from "./HistoryPage.model";
+import View from "./Layout/HistoryPage_Public";
 import { observer } from "mobx-react";
 
 export interface IComponent {}

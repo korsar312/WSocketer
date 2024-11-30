@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { default as Substance, IComponent as ISubstances } from "View/Components/3.Substances/SubstanceAsideMenu";
+import Substance, { IComponent as ISubstances } from "View/Components/3.Substances/SubstanceAsideMenu";
 import UseCases from "Logic/Core/UseCases/UseCases";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { RouteInterfaces } from "Logic/Core/Modules/Routes/Route.interfaces";

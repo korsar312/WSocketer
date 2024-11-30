@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./AtomInput.model";
-import { default as View } from "./Layout/AtomInput_Public";
+import Model from "./AtomInput.model";
+import View from "./Layout/AtomInput_Public";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 

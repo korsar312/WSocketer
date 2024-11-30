@@ -1,5 +1,5 @@
 import { FC } from "react";
-import AtomInput, { IComponent as IPaper } from "../../index";
+import AtomPaper, { IComponent as IPaper } from "../../index";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent extends Pick<IPaper, "children"> {}
@@ -9,10 +9,10 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: IPaper = {
 		...props,
-		color: StylesInterface.EColor.BLACK_3,
+		color: StylesInterface.EColor.BLACK_2,
 	};
 
-	return <AtomInput {...propsComponent} />;
+	return <AtomPaper {...propsComponent} />;
 };
 
 export default Index;

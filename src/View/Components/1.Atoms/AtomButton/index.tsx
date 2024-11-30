@@ -1,13 +1,13 @@
 import { FC } from "react";
-import { default as Model } from "./AtomButton.model";
-import { default as View } from "./Layout/AtomButton_Public";
+import Model from "./AtomButton.model";
+import View from "./Layout/AtomButton_Public";
 import { IComponent as IText } from "View/Components/0.Cores/Text";
 import { IComponent as IImage } from "View/Components/0.Cores/Images";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TDeepCSSObject } from "View/ViewUtils";
 
 export interface IComponent {
-	textVars: TAtomButtonText;
+	textVars?: TAtomButtonText;
 	color?: StylesInterface.TColorChoice;
 	isDisable?: boolean;
 	extStyles?: TDeepCSSObject;

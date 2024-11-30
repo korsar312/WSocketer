@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { default as Model } from "./DevTools.model";
-import { default as View } from "./Layout/DevTools_Public";
+import Model from "./DevTools.model";
+import View from "./Layout/DevTools_Public";
 
 export interface IComponent {}
 

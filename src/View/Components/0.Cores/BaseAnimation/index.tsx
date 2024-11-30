@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
-import { default as Model } from "./BaseAnimation.model";
-import { default as View } from "./Layout/BaseAnimation_Public";
+import Model from "./BaseAnimation.model";
+import View from "./Layout/BaseAnimation_Public";
 import { observer } from "mobx-react";
 import { TDeepCSSObject } from "View/ViewUtils";
 import { AnimatePresenceProps } from "framer-motion";

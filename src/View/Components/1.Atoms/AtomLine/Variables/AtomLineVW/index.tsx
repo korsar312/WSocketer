@@ -10,7 +10,7 @@ const Index: FC<IComponent> = (props) => {
 	const propsComponent: ILine = {
 		...props,
 		isHorizon: false,
-		color: StylesInterface.EColor.BLACK_1,
+		color: StylesInterface.EColor.WHITE_1,
 	};
 
 	return <AtomInput {...propsComponent} />;
