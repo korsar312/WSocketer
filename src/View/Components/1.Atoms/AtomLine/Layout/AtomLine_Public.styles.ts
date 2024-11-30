@@ -3,15 +3,25 @@ import { CSSObject } from "@emotion/react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 class AtomLine_PublicStyles extends Styles {
-	public wrapper(color: StylesInterface.EColor, isHorizon: boolean): CSSObject {
+	public wrapper(color: StylesInterface.EColor): CSSObject {
+		return {
+			background: this.getColors(color),
+			borderRadius: 100,
+		};
+	}
+
+	public size(isHorizon: boolean): CSSObject {
 		const min = 1.6;
 		const max = "100%";
 
+		const h = isHorizon ? min : max;
+		const w = isHorizon ? max : min;
+
 		return {
-			height: isHorizon ? min : max,
-			width: isHorizon ? max : min,
-			background: this.getColors(color),
-			borderRadius: 100,
+			minHeight: h,
+			maxHeight: h,
+			minWidth: w,
+			maxWidth: w,
 		};
 	}
 }

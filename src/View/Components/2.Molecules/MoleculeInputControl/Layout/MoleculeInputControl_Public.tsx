@@ -13,13 +13,13 @@ const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (prop
 	return (
 		<AtomPaperB>
 			<div css={[styles.wrapper, styles.pub.p8]}>
-				<AtomButtonIcon icon={"IconBug"} text={LanguageInterface.EWord.BUTTON} />
+				<AtomButtonIcon icon={"IconTune"} text={LanguageInterface.EWord.BUTTON} />
 
 				<AtomLineVW />
 
-				<div>
-					<AtomInputMain />
-				</div>
+				<AtomButtonIcon icon={"IconTune"} text={LanguageInterface.EWord.BUTTON} />
+
+				<AtomInputMain />
 
 				<AtomLineVW />
 

@@ -5,7 +5,7 @@ import { NFC } from "Logic/Libs/Util/TypesUtils";
 const AtomLine_Public: NFC<typeof AtomLineModel> = (props) => {
 	const { isHorizon, color } = props;
 
-	return <div css={styles.wrapper(color, isHorizon)} />;
+	return <div css={[styles.wrapper(color), styles.size(isHorizon)]} />;
 };
 
 export default AtomLine_Public;

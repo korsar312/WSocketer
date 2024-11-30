@@ -1,9 +1,9 @@
 import { IComponent } from "./index";
 
 function AtomPaperModel(props: IComponent) {
-	const { children, color } = props;
+	const { children, color, extStyle } = props;
 
-	return { children, color };
+	return { children, color, extStyle };
 }
 
 export default AtomPaperModel;

@@ -15,10 +15,8 @@ const PagesLayout_Public: NFC<typeof PagesLayoutModel> = (props) => {
 			</div>
 
 			<div css={styles.pages}>
-				<BaseAnimation type={"slice"} deps={pathname}>
-					<Suspense>
-						<div>{Pages}</div>
-					</Suspense>
+				<BaseAnimation type={"slice"} deps={pathname} extStyle={styles.scroll}>
+					<Suspense>{Pages}</Suspense>
 				</BaseAnimation>
 			</div>
 		</div>

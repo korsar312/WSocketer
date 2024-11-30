@@ -3,7 +3,7 @@ import { CSSObject } from "@emotion/react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 class AtomPaper_PublicStyles extends Styles {
-	public wrapper(color?: StylesInterface.EColor): CSSObject {
+	public wrapper(color?: StylesInterface.TColorChoice): CSSObject {
 		return {
 			borderRadius: 20,
 			background: this.getColors(color || StylesInterface.EColor.WHITE_3),

@@ -1,10 +1,19 @@
 import { Styles } from "Styles/Styles";
-import { CSSObject } from "@emotion/react";
+import { Target } from "framer-motion";
 
 class BaseAnimation_PublicStyles extends Styles {
-	public wrapper: CSSObject = {
-		width: "100%",
-		height: "100%",
+	private absolut = {
+		...this.mixins.absolute,
+	} as Target;
+
+	public absOut: Target = {
+		...this.absolut,
+		opacity: 0,
+	};
+
+	public absIn: Target = {
+		...this.absolut,
+		opacity: 1,
 	};
 }
 

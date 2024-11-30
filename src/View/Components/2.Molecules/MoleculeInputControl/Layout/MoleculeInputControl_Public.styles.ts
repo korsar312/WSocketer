@@ -6,7 +6,7 @@ class MoleculeInputControl_PublicStyles extends Styles {
 		...this.mixins.flexCenter,
 		gap: 10,
 		width: "100%",
-		height: 80,
+		height: 70,
 		boxSizing: "border-box",
 	};
 }

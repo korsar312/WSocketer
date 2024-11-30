@@ -14,9 +14,20 @@ class PagesLayout_PublicStyles extends Styles {
 	};
 
 	public pages: CSSObject = {
+		position: "relative",
+		margin: `34px 62px 0 62px`,
 		flex: 1,
-		padding: "34px 62px 0 62px",
+	};
+
+	public scroll: CSSObject = {
+		overflow: "auto",
+		scrollbarGutter: "stable both-edges",
+
+		"&::-webkit-scrollbar": {
+			width: 22,
+		},
 	};
 }
-
+//-webkit-scrollbar-track
+//-webkit-scrollbar-thumb
 export default new PagesLayout_PublicStyles();
