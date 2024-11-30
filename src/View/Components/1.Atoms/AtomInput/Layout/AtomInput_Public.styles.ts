@@ -12,6 +12,7 @@ class AtomInput_PublicStyles extends Styles {
 			background: this.getColors(false),
 			outline: "none",
 			border: "none",
+			padding: "0",
 		};
 	}
 

@@ -4,7 +4,7 @@ import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interfac
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent extends Pick<IInput, "onChange"> {
-	text: LanguageInterface.EWord;
+	text?: LanguageInterface.TAllWord;
 }
 
 const Index: FC<IComponent> = (props) => {
@@ -14,7 +14,7 @@ const Index: FC<IComponent> = (props) => {
 		...props,
 		initText: {
 			text,
-			font: StylesInterface.EFont.Mont_M_10,
+			font: StylesInterface.EFont.Mont_S_26,
 		},
 	};
 

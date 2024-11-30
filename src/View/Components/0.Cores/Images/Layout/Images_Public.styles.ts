@@ -11,23 +11,13 @@ class Images_PublicStyles extends Styles {
 	public size(size: TImagesSize = 20): CSSObject {
 		return {
 			width: size,
-			maxHeight: size,
+			height: size,
 		};
 	}
 
 	public color(colors: StylesInterface.TColorChoice): CSSObject {
-		const color = this.getColors(colors);
-
-		return {
-			stroke: color,
-			path: { fill: color },
-			div: { background: color },
-		};
+		return { path: { fill: this.getColors(colors) } };
 	}
-
-	public disabled: CSSObject = {
-		opacity: 0.6,
-	};
 }
 
 export default new Images_PublicStyles();

@@ -2,16 +2,16 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 import styles from "./SubstanceAsideMenu_Public.styles";
 import SubstanceAsideMenuModel from "../SubstanceAsideMenu.model";
-import Paper from "View/Components/0.Cores/Paper";
 import AtomButtonNav from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonNav";
-import Text from "View/Components/0.Cores/Text";
+import AtomPaperW from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperW";
 import Images from "View/Components/0.Cores/Images";
+import Text from "View/Components/0.Cores/Text";
 
 const SubstanceAsideMenu_Public: NFC<typeof SubstanceAsideMenuModel> = (props) => {
 	const { head, titleBtn, anyBtn } = props;
 
 	return (
-		<Paper>
+		<AtomPaperW>
 			<div css={styles.wrapper()}>
 				<div css={styles.work}>
 					<div css={styles.headWrap}>
@@ -20,9 +20,7 @@ const SubstanceAsideMenu_Public: NFC<typeof SubstanceAsideMenuModel> = (props) =
 					</div>
 
 					<div css={styles.btnField}>
-						<div css={styles.btnWrap}>
-							<AtomButtonNav isFullWidth {...titleBtn} />
-						</div>
+						<AtomButtonNav isFullWidth {...titleBtn} />
 
 						<div css={styles.btnWrap}>{anyBtn?.map((el) => <AtomButtonNav key={el.text} isFullWidth {...el} />)}</div>
 					</div>
@@ -31,12 +29,8 @@ const SubstanceAsideMenu_Public: NFC<typeof SubstanceAsideMenuModel> = (props) =
 				<div css={styles.catWrap}>
 					<Images img={"IconCat"} size={"100%"} color={StylesInterface.EColor.WHITE_2} />
 				</div>
-
-				<div css={styles.btnWrap}>
-					<AtomButtonNav {...titleBtn} />
-				</div>
 			</div>
-		</Paper>
+		</AtomPaperW>
 	);
 };
 

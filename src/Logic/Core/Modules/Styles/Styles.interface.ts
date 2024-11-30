@@ -49,11 +49,40 @@ export namespace StylesInterface {
 	export type TColor = Record<EColor, Record<ETheme, TColorHEXFormat>>;
 
 	export enum EFont {
+		Mont_E_10 = "Mont_E_10",
+		Mont_E_14 = "Mont_E_14",
+		Mont_E_18 = "Mont_E_18",
+		Mont_E_22 = "Mont_E_22",
+		Mont_E_26 = "Mont_E_26",
+		Mont_E_30 = "Mont_E_30",
+
 		Mont_B_10 = "Mont_B_10",
+		Mont_B_14 = "Mont_B_14",
+		Mont_B_18 = "Mont_B_18",
+		Mont_B_22 = "Mont_B_22",
+		Mont_B_26 = "Mont_B_26",
+		Mont_B_30 = "Mont_B_30",
+
+		Mont_S_10 = "Mont_S_10",
+		Mont_S_14 = "Mont_S_14",
+		Mont_S_18 = "Mont_S_18",
+		Mont_S_22 = "Mont_S_22",
+		Mont_S_26 = "Mont_S_26",
+		Mont_S_30 = "Mont_S_30",
+
 		Mont_M_10 = "Mont_M_10",
 		Mont_M_14 = "Mont_M_14",
-		Mont_M_36 = "Mont_M_36",
-		Mont_S_26 = "Mont_S_26",
+		Mont_M_18 = "Mont_M_18",
+		Mont_M_22 = "Mont_M_22",
+		Mont_M_26 = "Mont_M_26",
+		Mont_M_30 = "Mont_M_30",
+
+		Mont_R_10 = "Mont_R_10",
+		Mont_R_14 = "Mont_R_14",
+		Mont_R_18 = "Mont_R_18",
+		Mont_R_22 = "Mont_R_22",
+		Mont_R_26 = "Mont_R_26",
+		Mont_R_30 = "Mont_R_30",
 	}
 
 	export type TFont = Record<keyof typeof EFont, TFontStyle>;

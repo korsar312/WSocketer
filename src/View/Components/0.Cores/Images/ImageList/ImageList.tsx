@@ -1,28 +1,30 @@
 import { FunctionComponent, SVGProps } from "react";
 
 import IconError from "Assets/Icons/icon-error.svg?react";
-import IconArrowRight from "Assets/Icons/icon-arrow.svg?react";
 
-import IconApple from "Assets/Icons/icon-apple.svg?react";
-import IconBag from "Assets/Icons/icon-bag.svg?react";
-import IconDesktop from "Assets/Icons/icon-desktop.svg?react";
-import IconGuy from "Assets/Icons/icon-guy.svg?react";
-import IconMessage from "Assets/Icons/icon-message.svg?react";
-import IconPhone from "Assets/Icons/icon-phone.svg?react";
 import IconCat from "Assets/Icons/icon-cat.svg?react";
+import IconChat from "@material-icons/svg/svg/forum/outline.svg?react";
+import IconTune from "@material-icons/svg/svg/tune/outline.svg?react";
+import IconBug from "@material-icons/svg/svg/bug_report/outline.svg?react";
+import IconMessage from "@material-icons/svg/svg/mail/outline.svg?react";
+import IconKey from "@material-icons/svg/svg/key/outline.svg?react";
+import IconHistory from "@material-icons/svg/svg/schedule/outline.svg?react";
+import IconSettings from "@material-icons/svg/svg/settings/outline.svg?react";
+import IconArrowRight from "@material-icons/svg/svg/east/outline.svg?react";
 
 type TIcons = Record<string, FunctionComponent<SVGProps<SVGSVGElement>>>;
 
 const icons = {
 	IconError,
+	IconKey,
 	IconArrowRight,
-	IconApple,
-	IconBag,
-	IconDesktop,
-	IconGuy,
+	IconHistory,
+	IconTune,
+	IconChat,
+	IconBug,
 	IconMessage,
-	IconPhone,
 	IconCat,
+	IconSettings,
 } satisfies TIcons;
 
 const Images = {

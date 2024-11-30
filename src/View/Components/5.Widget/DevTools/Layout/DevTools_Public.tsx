@@ -29,7 +29,7 @@ const DevTools_Public: NFC<typeof DevToolsModel> = (props) => {
 	function rowPages(title: LanguageInterface.TAllWord, pageArr: RouteInterfaces.EPathName[]) {
 		return (
 			<>
-				<Text text={title} font={StylesInterface.EFont.Mont_M_36} color={StylesInterface.EColor.BLACK_1} />
+				<Text text={title} font={StylesInterface.EFont.Mont_M_30} color={StylesInterface.EColor.BLACK_1} />
 
 				<div css={styles.btnList}>
 					{pageArr.map((el) => (
