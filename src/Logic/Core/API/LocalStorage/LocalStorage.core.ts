@@ -26,7 +26,7 @@ export class LocalStorageCore {
 	constructor(init: IWebsocketCoreInit) {
 		this.props = init;
 
-		this.init();
+		//this.init();
 	}
 
 	private init() {

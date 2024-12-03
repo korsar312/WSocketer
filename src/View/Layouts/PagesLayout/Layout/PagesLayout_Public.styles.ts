@@ -2,6 +2,8 @@ import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react/dist/emotion-react.cjs";
 
 class PagesLayout_PublicStyles extends Styles {
+	private pad = 32;
+
 	public wrapper: CSSObject = {
 		position: "relative",
 		display: "flex",
@@ -13,21 +15,20 @@ class PagesLayout_PublicStyles extends Styles {
 		height: "100%",
 	};
 
-	public pages: CSSObject = {
+	public pagesWrap: CSSObject = {
 		position: "relative",
-		margin: `34px 62px 0 62px`,
 		flex: 1,
+		margin: "0 62px",
+	};
+
+	public pages: CSSObject = {
+		paddingTop: this.pad,
+		height: `calc(100% - ${this.pad}px)`,
 	};
 
 	public scroll: CSSObject = {
-		overflow: "auto",
-		scrollbarGutter: "stable both-edges",
-
-		"&::-webkit-scrollbar": {
-			width: 22,
-		},
+		marginTop: this.pad,
 	};
 }
-//-webkit-scrollbar-track
-//-webkit-scrollbar-thumb
+
 export default new PagesLayout_PublicStyles();

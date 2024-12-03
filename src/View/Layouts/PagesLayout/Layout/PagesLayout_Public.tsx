@@ -4,6 +4,7 @@ import { NFC } from "Logic/Libs/Util/TypesUtils";
 import PagesLayoutModel from "../PagesLayout.model";
 import BaseAnimation from "View/Components/0.Cores/BaseAnimation";
 import TemplateNavMenu from "View/Components/4.Templates/TemplateNavMenu";
+import Scroll from "View/Components/0.Cores/Scroll";
 
 const PagesLayout_Public: NFC<typeof PagesLayoutModel> = (props) => {
 	const { Pages, pathname } = props;
@@ -14,9 +15,17 @@ const PagesLayout_Public: NFC<typeof PagesLayoutModel> = (props) => {
 				<TemplateNavMenu />
 			</div>
 
-			<div css={styles.pages}>
-				<BaseAnimation type={"slice"} deps={pathname} extStyle={styles.scroll}>
-					<Suspense>{Pages}</Suspense>
+			<div css={styles.pagesWrap}>
+				<BaseAnimation type={"slice"} deps={pathname}>
+					<Suspense>
+						<Scroll.div extStyle={styles.pages} extStyleScroll={styles.scroll}>
+							{Pages}
+							{Pages}
+							{Pages}
+							{Pages}
+							{Pages}
+						</Scroll.div>
+					</Suspense>
 				</BaseAnimation>
 			</div>
 		</div>
