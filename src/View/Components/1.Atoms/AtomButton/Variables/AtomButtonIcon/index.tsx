@@ -16,7 +16,7 @@ const Index: FC<IComponent> = (props) => {
 		...props,
 		color: false,
 		icons: {
-			LEFT: { value: [{ size: 40, img: icon, color: StylesInterface.EColor.WHITE_3 }] },
+			LEFT: { value: [{ size: 40, img: icon, color: StylesInterface.EColor.PRIME_3 }] },
 		},
 		extStyles: {
 			padding: 6,

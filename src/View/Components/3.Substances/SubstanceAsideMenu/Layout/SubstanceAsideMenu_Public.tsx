@@ -15,8 +15,8 @@ const SubstanceAsideMenu_Public: NFC<typeof SubstanceAsideMenuModel> = (props) =
 			<div css={styles.wrapper()}>
 				<div css={styles.work}>
 					<div css={styles.headWrap}>
-						<Images img={head.icon} color={StylesInterface.EColor.BLACK_1} />
-						<Text text={head.title} font={StylesInterface.EFont.Mont_S_26} color={StylesInterface.EColor.BLACK_1} />
+						<Images img={head.icon} color={StylesInterface.EColor.SECOND_1} />
+						<Text text={head.title} font={StylesInterface.EFont.Mont_S_26} color={StylesInterface.EColor.SECOND_1} />
 					</div>
 
 					<div css={styles.btnField}>
@@ -27,7 +27,7 @@ const SubstanceAsideMenu_Public: NFC<typeof SubstanceAsideMenuModel> = (props) =
 				</div>
 
 				<div css={styles.catWrap}>
-					<Images img={"IconCat"} size={"100%"} color={StylesInterface.EColor.WHITE_2} />
+					<Images img={"IconCat"} size={"100%"} color={StylesInterface.EColor.PRIME_2} />
 				</div>
 			</div>
 		</AtomPaperW>

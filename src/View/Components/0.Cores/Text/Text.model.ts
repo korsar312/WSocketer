@@ -5,7 +5,7 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 function TextModel(props: IComponent) {
 	const {
 		text,
-		color = StylesInterface.EColor.WHITE_1,
+		color = StylesInterface.EColor.PRIME_1,
 		caseWord,
 		extStyle,
 		postfix = "",

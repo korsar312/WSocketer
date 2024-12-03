@@ -15,15 +15,15 @@ export namespace StylesInterface {
 	export type TColorHEXFormat = `#${string}`;
 
 	export enum EColor {
-		WHITE_1 = "WHITE_1",
-		WHITE_2 = "WHITE_2",
-		WHITE_3 = "WHITE_3",
-		WHITE_4 = "WHITE_4",
+		PRIME_1 = "PRIME_1",
+		PRIME_2 = "PRIME_2",
+		PRIME_3 = "PRIME_3",
+		PRIME_4 = "PRIME_4",
 
-		BLACK_1 = "BLACK_1",
-		BLACK_2 = "BLACK_2",
-		BLACK_3 = "BLACK_3",
-		BLACK_4 = "BLACK_4",
+		SECOND_1 = "SECOND_1",
+		SECOND_2 = "SECOND_2",
+		SECOND_3 = "SECOND_3",
+		SECOND_4 = "SECOND_4",
 
 		GREEN_1 = "GREEN_1",
 		GREEN_2 = "GREEN_2",

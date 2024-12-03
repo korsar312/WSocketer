@@ -13,11 +13,11 @@ export interface IComponent extends Pick<IButton, "isDisable" | "isFullWidth" | 
 const Index: FC<IComponent> = (props) => {
 	const { isActive, text, icon } = props;
 
-	const iconColor = isActive ? StylesInterface.EColor.WHITE_2 : StylesInterface.EColor.BLACK_2;
+	const iconColor = isActive ? StylesInterface.EColor.PRIME_2 : StylesInterface.EColor.SECOND_2;
 
 	const propsComponent: IButton = {
 		...props,
-		color: isActive ? StylesInterface.EColor.BLACK_1 : false,
+		color: isActive ? StylesInterface.EColor.SECOND_1 : false,
 		textVars: { groupStyle: { flex: 1, textAlign: "left" }, value: [{ text, font: StylesInterface.EFont.Mont_M_14 }] },
 		icons: {
 			LEFT: { value: [{ size: 20, color: iconColor, img: icon }] },

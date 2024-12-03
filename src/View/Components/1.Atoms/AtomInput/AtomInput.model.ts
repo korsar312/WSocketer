@@ -11,7 +11,7 @@ function AtomInputModel(props: IComponent) {
 	const textObj = changeText(initText);
 
 	function changeText(text: IText): IText {
-		return { ...text, text: value, color: text.color || StylesInterface.EColor.BLACK_1 };
+		return { ...text, text: value, color: text.color || StylesInterface.EColor.SECOND_1 };
 	}
 
 	function handleClick() {

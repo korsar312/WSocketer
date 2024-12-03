@@ -6,7 +6,7 @@ class AtomPaper_PublicStyles extends Styles {
 	public wrapper(color?: StylesInterface.TColorChoice): CSSObject {
 		return {
 			borderRadius: 20,
-			background: this.getColors(color || StylesInterface.EColor.WHITE_3),
+			background: this.getColors(color || StylesInterface.EColor.PRIME_3),
 		};
 	}
 }

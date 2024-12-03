@@ -1,15 +1,15 @@
 import { StylesInterface } from "../../Core/Modules/Styles/Styles.interface";
 
 export const ColorList: StylesInterface.TColor = {
-	WHITE_1: { LIGHT: "#ffffff", DARK: "#0d0d0d" },
-	WHITE_2: { LIGHT: "#f5f5f5", DARK: "#212121" },
-	WHITE_3: { LIGHT: "#dbdbdb", DARK: "#2f2f2f" },
-	WHITE_4: { LIGHT: "#929292", DARK: "#4e4e4e" },
+	PRIME_1: { LIGHT: "#ffffff", DARK: "#0d0d0d" },
+	PRIME_2: { LIGHT: "#f5f5f5", DARK: "#212121" },
+	PRIME_3: { LIGHT: "#dbdbdb", DARK: "#2f2f2f" },
+	PRIME_4: { LIGHT: "#929292", DARK: "#4e4e4e" },
 
-	BLACK_1: { LIGHT: "#0d0d0d", DARK: "#ffffff" },
-	BLACK_2: { LIGHT: "#212121", DARK: "#f5f5f5" },
-	BLACK_3: { LIGHT: "#2f2f2f", DARK: "#dbdbdb" },
-	BLACK_4: { LIGHT: "#4e4e4e", DARK: "#929292" },
+	SECOND_1: { LIGHT: "#0d0d0d", DARK: "#ffffff" },
+	SECOND_2: { LIGHT: "#212121", DARK: "#f5f5f5" },
+	SECOND_3: { LIGHT: "#2f2f2f", DARK: "#dbdbdb" },
+	SECOND_4: { LIGHT: "#4e4e4e", DARK: "#929292" },
 
 	GREEN_1: { LIGHT: "#bde2c1", DARK: "#bde2c1" },
 	GREEN_2: { LIGHT: "#28a138", DARK: "#28a138" },

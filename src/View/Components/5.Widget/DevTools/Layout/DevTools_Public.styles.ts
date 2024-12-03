@@ -5,7 +5,7 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 class DevTools_PublicStyles extends Styles {
 	public body: CSSObject = {
 		...this.mixins.absolute,
-		background: this.getColors(StylesInterface.EColor.WHITE_1),
+		background: this.getColors(StylesInterface.EColor.PRIME_1),
 		width: 1000,
 		height: 1100,
 		zIndex: 1000000,

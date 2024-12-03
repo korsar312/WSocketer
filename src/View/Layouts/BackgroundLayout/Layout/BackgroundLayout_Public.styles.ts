@@ -6,7 +6,7 @@ class BackgroundLayout_PublicStyles extends Styles {
 	public background(): CSSObject {
 		return {
 			...this.mixins.absolute,
-			background: this.getColors(StylesInterface.EColor.WHITE_2),
+			background: this.getColors(StylesInterface.EColor.PRIME_2),
 			backgroundSize: "cover",
 			backgroundPosition: "center",
 		};

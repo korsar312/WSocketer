@@ -9,7 +9,7 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: IPaper = {
 		...props,
-		color: StylesInterface.EColor.WHITE_3,
+		color: StylesInterface.EColor.PRIME_3,
 	};
 
 	return <AtomPaper {...propsComponent} />;

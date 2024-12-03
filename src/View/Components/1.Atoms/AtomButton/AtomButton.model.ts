@@ -25,13 +25,13 @@ function AtomButtonModel(props: IComponent) {
 
 	function getColorText(): StylesInterface.EColor {
 		switch (color) {
-			case StylesInterface.EColor.BLACK_1:
-			case StylesInterface.EColor.BLACK_2:
-			case StylesInterface.EColor.BLACK_3:
-			case StylesInterface.EColor.BLACK_4:
-				return StylesInterface.EColor.WHITE_1;
+			case StylesInterface.EColor.SECOND_1:
+			case StylesInterface.EColor.SECOND_2:
+			case StylesInterface.EColor.SECOND_3:
+			case StylesInterface.EColor.SECOND_4:
+				return StylesInterface.EColor.PRIME_1;
 			default:
-				return StylesInterface.EColor.BLACK_1;
+				return StylesInterface.EColor.SECOND_1;
 		}
 	}
 

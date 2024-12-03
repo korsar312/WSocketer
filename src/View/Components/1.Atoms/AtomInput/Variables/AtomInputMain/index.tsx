@@ -15,7 +15,7 @@ const Index: FC<IComponent> = (props) => {
 		initText: {
 			text,
 			font: StylesInterface.EFont.Mont_S_26,
-			color: StylesInterface.EColor.WHITE_1,
+			color: StylesInterface.EColor.PRIME_1,
 		},
 	};
 
