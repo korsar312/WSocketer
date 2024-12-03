@@ -35,9 +35,13 @@ class SubstanceAsideMenu_PublicStyles extends Styles {
 		gap: 16,
 	};
 
-	public catWrap: CSSObject = {
-		...this.mixins.flexCenter,
+	public mascotWrap: CSSObject = {
+		position: "relative",
 		flex: 1,
+	};
+
+	public mascot: CSSObject = {
+		...this.mixins.absolute,
 	};
 }
 

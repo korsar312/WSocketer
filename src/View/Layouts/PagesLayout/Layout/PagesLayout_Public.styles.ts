@@ -5,6 +5,7 @@ class PagesLayout_PublicStyles extends Styles {
 	private pad = 32;
 
 	public wrapper: CSSObject = {
+		overflow: "hidden",
 		position: "relative",
 		display: "flex",
 		height: "100vh",

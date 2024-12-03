@@ -26,8 +26,10 @@ const SubstanceAsideMenu_Public: NFC<typeof SubstanceAsideMenuModel> = (props) =
 					</div>
 				</div>
 
-				<div css={styles.catWrap}>
-					<Images img={"IconCat"} size={"100%"} color={StylesInterface.EColor.PRIME_2} />
+				<div css={styles.mascotWrap}>
+					<div css={styles.mascot}>
+						<Images img={"IconCat"} size={"100%"} color={StylesInterface.EColor.PRIME_2} />
+					</div>
 				</div>
 			</div>
 		</AtomPaperW>
