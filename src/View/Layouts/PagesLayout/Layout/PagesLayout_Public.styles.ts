@@ -24,7 +24,8 @@ class PagesLayout_PublicStyles extends Styles {
 
 	public pages: CSSObject = {
 		paddingTop: this.pad,
-		height: `calc(100% - ${this.pad}px)`,
+		paddingBottom: this.pad,
+		height: `calc(100% - ${this.pad * 2}px)`,
 	};
 
 	public scroll: CSSObject = {
