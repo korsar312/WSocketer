@@ -12,7 +12,7 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: ILine = {
 		...props,
-		options: text.map((el) => ({ id: el, text: { value: [{ text: el, font: StylesInterface.EFont.Mont_E_14 }] } })),
+		options: text.map((el) => ({ id: el, text: { value: [{ text: el, font: StylesInterface.EFont.Mont_S_22 }] } })),
 	};
 
 	return <AtomInput {...propsComponent} />;

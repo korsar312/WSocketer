@@ -8,6 +8,7 @@ export interface IComponent {
 	color: StylesInterface.TColorChoice;
 	children: ReactNode;
 	extStyle?: TDeepCSSObject;
+	isFull?: boolean;
 }
 
 const Index: FC<IComponent> = (props) => {

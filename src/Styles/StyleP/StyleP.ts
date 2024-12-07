@@ -10,6 +10,8 @@ class StyleP {
 	public p8: CSSObject = { padding: 8 };
 	public p10: CSSObject = { padding: 10 };
 	public p12: CSSObject = { padding: 12 };
+
+	public f1: CSSObject = { flex: 1 };
 }
 
 export default new StyleP();

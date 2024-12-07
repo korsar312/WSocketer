@@ -4,7 +4,7 @@ import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interfac
 import MoleculeInputControlModel from "../MoleculeInputControl.model";
 import AtomDropdownMain from "View/Components/1.Atoms/AtomDropdown/Variables/AtomDropdownMain";
 import AtomButtonIcon from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonIcon";
-import AtomInputMain from "View/Components/1.Atoms/AtomInput/Variables/AtomInputMain";
+import AtomInputFull from "View/Components/1.Atoms/AtomInput/Variables/AtomInputFull";
 import AtomLineVW from "View/Components/1.Atoms/AtomLine/Variables/AtomLineVW";
 import AtomPaperB from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperB";
 
@@ -17,7 +17,7 @@ const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (prop
 				<AtomButtonIcon {...leftBtn} />
 				<AtomLineVW />
 				<AtomDropdownMain text={[LanguageInterface.EWord.WS, LanguageInterface.EWord.WSS]} />
-				<AtomInputMain text={LanguageInterface.EWord.TEST_SERVER} />
+				<AtomInputFull text={LanguageInterface.EWord.TEST_SERVER} />
 				<AtomLineVW />
 				<AtomButtonIcon {...RightBtn} />
 			</div>

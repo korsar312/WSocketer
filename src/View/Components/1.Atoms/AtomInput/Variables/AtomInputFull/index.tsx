@@ -12,6 +12,7 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: IInput = {
 		...props,
+		extStyle: { height: "100%" },
 		initText: {
 			text,
 			font: StylesInterface.EFont.Mont_S_22,

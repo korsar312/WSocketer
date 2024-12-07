@@ -2,10 +2,10 @@ import { IComponent } from "./index";
 import { ChangeEvent, useState } from "react";
 import { IComponent as IText } from "View/Components/0.Cores/Text";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
-import UseCases from "../../../../Logic/Core/UseCases/UseCases";
+import UseCases from "Logic/Core/UseCases/UseCases";
 
 function AtomInputModel(props: IComponent) {
-	const { initText, click, onChange } = props;
+	const { initText, click, onChange, extStyle } = props;
 
 	const [value, setValue] = useState(initText.text);
 
@@ -26,7 +26,7 @@ function AtomInputModel(props: IComponent) {
 		setValue(newValue);
 	}
 
-	return { textObj, handleClick, handleChange, text };
+	return { textObj, handleClick, handleChange, text, extStyle };
 }
 
 export default AtomInputModel;

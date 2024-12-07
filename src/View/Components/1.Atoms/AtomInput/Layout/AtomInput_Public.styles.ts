@@ -6,7 +6,7 @@ import { TAtomInputText } from "../index";
 class AtomInput_PublicStyles extends Styles {
 	public wrapper(font: StylesInterface.EFont): CSSObject {
 		return {
-			height: this.getSizeFonts(font),
+			height: this.getSizeFonts(font) + 3,
 			width: "100%",
 			background: this.getColors(false),
 			outline: "none",

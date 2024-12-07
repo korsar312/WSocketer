@@ -5,6 +5,7 @@ class ChatPage_PublicStyles extends Styles {
 	public wrapper: CSSObject = {
 		display: "flex",
 		flexDirection: "column",
+		gap: 26,
 		height: "100%",
 	};
 }
