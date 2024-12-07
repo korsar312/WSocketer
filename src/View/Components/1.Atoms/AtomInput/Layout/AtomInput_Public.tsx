@@ -3,9 +3,16 @@ import AtomInputModel from "../AtomInput.model";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 
 const AtomInput_Public: NFC<typeof AtomInputModel> = (props) => {
-	const { textObj, handleClick, handleChange } = props;
+	const { textObj, handleClick, handleChange, text } = props;
 
-	return <input css={[styles.wrapper(textObj.font), styles.text(textObj)]} onClick={handleClick} onInput={handleChange} />;
+	return (
+		<input
+			defaultValue={String(text)}
+			css={[styles.wrapper(textObj.font), styles.text(textObj)]}
+			onClick={handleClick}
+			onInput={handleChange}
+		/>
+	);
 };
 
 export default AtomInput_Public;

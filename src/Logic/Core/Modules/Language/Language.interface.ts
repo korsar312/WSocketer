@@ -16,8 +16,10 @@ export namespace LanguageInterface {
 	 * Список слов
 	 */
 	export enum EWord {
+		TEST_SERVER = "TEST_SERVER",
+		WSS = "WSS",
+		WS = "WS",
 		W_SOCKETER = "W_SOCKETER",
-
 		CHAT = "CHAT",
 		MESSAGES = "MESSAGES",
 		AUTOTESTS = "AUTOTESTS",
@@ -25,7 +27,6 @@ export namespace LanguageInterface {
 		PROTOCOLS = "PROTOCOLS",
 		HISTORY = "HISTORY",
 		SETTINGS = "SETTINGS",
-
 		PAGES = "PAGES",
 		BUTTON = "BUTTON",
 		ERROR = "ERROR",

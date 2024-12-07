@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 import Model from "./AtomPaper.model";
 import View from "./Layout/AtomPaper_Public";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
-import { TDeepCSSObject } from "../../../ViewUtils";
+import { TDeepCSSObject } from "View/ViewUtils";
 
 export interface IComponent {
 	color: StylesInterface.TColorChoice;

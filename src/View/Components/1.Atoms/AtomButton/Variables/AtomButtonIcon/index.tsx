@@ -1,12 +1,10 @@
 import { FC } from "react";
 import AtomButton, { IComponent as IButton } from "../../index";
-import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { TImageComponent } from "View/Components/0.Cores/Images";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent extends Pick<IButton, "isDisable" | "click"> {
 	icon: TImageComponent;
-	text: LanguageInterface.EWord;
 }
 
 const Index: FC<IComponent> = (props) => {

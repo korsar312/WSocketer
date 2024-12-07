@@ -1,12 +1,13 @@
 import React, { ReactElement, ReactHTML, ReactNode } from "react";
 import Model from "./Scroll.model";
 import View from "./Layout/Scroll_Public";
-import { TDeepCSSObject } from "../../../ViewUtils";
+import { TDeepCSSObject } from "View/ViewUtils";
 
 export interface IComponent {
 	children: ReactNode;
 	extStyle?: TDeepCSSObject;
 	extStyleScroll?: TDeepCSSObject;
+	noScrollBar?: boolean;
 }
 
 type ds = { [K in keyof ReactHTML]: (props: IComponent) => ReactElement };

@@ -8,11 +8,19 @@ function BaseAnimationModel(props: IComponent) {
 
 	const stylesType = ((): ComponentProps<typeof motion.div> => {
 		switch (type) {
+			case "sliceBlock": {
+				return {
+					initial: { ...styles.out },
+					exit: { ...styles.out },
+					animate: { ...styles.in },
+					transition: { duration: 0.25 },
+				};
+			}
 			default: {
 				return {
-					initial: styles.absOut,
-					exit: styles.absOut,
-					animate: styles.absIn,
+					initial: { ...styles.out, ...styles.abs },
+					exit: { ...styles.out, ...styles.abs },
+					animate: { ...styles.in, ...styles.abs },
 					transition: { duration: 0.25 },
 				};
 			}

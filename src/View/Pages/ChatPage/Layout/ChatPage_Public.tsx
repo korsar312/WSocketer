@@ -8,17 +8,7 @@ const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 
 	return (
 		<div css={styles.wrapper}>
-			<div>
-				<MoleculeInputControl />
-			</div>
-
-			<div css={{ flex: 1 }}>
-				<MoleculeInputControl />
-			</div>
-
-			<div>
-				<MoleculeInputControl />
-			</div>
+			<MoleculeInputControl leftBtn={{ icon: "IconTune" }} RightBtn={{ icon: "IconTune" }} />
 		</div>
 	);
 };

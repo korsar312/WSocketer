@@ -2,17 +2,15 @@ import { Styles } from "Styles/Styles";
 import { Target } from "framer-motion";
 
 class BaseAnimation_PublicStyles extends Styles {
-	private absolut = {
+	public abs = {
 		...this.mixins.absolute,
 	} as Target;
 
-	public absOut: Target = {
-		...this.absolut,
+	public out: Target = {
 		opacity: 0,
 	};
 
-	public absIn: Target = {
-		...this.absolut,
+	public in: Target = {
 		opacity: 1,
 	};
 }
