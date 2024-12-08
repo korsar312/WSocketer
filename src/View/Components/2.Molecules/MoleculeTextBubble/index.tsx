@@ -3,10 +3,8 @@ import Model from "./MoleculeTextBubble.model";
 import View from "./Layout/MoleculeTextBubble_Public";
 
 export interface IComponent {
-	message: TTextBubbleMessage;
+	message: unknown;
 }
-
-export type TTextBubbleMessage = Record<string | number, unknown>;
 
 const Index: FC<IComponent> = (props) => {
 	const model = Model(props);

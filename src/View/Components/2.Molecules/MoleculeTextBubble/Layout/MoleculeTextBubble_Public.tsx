@@ -5,8 +5,9 @@ import AtomPaperB from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperB";
 import Text from "../../../0.Cores/Text";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
-import { TTextBubbleMessage } from "../index";
 import { Fragment, ReactElement } from "react";
+
+export type TObjMessage = Record<string | number, unknown>;
 
 const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) => {
 	const { message } = props;
@@ -45,7 +46,7 @@ const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) =
 			);
 		},
 
-		obj(val: TTextBubbleMessage) {
+		obj(val: TObjMessage) {
 			return (
 				<>
 					{textEl("{", StylesInterface.EColor.PRIME_1)}
@@ -71,7 +72,7 @@ const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) =
 		if (typeof val === "string") return str(val);
 		if (typeof val === "number") return num(val);
 		if (typeof val === "boolean") return boo(val);
-		if (typeof val === "object" && val !== null) return Array.isArray(val) ? arr(val) : obj(val as TTextBubbleMessage);
+		if (typeof val === "object" && val !== null) return Array.isArray(val) ? arr(val) : obj(val as TObjMessage);
 
 		return oth(val);
 	}
