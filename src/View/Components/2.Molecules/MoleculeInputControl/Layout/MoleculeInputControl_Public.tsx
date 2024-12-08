@@ -13,7 +13,7 @@ const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (prop
 
 	return (
 		<AtomPaperB>
-			<div css={[styles.wrapper, styles.pub.p8]}>
+			<div css={[styles.wrapper, styles.pub.pd8]}>
 				<AtomButtonIcon {...leftBtn} />
 				<AtomLineVW />
 				<AtomDropdownMain text={[LanguageInterface.EWord.WS, LanguageInterface.EWord.WSS]} />

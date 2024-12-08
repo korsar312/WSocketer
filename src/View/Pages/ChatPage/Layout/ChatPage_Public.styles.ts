@@ -8,6 +8,11 @@ class ChatPage_PublicStyles extends Styles {
 		gap: 26,
 		height: "100%",
 	};
+
+	public content: CSSObject = {
+		flex: 1,
+		minHeight: 1,
+	};
 }
 
 export default new ChatPage_PublicStyles();

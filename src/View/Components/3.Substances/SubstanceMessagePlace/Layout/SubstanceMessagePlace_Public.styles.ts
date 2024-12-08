@@ -3,7 +3,17 @@ import { CSSObject } from "@emotion/react";
 
 class SubstanceMessagePlace_PublicStyles extends Styles {
 	public wrapper: CSSObject = {
-		height: "100%",
+		display: "flex",
+		flexDirection: "column",
+		boxSizing: "border-box",
+		gap: 20,
+	};
+
+	public rowLeft: CSSObject = { display: "flex", justifyContent: "flex-start" };
+	public rowRight: CSSObject = { display: "flex", justifyContent: "flex-end" };
+
+	public message: CSSObject = {
+		maxWidth: "80%",
 	};
 }
 

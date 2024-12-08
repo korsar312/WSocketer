@@ -1,9 +1,9 @@
 import { IComponent } from "./index";
 
 function MoleculeTextBubbleModel(props: IComponent) {
-	const {} = props;
+	const { message } = props;
 
-	return {};
+	return { message };
 }
 
 export default MoleculeTextBubbleModel;

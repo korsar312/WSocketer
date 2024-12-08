@@ -11,7 +11,7 @@ const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 		<div css={styles.wrapper}>
 			<MoleculeInputControl leftBtn={{ icon: "IconTune" }} RightBtn={{ icon: "IconTune" }} />
 
-			<div css={styles.pub.f1}>
+			<div css={[styles.content, styles.pub.f1]}>
 				<SubstanceMessagePlace />
 			</div>
 
