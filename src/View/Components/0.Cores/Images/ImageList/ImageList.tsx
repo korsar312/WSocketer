@@ -11,6 +11,7 @@ import IconKey from "@material-icons/svg/svg/key/outline.svg?react";
 import IconHistory from "@material-icons/svg/svg/schedule/outline.svg?react";
 import IconSettings from "@material-icons/svg/svg/settings/outline.svg?react";
 import IconArrowRight from "@material-icons/svg/svg/east/outline.svg?react";
+import IconBlock from "@material-icons/svg/svg/block/outline.svg?react";
 
 type TIcons = Record<string, FunctionComponent<SVGProps<SVGSVGElement>>>;
 
@@ -25,6 +26,7 @@ const icons = {
 	IconMessage,
 	IconCat,
 	IconSettings,
+	IconBlock,
 } satisfies TIcons;
 
 const Images = {

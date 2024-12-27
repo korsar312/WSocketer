@@ -2,7 +2,9 @@ import { FC } from "react";
 import Model from "./SubstanceMessagePlace.model";
 import View from "./Layout/SubstanceMessagePlace_Public";
 
-export interface IComponent {}
+export interface IComponent {
+	messages: unknown[];
+}
 
 const Index: FC<IComponent> = (props) => {
 	const model = Model(props);

@@ -9,17 +9,23 @@ import AtomLineVW from "View/Components/1.Atoms/AtomLine/Variables/AtomLineVW";
 import AtomPaperB from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperB";
 
 const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (props) => {
-	const { leftBtn, RightBtn } = props;
+	const { leftBtnNorm, rightBtnNorm } = props;
 
 	return (
 		<AtomPaperB>
 			<div css={[styles.wrapper, styles.pub.pd8]}>
-				<AtomButtonIcon {...leftBtn} />
+				{leftBtnNorm.map((el) => (
+					<AtomButtonIcon key={el.icon} {...el} />
+				))}
+
 				<AtomLineVW />
 				<AtomDropdownMain text={[LanguageInterface.EWord.WS, LanguageInterface.EWord.WSS]} />
 				<AtomInputFull text={LanguageInterface.EWord.TEST_SERVER} />
 				<AtomLineVW />
-				<AtomButtonIcon {...RightBtn} />
+
+				{rightBtnNorm.map((el) => (
+					<AtomButtonIcon key={el.icon} {...el} />
+				))}
 			</div>
 		</AtomPaperB>
 	);
