@@ -16,6 +16,9 @@ import { StylesService } from "../../../Modules/Styles/Implement/Service/Styles.
 import { AppStatusService } from "../../../Modules/AppState/Implement/Service/AppStatus.service";
 import { AppStatusDomain } from "../../../Modules/AppState/Implement/Domain/AppStatus.domain";
 import { StylesDomain } from "../../../Modules/Styles/Implement/Domain/Styles.domain";
+import { WebSocketDomain } from "../../../Modules/WebSocket/Implement/Domain/WebSocket.domain";
+import { WebSocketService } from "../../../Modules/WebSocket/Implement/Service/WebSocket.service";
+import { WebSocketInterfaces } from "../../../Modules/WebSocket/WebSocket.interfaces";
 
 // @ts-ignore TODO сделать нормально (временное решение)
 export type TModuleImp<D, S, ANY = unknown> = {
@@ -28,6 +31,7 @@ export enum EStoreList {
 	RouterStore = "RouterStore",
 	StyleStore = "StyleStore",
 	AppStatusStore = "AppStatusStore",
+	WebSocketStore = "WebSocketStore",
 }
 
 export enum EModuleList {
@@ -35,6 +39,7 @@ export enum EModuleList {
 	RouterModule = "RouterModule",
 	StyleModule = "StyleModule",
 	AppStatusModule = "AppStatusModule",
+	WebSocketModule = "WebSocketModule",
 }
 
 export type TStoreFactory = {
@@ -42,6 +47,7 @@ export type TStoreFactory = {
 	[EStoreList.RouterStore]: StoreCreator<RouteInterfaces.TObj>;
 	[EStoreList.StyleStore]: StoreCreator<StylesInterface.TObj>;
 	[EStoreList.AppStatusStore]: StoreCreator<AppStatusInterfaces.TObj>;
+	[EStoreList.WebSocketStore]: StoreCreator<WebSocketInterfaces.TObj>;
 };
 
 export type TTypeModule = {
@@ -49,6 +55,7 @@ export type TTypeModule = {
 	[EModuleList.RouterModule]: TModuleImp<RoutesDomain, RoutesService>;
 	[EModuleList.StyleModule]: TModuleImp<StylesDomain, StylesService>;
 	[EModuleList.AppStatusModule]: TModuleImp<AppStatusDomain, AppStatusService>;
+	[EModuleList.WebSocketModule]: TModuleImp<WebSocketDomain, WebSocketService>;
 };
 
 export type TModuleFactory = {
@@ -58,15 +65,11 @@ export type TModuleFactory = {
 export type TFactoryCreators = TStoreFactory & TModuleFactory;
 
 export function registerModules() {
-	factory.register(EModuleList.LanguageModule, new ModulesCreator());
-	factory.register(EStoreList.LanguageStore, new StoreCreator());
+	Object.keys(EModuleList).forEach((moduleName) => {
+		factory.register(moduleName as EModuleList, new ModulesCreator());
+	});
 
-	factory.register(EModuleList.RouterModule, new ModulesCreator());
-	factory.register(EStoreList.RouterStore, new StoreCreator());
-
-	factory.register(EModuleList.StyleModule, new ModulesCreator());
-	factory.register(EStoreList.StyleStore, new StoreCreator());
-
-	factory.register(EModuleList.AppStatusModule, new ModulesCreator());
-	factory.register(EStoreList.AppStatusStore, new StoreCreator());
+	Object.keys(EStoreList).forEach((moduleName) => {
+		factory.register(moduleName as EStoreList, new StoreCreator());
+	});
 }

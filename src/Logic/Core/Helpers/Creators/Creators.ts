@@ -1,6 +1,7 @@
 import {
 	EModuleList,
 	EStoreList,
+	registerModules,
 	TFactoryCreators,
 	TModuleFactory,
 	TStoreFactory,
@@ -52,5 +53,7 @@ class Creators {
 		return this.modules[module].factoryMethod(implement) as ReturnType<TModuleFactory[T]["factoryMethod"]>;
 	}
 }
+
+registerModules();
 
 export default new Creators();

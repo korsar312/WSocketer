@@ -1,4 +1,4 @@
-import {registerModules, TFactoryCreators} from "./Factory.enam";
+import { TFactoryCreators } from "./Factory.enam";
 
 type TFac = TFactoryCreators;
 type KTFac = keyof TFac;
@@ -34,5 +34,3 @@ class Factory {
 }
 
 export default new Factory();
-
-registerModules();
