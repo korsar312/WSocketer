@@ -8,8 +8,12 @@ import Scroll from "../../../0.Cores/Scroll";
 const SubstanceMessagePlace_Public: NFC<typeof SubstanceMessagePlaceModel> = (props) => {
 	const { messages } = props;
 
-	function row(text: unknown, isLeft: boolean) {
-		return <div css={isLeft ? styles.rowLeft : styles.rowRight}>{message(text)}</div>;
+	function row(id: string, text: unknown, isLeft: boolean) {
+		return (
+			<div key={id} css={isLeft ? styles.rowLeft : styles.rowRight}>
+				{message(text)}
+			</div>
+		);
 	}
 
 	function message(text: unknown) {
@@ -22,7 +26,7 @@ const SubstanceMessagePlace_Public: NFC<typeof SubstanceMessagePlaceModel> = (pr
 
 	return (
 		<AtomPaperW isFull>
-			<Scroll.div extStyle={[styles.wrapper, styles.pub.pd12]}>{messages.map((el, index) => row(el, !(index % 2)))}</Scroll.div>
+			<Scroll.div extStyle={[styles.wrapper, styles.pub.pd12]}>{messages.map((el) => row(el.id, el.value, el.isSending))}</Scroll.div>
 		</AtomPaperW>
 	);
 };

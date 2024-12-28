@@ -2,12 +2,19 @@ import { TransformLangToArr } from "./Methods/TransformLangToArr/TransformLangTo
 import { GetUserLanguage } from "./Methods/GetUserLanguage/GetUserLanguage";
 import { CreateLanguageObj } from "./Methods/CreateLanguageObj/CreateLanguageObj";
 import { GetDictionary } from "./Methods/GetDictionary/GetDictionary";
-import { Store } from "./Methods/Store/Store";
 import { GetTransfer } from "./Methods/GetTransfer/GetTransfer";
 import { GetModifer } from "./Methods/GetModifer/GetModifer";
+import { ServiceBase } from "../../../../Helpers/Creators/Factory/Variables/Modules/Service";
+import { EStoreList } from "../../../../Helpers/Creators/Factory/Factory.enam";
+import APIRequest from "../../../../API/API";
 
-export class LanguageService {
-	public store = new Store().execute();
+const typeService = EStoreList.LanguageStore;
+
+export class LanguageService extends ServiceBase<typeof typeService> {
+	constructor(Api: typeof APIRequest) {
+		super({ Api, Type: typeService });
+	}
+
 	public getDictionary = GetDictionary.execute();
 	public getTransfer = GetTransfer.execute();
 	public getModifer = GetModifer.execute();

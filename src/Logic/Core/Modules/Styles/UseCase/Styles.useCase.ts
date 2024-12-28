@@ -3,13 +3,14 @@ import { GetColor } from "./Methods/GetColor/GetColor";
 import Modules from "../Implement/Modules";
 import { GetFont } from "./Methods/GetFont/GetFont";
 import { GetSizeFont } from "./Methods/GetSizeFont/GetSizeFont";
+import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
+import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
 
-export class StylesUseCase {
-	private module = Modules.invoker();
-	private initStore = InitStore.execute(this.module);
+const typeService = EModuleList.StyleModule;
 
+export class StylesUseCase extends UseCaseBase<typeof typeService> {
 	constructor() {
-		this.initStore();
+		super({ modules: Modules, initFn: InitStore });
 	}
 
 	public getFont = GetFont.execute(this.module);

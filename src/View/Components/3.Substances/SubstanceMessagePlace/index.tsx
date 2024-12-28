@@ -3,8 +3,14 @@ import Model from "./SubstanceMessagePlace.model";
 import View from "./Layout/SubstanceMessagePlace_Public";
 
 export interface IComponent {
-	messages: unknown[];
+	messages: TMessages[];
 }
+
+type TMessages = {
+	value: unknown;
+	isSending: boolean;
+	id: string;
+};
 
 const Index: FC<IComponent> = (props) => {
 	const model = Model(props);

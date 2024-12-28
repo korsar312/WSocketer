@@ -1,7 +1,6 @@
 import { NavigateFunction } from "react-router-dom";
-import { RoutesDomain } from "./Implement/Domain/Routes.domain";
-import { RoutesService } from "./Implement/Service/Routes.service";
 import type { Location } from "@remix-run/router";
+import { TTypeModule } from "../../Helpers/Creators/Factory/Factory.enam";
 
 export namespace RouteInterfaces {
 	export type TObj = {
@@ -28,8 +27,5 @@ export namespace RouteInterfaces {
 	/**
 	 * Домен и сервис
 	 */
-	export interface IModules {
-		domain: RoutesDomain;
-		service: RoutesService;
-	}
+	export type IModules = TTypeModule["RouterModule"];
 }

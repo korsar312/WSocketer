@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Substance, { IComponent as ISubstances } from "View/Components/3.Substances/SubstanceMessagePlace";
+import { v4 as createId } from "uuid";
 
 export interface IComponent {}
 
@@ -48,13 +49,36 @@ const json5 = {
 	dsfg: "42",
 };
 
-const jsonArr = [json, json2, json3, json5, json2, json3, 435345, ["3423", 23423, json2, json2, 435345]];
+type Tasd = {
+	id: string;
+	isSending: boolean;
+	value: any;
+};
 
 const Index: FC<IComponent> = (props) => {
 	const {} = props;
 
+	const jsonArr = [
+		{ id: createId(), isSending: !Math.round(Math.random()), value: json },
+		{ id: createId(), isSending: !Math.round(Math.random()), value: json2 },
+		{ id: createId(), isSending: !Math.round(Math.random()), value: json3 },
+		{ id: createId(), isSending: !Math.round(Math.random()), value: json5 },
+		{ id: createId(), isSending: !Math.round(Math.random()), value: json2 },
+		{ id: createId(), isSending: !Math.round(Math.random()), value: json3 },
+		{ id: createId(), isSending: !Math.round(Math.random()), value: 435345 },
+		{ id: createId(), isSending: !Math.round(Math.random()), value: ["3423", 23423, json2, json2, 435345] },
+	];
+
+	const [message, setMessage] = useState<Tasd[]>(jsonArr);
+
+	useEffect(() => {
+		const time = setTimeout(() => setMessage((el) => [{ ...el[4], id: createId() }, ...el]), 1000);
+
+		return () => clearTimeout(time);
+	}, [message]);
+
 	const propsComponent: ISubstances = {
-		messages: jsonArr,
+		messages: message,
 	};
 
 	return <Substance {...propsComponent} />;

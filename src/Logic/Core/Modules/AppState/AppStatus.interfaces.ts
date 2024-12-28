@@ -1,6 +1,5 @@
-import { AppStatusDomain } from "./Implement/Domain/AppStatus.domain";
-import { AppStatusService } from "./Implement/Service/AppStatus.service";
 import { LanguageInterface } from "../Language/Language.interface";
+import { TTypeModule } from "../../Helpers/Creators/Factory/Factory.enam";
 
 export namespace AppStatusInterfaces {
 	/**
@@ -31,8 +30,5 @@ export namespace AppStatusInterfaces {
 	/**
 	 * Домен и сервис
 	 */
-	export interface IModules {
-		domain: AppStatusDomain;
-		service: AppStatusService;
-	}
+	export type IModules = TTypeModule["AppStatusModule"];
 }

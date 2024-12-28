@@ -1,6 +1,5 @@
-import { StylesDomain } from "./Implement/Domain/Styles.domain";
-import { StylesService } from "./Implement/Service/Styles.service";
 import { CSSObject } from "@emotion/react";
+import { TTypeModule } from "../../Helpers/Creators/Factory/Factory.enam";
 
 export namespace StylesInterface {
 	/**
@@ -101,8 +100,5 @@ export namespace StylesInterface {
 	/**
 	 * Домен и сервис
 	 */
-	export interface IModules {
-		domain: StylesDomain;
-		service: StylesService;
-	}
+	export type IModules = TTypeModule["StyleModule"];
 }

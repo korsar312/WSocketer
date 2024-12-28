@@ -1,7 +1,6 @@
-import { LanguageDomain } from "./Implement/Domain/Language.domain";
-import { LanguageService } from "./Implement/Service/Language.service";
 import { CSSObject } from "@emotion/react";
 import { ReactNode } from "react";
+import { TTypeModule } from "../../Helpers/Creators/Factory/Factory.enam";
 
 export namespace LanguageInterface {
 	/**
@@ -90,8 +89,5 @@ export namespace LanguageInterface {
 	/**
 	 * Домен и сервис
 	 */
-	export interface IModules {
-		domain: LanguageDomain;
-		service: LanguageService;
-	}
+	export type IModules = TTypeModule["LanguageModule"];
 }

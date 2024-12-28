@@ -9,13 +9,14 @@ import { ResetFront } from "./Methods/ResetFront/ResetFront";
 import { SetWebsocketStatus } from "./Methods/SetWebsocketStatus/SetWebsocketStatus";
 import { WebsocketIsDisabled } from "./Methods/WebsocketIsDisabled/WebsocketIsDisabled";
 import { ToggleErrorModals } from "./Methods/ToggleErrorModals/ToggleErrorModals";
+import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
+import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 
-export class AppStatusUseCase {
-	private module = Modules.invoker();
-	private initStore = InitStore.execute(this.module);
+const typeService = EModuleList.AppStatusModule;
 
+export class AppStatusUseCase extends UseCaseBase<typeof typeService> {
 	constructor() {
-		this.initStore();
+		super({ modules: Modules, initFn: InitStore });
 	}
 
 	public initDone = InitDone.execute(this.module);

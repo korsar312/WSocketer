@@ -5,13 +5,14 @@ import { GoHomePage } from "./Methods/GoHomePage/GoHomePage";
 import { GoLink } from "./Methods/GoLink/GoLink";
 import { GetCurrentPageName } from "./Methods/GetCurrentPageName/GetCurrentPageName";
 import { SetLocation } from "./Methods/SetLocation/SetLocation";
+import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
+import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 
-export class RoutesUseCase {
-	private module = Modules.invoker();
-	private initStore = InitStore.execute(this.module);
+const typeService = EModuleList.RouterModule;
 
+export class RoutesUseCase extends UseCaseBase<typeof typeService> {
 	constructor() {
-		this.initStore();
+		super({ modules: Modules, initFn: InitStore });
 	}
 
 	public goLink = GoLink.execute(this.module);

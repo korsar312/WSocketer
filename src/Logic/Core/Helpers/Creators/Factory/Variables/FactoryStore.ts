@@ -28,7 +28,7 @@ class StoreProduct<TStore> implements IStore<TStore> {
 	 */
 	public getStore(): TStore {
 		if (this.store === undefined) {
-			throw new Error("Данный стор не определен");
+			throw new Error(`${this.store} Данный стор не определен`);
 		}
 		return this.store;
 	}

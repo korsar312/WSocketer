@@ -8,8 +8,9 @@ import { ResetFront } from "./Methods/ResetFront/ResetFront";
 import { ToggleErrorModals } from "./Methods/ToggleErrorModals/ToggleErrorModals";
 import { SetWebsocketStatus } from "./Methods/SetWebsocketStatus/SetWebsocketStatus";
 import { WebsocketIsDisabled } from "./Methods/WebsocketIsDisabled/WebsocketIsDisabled";
+import { DomainBase } from "../../../../Helpers/Creators/Factory/Variables/Modules/Domain";
 
-export class AppStatusDomain {
+export class AppStatusDomain extends DomainBase {
 	public initDone = InitDone.execute();
 	public isInitDone = IsInitDone.execute();
 	public resetFront = ResetFront.execute();

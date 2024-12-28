@@ -4,13 +4,14 @@ import { InitStore } from "./Methods/InitStore/InitStore";
 import { SetCurrentLanguage } from "./Methods/SetCurrentLanguage/SetCurrentLanguage";
 import { GetCurrentLanguage } from "./Methods/GetCurrentLanguage/GetCurrentLanguage";
 import { SwitchCurrentLanguage } from "./Methods/SwitchCurrentLanguage/SwitchCurrentLanguage";
+import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
+import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 
-export class LanguageUseCase {
-	private module = Modules.invoker();
-	private initStore = InitStore.execute(this.module);
+const typeService = EModuleList.LanguageModule;
 
+export class LanguageUseCase extends UseCaseBase<typeof typeService> {
 	constructor() {
-		this.initStore();
+		super({ modules: Modules, initFn: InitStore });
 	}
 
 	public getText = GetText.execute(this.module);
