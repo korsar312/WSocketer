@@ -66,10 +66,10 @@ export type TFactoryCreators = TStoreFactory & TModuleFactory;
 
 export function registerModules() {
 	Object.keys(EModuleList).forEach((moduleName) => {
-		factory.register(moduleName as EModuleList, new ModulesCreator());
+		factory.register(moduleName as EModuleList, new ModulesCreator() as any);
 	});
 
 	Object.keys(EStoreList).forEach((moduleName) => {
-		factory.register(moduleName as EStoreList, new StoreCreator());
+		factory.register(moduleName as EStoreList, new StoreCreator() as any);
 	});
 }

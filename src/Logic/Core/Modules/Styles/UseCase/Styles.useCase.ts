@@ -6,9 +6,7 @@ import { GetSizeFont } from "./Methods/GetSizeFont/GetSizeFont";
 import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
 
-const typeService = EModuleList.StyleModule;
-
-export class StylesUseCase extends UseCaseBase<typeof typeService> {
+export class StylesUseCase extends UseCaseBase<EModuleList.StyleModule> {
 	constructor() {
 		super({ modules: Modules, initFn: InitStore });
 	}

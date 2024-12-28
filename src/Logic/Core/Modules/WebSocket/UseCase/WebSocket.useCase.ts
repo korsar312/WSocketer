@@ -3,9 +3,7 @@ import Modules from "../Implement/Modules";
 import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
 import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 
-const typeService = EModuleList.WebSocketModule;
-
-export class WebSocketUseCase extends UseCaseBase<typeof typeService> {
+export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	constructor() {
 		super({ modules: Modules, initFn: InitStore });
 	}

@@ -12,9 +12,7 @@ import { ToggleErrorModals } from "./Methods/ToggleErrorModals/ToggleErrorModals
 import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
 import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 
-const typeService = EModuleList.AppStatusModule;
-
-export class AppStatusUseCase extends UseCaseBase<typeof typeService> {
+export class AppStatusUseCase extends UseCaseBase<EModuleList.AppStatusModule> {
 	constructor() {
 		super({ modules: Modules, initFn: InitStore });
 	}

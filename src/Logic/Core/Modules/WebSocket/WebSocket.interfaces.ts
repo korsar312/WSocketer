@@ -4,7 +4,11 @@ export namespace WebSocketInterfaces {
 	/**
 	 * Основной объект настроек
 	 */
-	export type TObj = {};
+	export type TObj = {
+		WSList: TWebSocket[];
+	};
+
+	export type TWebSocket = {};
 
 	/**
 	 * Домен и сервис

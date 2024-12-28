@@ -8,9 +8,7 @@ import { SetLocation } from "./Methods/SetLocation/SetLocation";
 import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
 import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 
-const typeService = EModuleList.RouterModule;
-
-export class RoutesUseCase extends UseCaseBase<typeof typeService> {
+export class RoutesUseCase extends UseCaseBase<EModuleList.RouterModule> {
 	constructor() {
 		super({ modules: Modules, initFn: InitStore });
 	}

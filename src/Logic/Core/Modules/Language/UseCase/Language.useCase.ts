@@ -7,9 +7,7 @@ import { SwitchCurrentLanguage } from "./Methods/SwitchCurrentLanguage/SwitchCur
 import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
 import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 
-const typeService = EModuleList.LanguageModule;
-
-export class LanguageUseCase extends UseCaseBase<typeof typeService> {
+export class LanguageUseCase extends UseCaseBase<EModuleList.LanguageModule> {
 	constructor() {
 		super({ modules: Modules, initFn: InitStore });
 	}
