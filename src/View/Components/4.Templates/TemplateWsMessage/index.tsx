@@ -72,7 +72,14 @@ const Index: FC<IComponent> = (props) => {
 	const [message, setMessage] = useState<Tasd[]>(jsonArr);
 
 	useEffect(() => {
-		const time = setTimeout(() => setMessage((el) => [{ ...el[4], id: createId() }, ...el]), 1000);
+		const time = setTimeout(
+			() =>
+				setMessage((el) => [
+					{ ...el[Math.floor(Math.random() * el.length)], id: createId(), isSending: !Math.round(Math.random()) },
+					...el,
+				]),
+			2000,
+		);
 
 		return () => clearTimeout(time);
 	}, [message]);

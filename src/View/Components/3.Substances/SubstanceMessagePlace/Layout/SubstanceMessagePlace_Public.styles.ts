@@ -4,7 +4,7 @@ import { CSSObject } from "@emotion/react";
 class SubstanceMessagePlace_PublicStyles extends Styles {
 	public wrapper: CSSObject = {
 		display: "flex",
-		flexDirection: "column",
+		flexDirection: "column-reverse",
 		boxSizing: "border-box",
 		gap: 20,
 	};

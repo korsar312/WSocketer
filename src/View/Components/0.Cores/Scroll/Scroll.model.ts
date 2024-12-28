@@ -1,10 +1,10 @@
-import { IComponent } from "./index";
-import { ReactHTML } from "react";
+import { IComponent, TScrollAvailableEl } from "./index";
+import { Ref } from "react";
 
-function ScrollModel(props: IComponent & { Tag: keyof ReactHTML }) {
-	const { children, extStyle, extStyleScroll, noScrollBar, Tag } = props;
+function ScrollModel(props: IComponent & { ref: Ref<HTMLElement> } & { Tag: TScrollAvailableEl }) {
+	const { children, extStyle, extStyleScroll, noScrollBar, Tag, ...htmlRest } = props;
 
-	return { children, extStyle, extStyleScroll, noScrollBar, Tag };
+	return { children, extStyle, extStyleScroll, noScrollBar, Tag, htmlRest };
 }
 
 export default ScrollModel;
