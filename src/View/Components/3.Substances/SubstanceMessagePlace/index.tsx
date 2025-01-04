@@ -4,14 +4,14 @@ import View from "./Layout/SubstanceMessagePlace_Public";
 import { IComponent as IBubble } from "View/Components/2.Molecules/MoleculeTextBubble";
 
 export interface IComponent {
-	messages: TMessages[];
+	messages: TSubstanceMessageMessages[];
 	sendState?: TBubbleText;
 	receiveState?: TBubbleText;
 }
 
 type TBubbleText = Omit<IBubble, "message">;
 
-type TMessages = {
+export type TSubstanceMessageMessages = {
 	value: unknown;
 	isSending: boolean;
 	id: string;

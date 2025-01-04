@@ -27,8 +27,8 @@ export namespace WebSocketInterfaces {
 	export type TMessageValue = string | Blob | ArrayBuffer | null;
 
 	export enum EMessageType {
-		IN = "IN",
-		OUT = "OUT",
+		SEND = "SEND",
+		RECEIVE = "RECEIVE",
 	}
 
 	export enum EStateWS {

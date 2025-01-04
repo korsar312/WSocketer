@@ -10,13 +10,12 @@ const SubstanceMessagePlace_Public: NFC<typeof SubstanceMessagePlaceModel> = (pr
 	const { messages, listRef, handleScroll, sendState, receiveState } = props;
 
 	function row(id: string, text: unknown, isLeft: boolean) {
-		const Component = isLeft ? MoleculeTextBubble : MoleculeTextBubble;
 		const props: IBubble = { message: text, ...(isLeft ? sendState : receiveState) };
 
 		return (
 			<div key={id} css={isLeft ? styles.rowLeft : styles.rowRight}>
 				<div css={styles.message}>
-					<Component {...props} />
+					<MoleculeTextBubble {...props} />
 				</div>
 			</div>
 		);

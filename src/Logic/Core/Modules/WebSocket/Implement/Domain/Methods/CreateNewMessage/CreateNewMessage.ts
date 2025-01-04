@@ -6,7 +6,7 @@ export class CreateNewMessage {
 		return function (isServerMessage: boolean, value: WebSocketInterfaces.TMessageValue): WebSocketInterfaces.TMessage {
 			return {
 				id: uuid(),
-				type: isServerMessage ? WebSocketInterfaces.EMessageType.IN : WebSocketInterfaces.EMessageType.OUT,
+				type: isServerMessage ? WebSocketInterfaces.EMessageType.RECEIVE : WebSocketInterfaces.EMessageType.SEND,
 				date: new Date().toISOString(),
 				value,
 			};

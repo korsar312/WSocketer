@@ -10,7 +10,7 @@ type TEvent = {
 export class OpenConnection {
 	static execute() {
 		return function (link: string, protocol: WebSocketInterfaces.EProtocol, fn: TEvent): WebSocket {
-			const socket = new WebSocket(link, protocol);
+			const socket = new WebSocket(`${protocol}://${link}`);
 
 			const { messageFn, setOpenFn, setCloseFn, errorFn } = fn;
 
