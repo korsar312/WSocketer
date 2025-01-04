@@ -1,7 +1,7 @@
 import styles from "./MoleculeTextBubble_Public.styles";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 import MoleculeTextBubbleModel from "../MoleculeTextBubble.model";
-import Text from "../../../0.Cores/Text";
+import Text from "View/Components/0.Cores/Text";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { Fragment, ReactElement } from "react";
 import { EMoleculeTextBubbleTextVar, TMoleculeTextBubbleText } from "../index";

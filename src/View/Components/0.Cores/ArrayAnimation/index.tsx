@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 import ArrayAnimation_Public from "./Layout/ArrayAnimation_Public";
 import ArrayAnimationModel from "./ArrayAnimation.model";
 import { observer } from "mobx-react";
-import { TDeepCSSObject } from "../../../ViewUtils";
+import { TDeepCSSObject } from "View/ViewUtils";
 import { AnimatePresenceProps } from "framer-motion";
 
 export interface IComponent extends Pick<AnimatePresenceProps, "mode"> {

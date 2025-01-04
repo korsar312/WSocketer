@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import Substance, { IComponent as ISubstances } from "View/Components/3.Substances/SubstanceMessagePlace";
 import { v4 as createId } from "uuid";
-import { StylesInterface } from "../../../../Logic/Core/Modules/Styles/Styles.interface";
+import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent {}
 

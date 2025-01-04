@@ -4,8 +4,7 @@ import AtomPaperW from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperW";
 import styles from "./SubstanceMessagePlace_Public.styles";
 import Scroll from "View/Components/0.Cores/Scroll";
 import ArrayAnimation from "View/Components/0.Cores/ArrayAnimation";
-import MoleculeTextBubble from "../../../2.Molecules/MoleculeTextBubble";
-import { IComponent as IBubble } from "View/Components/2.Molecules/MoleculeTextBubble";
+import MoleculeTextBubble, { IComponent as IBubble } from "View/Components/2.Molecules/MoleculeTextBubble";
 
 const SubstanceMessagePlace_Public: NFC<typeof SubstanceMessagePlaceModel> = (props) => {
 	const { messages, listRef, handleScroll, sendState, receiveState } = props;

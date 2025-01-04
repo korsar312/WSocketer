@@ -2,7 +2,7 @@ import { NFC } from "Logic/Libs/Util/TypesUtils";
 import ChatPageModel from "../ChatPage.model";
 import MoleculeInputControl from "View/Components/2.Molecules/MoleculeInputControl";
 import styles from "./ChatPage_Public.styles";
-import TemplateWsMessage from "../../../Components/4.Templates/TemplateWsMessage";
+import TemplateWsMessage from "View/Components/4.Templates/TemplateWsMessage";
 
 const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 	const {} = props;
