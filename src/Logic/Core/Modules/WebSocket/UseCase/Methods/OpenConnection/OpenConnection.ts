@@ -14,7 +14,7 @@ export class OpenConnection {
 				const messageList = module.domain.getWSState(wsInstance, "messages");
 				const message = module.domain.createNewMessage(true, val);
 
-				module.domain.setWSState(wsInstance, "messages", [...messageList, message]);
+				module.domain.setWSState(wsInstance, "messages", [message, ...messageList]);
 			};
 
 			const socket = module.service.openConnection(link, protocol, { setOpenFn, errorFn, messageFn, setCloseFn });
