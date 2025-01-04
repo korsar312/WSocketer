@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import Substance, { IComponent as ISubstances } from "View/Components/3.Substances/SubstanceMessagePlace";
 import { v4 as createId } from "uuid";
+import { StylesInterface } from "../../../../Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent {}
 
@@ -55,19 +56,19 @@ type Tasd = {
 	value: any;
 };
 
+const jsonArr = [
+	{ id: createId(), isSending: !Math.round(Math.random()), value: json },
+	{ id: createId(), isSending: !Math.round(Math.random()), value: json2 },
+	{ id: createId(), isSending: !Math.round(Math.random()), value: json3 },
+	{ id: createId(), isSending: !Math.round(Math.random()), value: json5 },
+	{ id: createId(), isSending: !Math.round(Math.random()), value: json2 },
+	{ id: createId(), isSending: !Math.round(Math.random()), value: json3 },
+	{ id: createId(), isSending: !Math.round(Math.random()), value: 435345 },
+	{ id: createId(), isSending: !Math.round(Math.random()), value: ["3423", 23423, json2, json2, 435345] },
+];
+
 const Index: FC<IComponent> = (props) => {
 	const {} = props;
-
-	const jsonArr = [
-		{ id: createId(), isSending: !Math.round(Math.random()), value: json },
-		{ id: createId(), isSending: !Math.round(Math.random()), value: json2 },
-		{ id: createId(), isSending: !Math.round(Math.random()), value: json3 },
-		{ id: createId(), isSending: !Math.round(Math.random()), value: json5 },
-		{ id: createId(), isSending: !Math.round(Math.random()), value: json2 },
-		{ id: createId(), isSending: !Math.round(Math.random()), value: json3 },
-		{ id: createId(), isSending: !Math.round(Math.random()), value: 435345 },
-		{ id: createId(), isSending: !Math.round(Math.random()), value: ["3423", 23423, json2, json2, 435345] },
-	];
 
 	const [message, setMessage] = useState<Tasd[]>(jsonArr);
 
@@ -85,7 +86,9 @@ const Index: FC<IComponent> = (props) => {
 	}, [message]);
 
 	const propsComponent: ISubstances = {
-		messages: message,
+		messages: message.slice(0, 50),
+		sendState: { colorBg: StylesInterface.EColor.BLUE_1 },
+		receiveState: { colorBg: StylesInterface.EColor.PRIME_4 },
 	};
 
 	return <Substance {...propsComponent} />;

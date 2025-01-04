@@ -5,7 +5,7 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 class AtomPaper_PublicStyles extends Styles {
 	public wrapper(color?: StylesInterface.TColorChoice): CSSObject {
 		return {
-			borderRadius: 20,
+			borderRadius: this.variables.radiusStandard,
 			background: this.getColors(color || StylesInterface.EColor.PRIME_3),
 		};
 	}

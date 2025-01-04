@@ -6,6 +6,7 @@ class SubstanceMessagePlace_PublicStyles extends Styles {
 		display: "flex",
 		flexDirection: "column-reverse",
 		boxSizing: "border-box",
+		padding: this.variables.radiusStandard,
 		gap: 20,
 	};
 

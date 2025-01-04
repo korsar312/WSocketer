@@ -1,5 +1,5 @@
 import { FC } from "react";
-import AtomButton, { IComponent as IButton } from "../../index";
+import Component, { IComponent as IButton } from "../../index";
 import { TImageComponent } from "View/Components/0.Cores/Images";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
@@ -24,7 +24,7 @@ const Index: FC<IComponent> = (props) => {
 		},
 	};
 
-	return <AtomButton {...propsComponent} />;
+	return <Component {...propsComponent} />;
 };
 
 export default Index;

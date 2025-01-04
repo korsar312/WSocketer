@@ -2,7 +2,7 @@ import { IComponent } from "./index";
 import { useEffect, useRef } from "react";
 
 function SubstanceMessagePlaceModel(props: IComponent) {
-	const { messages } = props;
+	const { messages, sendState, receiveState } = props;
 
 	const listRef = useRef<HTMLDivElement>(null);
 	const isBotScrollRef = useRef<boolean>(isBotScroll());
@@ -30,7 +30,7 @@ function SubstanceMessagePlaceModel(props: IComponent) {
 		return listRef.current.scrollHeight - listRef.current.clientHeight;
 	}
 
-	return { messages, listRef, handleScroll };
+	return { messages, listRef, handleScroll, sendState, receiveState };
 }
 
 export default SubstanceMessagePlaceModel;

@@ -1,38 +1,37 @@
 import styles from "./MoleculeTextBubble_Public.styles";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 import MoleculeTextBubbleModel from "../MoleculeTextBubble.model";
-import AtomPaperB from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperB";
 import Text from "../../../0.Cores/Text";
-import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { Fragment, ReactElement } from "react";
+import { EMoleculeTextBubbleTextVar, TMoleculeTextBubbleText } from "../index";
 
 export type TObjMessage = Record<string | number, unknown>;
 
 const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) => {
-	const { message } = props;
+	const { message, colorBg, normalizeText } = props;
 
 	const renderMethod = {
 		str(val: string) {
-			return textEl(val, StylesInterface.EColor.GREEN_2);
+			return textEl(val, normalizeText.str);
 		},
 
 		num(val: number) {
-			return textEl(val, StylesInterface.EColor.BLUE_2);
+			return textEl(val, normalizeText.num);
 		},
 
 		boo(val: boolean) {
-			return textEl(String(val), StylesInterface.EColor.YELLOW_2);
+			return textEl(String(val), normalizeText.boo);
 		},
 
 		oth(val: unknown) {
-			return textEl(JSON.stringify(val), StylesInterface.EColor.RED_2);
+			return textEl(JSON.stringify(val), normalizeText.oth);
 		},
 
 		arr(val: Array<unknown>) {
 			return (
 				<>
-					{textEl("[", StylesInterface.EColor.RED_2)}
+					{textEl("[", normalizeText.arr)}
 
 					{val.map((el, i) => (
 						<Fragment key={i}>
@@ -41,7 +40,7 @@ const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) =
 						</Fragment>
 					))}
 
-					{textEl("]", StylesInterface.EColor.RED_2)}
+					{textEl("]", normalizeText.arr)}
 				</>
 			);
 		},
@@ -49,22 +48,22 @@ const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) =
 		obj(val: TObjMessage) {
 			return (
 				<>
-					{textEl("{", StylesInterface.EColor.PRIME_1)}
+					{textEl("{", normalizeText.obj)}
 
 					{Object.keys(val).map((el, i) => {
 						return (
 							<div key={i} css={[styles.pub.mg12l, styles.block]}>
-								{textEl(`${el}: `, StylesInterface.EColor.PRIME_1)}
+								{textEl(`${el}: `, normalizeText.obj)}
 								{textChoice(val[el])}
 							</div>
 						);
 					})}
 
-					{textEl("}", StylesInterface.EColor.PRIME_1)}
+					{textEl("}", normalizeText.obj)}
 				</>
 			);
 		},
-	} satisfies Record<string, (val: any) => ReactElement>;
+	} satisfies Record<EMoleculeTextBubbleTextVar, (val: any) => ReactElement>;
 
 	function textChoice(val: unknown): ReactElement {
 		const { str, num, boo, oth, arr, obj } = renderMethod;
@@ -77,15 +76,11 @@ const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) =
 		return oth(val);
 	}
 
-	function textEl(text: LanguageInterface.TAllWord, color: StylesInterface.EColor) {
-		return <Text text={text} font={StylesInterface.EFont.Mont_S_18} color={color} />;
+	function textEl(text: LanguageInterface.TAllWord, vars: TMoleculeTextBubbleText) {
+		return <Text text={text} {...vars} />;
 	}
 
-	return (
-		<AtomPaperB>
-			<div css={[styles.wrapper, styles.pub.pd8]}>{textChoice(message)}</div>
-		</AtomPaperB>
-	);
+	return <div css={[styles.wrapper(colorBg), styles.pub.pd8]}>{textChoice(message)}</div>;
 };
 
 export default MoleculeTextBubble_Public;

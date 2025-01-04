@@ -1,5 +1,5 @@
 import { FC } from "react";
-import AtomInput, { IComponent as ILine } from "../../index";
+import Component, { IComponent as ILine } from "../../index";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent {}
@@ -13,7 +13,7 @@ const Index: FC<IComponent> = (props) => {
 		color: StylesInterface.EColor.SECOND_4,
 	};
 
-	return <AtomInput {...propsComponent} />;
+	return <Component {...propsComponent} />;
 };
 
 export default Index;

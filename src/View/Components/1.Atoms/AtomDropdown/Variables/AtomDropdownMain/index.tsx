@@ -1,5 +1,5 @@
 import { FC } from "react";
-import AtomInput, { IComponent as ILine } from "../../index";
+import Component, { IComponent as ILine } from "../../index";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
@@ -15,7 +15,7 @@ const Index: FC<IComponent> = (props) => {
 		options: text.map((el) => ({ id: el, text: { value: [{ text: el, font: StylesInterface.EFont.Mont_S_22 }] } })),
 	};
 
-	return <AtomInput {...propsComponent} />;
+	return <Component {...propsComponent} />;
 };
 
 export default Index;
