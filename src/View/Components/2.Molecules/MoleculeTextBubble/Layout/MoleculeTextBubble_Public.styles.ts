@@ -10,9 +10,11 @@ class MoleculeTextBubble_PublicStyles extends Styles {
 		};
 	}
 
-	public block: CSSObject = {
-		"&:hover": { background: this.getColors(StylesInterface.EColor.SECOND_4, 0.4) },
-	};
+	public block(isBlack: boolean): CSSObject {
+		return {
+			"&:hover": { background: this.getColors(isBlack ? StylesInterface.EColor.YELLOW_1 : StylesInterface.EColor.PRIME_4, 0.4) },
+		};
+	}
 }
 
 export default new MoleculeTextBubble_PublicStyles();

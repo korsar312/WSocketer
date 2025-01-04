@@ -44,7 +44,7 @@ function MoleculeTextBubbleModel(props: IComponent) {
 		}
 	}
 
-	return { message, colorBg, normalizeText };
+	return { message, colorBg, normalizeText, isBlackBg };
 }
 
 export default MoleculeTextBubbleModel;

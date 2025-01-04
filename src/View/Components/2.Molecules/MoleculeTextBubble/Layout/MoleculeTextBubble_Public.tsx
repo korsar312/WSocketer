@@ -9,7 +9,7 @@ import { EMoleculeTextBubbleTextVar, TMoleculeTextBubbleText } from "../index";
 export type TObjMessage = Record<string | number, unknown>;
 
 const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) => {
-	const { message, colorBg, normalizeText } = props;
+	const { message, colorBg, normalizeText, isBlackBg } = props;
 
 	const renderMethod = {
 		str(val: string) {
@@ -52,7 +52,7 @@ const MoleculeTextBubble_Public: NFC<typeof MoleculeTextBubbleModel> = (props) =
 
 					{Object.keys(val).map((el, i) => {
 						return (
-							<div key={i} css={[styles.pub.mg12l, styles.block]}>
+							<div key={i} css={[styles.pub.mg12l, styles.block(isBlackBg)]}>
 								{textEl(`${el}: `, normalizeText.obj)}
 								{textChoice(val[el])}
 							</div>
