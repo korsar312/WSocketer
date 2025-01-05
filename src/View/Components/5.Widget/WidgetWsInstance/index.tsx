@@ -5,7 +5,7 @@ import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.inte
 import { observer } from "mobx-react";
 
 export interface IComponent {
-	wsInstance?: WebSocketInterfaces.TWebSocket;
+	wsInstance: WebSocketInterfaces.TWebSocket;
 }
 
 const Index: FC<IComponent> = (props) => {

@@ -1,4 +1,5 @@
 import { TTypeModule } from "../../Helpers/Creators/Factory/Factory.enam";
+import { LanguageInterface } from "../Language/Language.interface";
 
 export namespace WebSocketInterfaces {
 	/**
@@ -12,9 +13,10 @@ export namespace WebSocketInterfaces {
 		id: string;
 		status: EStateWS;
 		messages: TMessage[];
-		protocol: EProtocol;
 		socket: WebSocket | null;
-		link: string;
+		protocol?: EProtocol;
+		link?: string;
+		name: LanguageInterface.TAllWord;
 	};
 
 	export type TMessage = {

@@ -6,10 +6,7 @@ function WidgetWsInstanceModel(props: IComponent) {
 	const { wsInstance } = props;
 
 	function openConnect(link: string, protocol: WebSocketInterfaces.EProtocol) {
-		let ws = wsInstance;
-		if (!ws) ws = UseCases.interactor("webSocket", "createNewWs", link, protocol);
-
-		UseCases.interactor("webSocket", "openConnection", ws);
+		UseCases.interactor("webSocket", "openConnection", wsInstance, link, protocol);
 	}
 
 	return { wsInstance, openConnect };
