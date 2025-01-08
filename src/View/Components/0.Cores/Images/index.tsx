@@ -12,7 +12,7 @@ export interface IComponent {
 	color?: StylesInterface.TColorChoice;
 }
 
-export type TImagesSize = 20 | 40 | "100%";
+export type TImagesSize = 20 | 40 | 60 | "100%";
 
 export type TImageComponent = EImages | string | undefined;
 

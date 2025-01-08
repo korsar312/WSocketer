@@ -9,6 +9,9 @@ import { GetMessages } from "./Methods/GetMessages/GetMessages";
 import { IsMessageReceive } from "./Methods/IsMessageReceive/IsMessageReceive";
 import { GetMessageValue } from "./Methods/GetMessageValue/GetMessageValue";
 import { GetMessageId } from "./Methods/GetMessageId/GetMessageId";
+import { GetName } from "./Methods/GetName/GetName";
+import { GetId } from "./Methods/GetId/GetId";
+import { GetDesc } from "./Methods/GetDesc/GetDesc";
 
 export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	constructor() {
@@ -18,6 +21,9 @@ export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	public createNewWs = CreateNewWs.execute(this.module);
 	public openConnection = OpenConnection.execute(this.module);
 	public getWsList = GetWsList.execute(this.module);
+	public getName = GetName.execute(this.module);
+	public getId = GetId.execute(this.module);
+	public getDesc = GetDesc.execute(this.module);
 	public getMessages = GetMessages.execute(this.module);
 	public getMessageId = GetMessageId.execute(this.module);
 	public getMessageValue = GetMessageValue.execute(this.module);

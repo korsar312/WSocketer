@@ -6,12 +6,14 @@ import { WebSocketInterfaces } from "../../../Logic/Core/Modules/WebSocket/WebSo
 function ChatPageModel(props: IComponent) {
 	const {} = props;
 
+	const wsList = UseCases.interactor("webSocket", "getWsList");
 	const [wsInstance, setWsInstance] = useState<WebSocketInterfaces.TWebSocket>();
 
-	const wsList = UseCases.interactor("webSocket", "getWsList");
+	const methods = { createWs, choseWs, getNameWs, getIdWs, getDescWs };
+	const isChose = Boolean(wsInstance);
 
 	function createWs() {
-		const ws = UseCases.interactor("webSocket", "createNewWs", "sada");
+		const ws = UseCases.interactor("webSocket", "createNewWs", "sada", "asd", WebSocketInterfaces.EProtocol.ws, "dfg");
 		choseWs(ws);
 	}
 
@@ -19,7 +21,19 @@ function ChatPageModel(props: IComponent) {
 		setWsInstance(ws);
 	}
 
-	return { wsList, wsInstance, createWs, choseWs };
+	function getNameWs(ws: WebSocketInterfaces.TWebSocket) {
+		return UseCases.interactor("webSocket", "getName", ws);
+	}
+
+	function getDescWs(ws: WebSocketInterfaces.TWebSocket) {
+		return UseCases.interactor("webSocket", "getDesc", ws);
+	}
+
+	function getIdWs(ws: WebSocketInterfaces.TWebSocket) {
+		return UseCases.interactor("webSocket", "getId", ws);
+	}
+
+	return { wsList, wsInstance, isChose, methods };
 }
 
 export default ChatPageModel;

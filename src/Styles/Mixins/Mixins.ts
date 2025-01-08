@@ -12,15 +12,20 @@ class MixinsVars {
 		justifyContent: "center",
 	};
 
-	public flexCenterCol: CSSObject = {
+	public flexVerCenter: CSSObject = {
 		display: "flex",
-		justifyContent: "center",
 		alignItems: "center",
-		flexDirection: "column",
 	};
 
 	public flexCol: CSSObject = {
 		display: "flex",
+		flexDirection: "column",
+	};
+
+	public flexCenterCol: CSSObject = {
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
 		flexDirection: "column",
 	};
 

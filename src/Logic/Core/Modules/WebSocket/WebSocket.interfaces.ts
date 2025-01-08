@@ -14,9 +14,10 @@ export namespace WebSocketInterfaces {
 		status: EStateWS;
 		messages: TMessage[];
 		socket: WebSocket | null;
-		protocol?: EProtocol;
-		link?: string;
+		protocol: EProtocol;
+		link: string;
 		name: LanguageInterface.TAllWord;
+		desc: LanguageInterface.TAllWord;
 	};
 
 	export type TMessage = {
@@ -34,6 +35,7 @@ export namespace WebSocketInterfaces {
 	}
 
 	export enum EStateWS {
+		AWAIT = "AWAIT",
 		CLOSED = "CLOSED",
 		OPEN = "OPEN",
 	}
