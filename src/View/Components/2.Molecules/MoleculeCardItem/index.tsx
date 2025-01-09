@@ -9,6 +9,7 @@ export interface IComponent {
 	subTitle: LanguageInterface.TAllWord;
 	image: IImage;
 	click?: () => void;
+	isChose?: boolean;
 }
 
 const Index: FC<IComponent> = (props) => {

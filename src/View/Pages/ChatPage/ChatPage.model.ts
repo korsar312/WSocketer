@@ -9,7 +9,7 @@ function ChatPageModel(props: IComponent) {
 	const wsList = UseCases.interactor("webSocket", "getWsList");
 	const [wsInstance, setWsInstance] = useState<WebSocketInterfaces.TWebSocket>();
 
-	const methods = { createWs, choseWs, getNameWs, getIdWs, getDescWs };
+	const methods = { createWs, choseWs, getNameWs, getIdWs, getDescWs, isChosen };
 	const isChose = Boolean(wsInstance);
 
 	function createWs() {
@@ -31,6 +31,10 @@ function ChatPageModel(props: IComponent) {
 
 	function getIdWs(ws: WebSocketInterfaces.TWebSocket) {
 		return UseCases.interactor("webSocket", "getId", ws);
+	}
+
+	function isChosen(ws: WebSocketInterfaces.TWebSocket): boolean {
+		return Boolean(wsInstance && getIdWs(wsInstance) === getIdWs(ws));
 	}
 
 	return { wsList, wsInstance, isChose, methods };

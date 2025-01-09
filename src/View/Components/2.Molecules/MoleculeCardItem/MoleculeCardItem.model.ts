@@ -1,9 +1,9 @@
 import { IComponent } from "./index";
 
 function MoleculeCardItemModel(props: IComponent) {
-	const { title, subTitle, click, image } = props;
+	const { title, subTitle, click, image, isChose } = props;
 
-	return { title, subTitle, click, image };
+	return { title, subTitle, click, image, isChose };
 }
 
 export default MoleculeCardItemModel;
