@@ -11,7 +11,7 @@ export class CreateNewWs {
 		): WebSocketInterfaces.TWebSocket {
 			const store = module.service.store.getStore();
 			const newWs = module.domain.createNewWS(name, link, protocol, desc);
-			const wsList = module.domain.getWSList(store);
+			const wsList = module.domain.getObjState(store, "WSList");
 			const newStore = module.domain.setWsList(store, wsList, newWs);
 			module.service.store.setStore(newStore);
 

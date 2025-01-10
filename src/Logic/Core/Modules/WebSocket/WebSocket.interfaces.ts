@@ -7,6 +7,7 @@ export namespace WebSocketInterfaces {
 	 */
 	export type TObj = {
 		WSList: TWebSocket[];
+		WSChoiceId: string | undefined;
 	};
 
 	export type TWebSocket = {

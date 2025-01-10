@@ -10,13 +10,14 @@ import TemplateWsCard from "../../../Components/4.Templates/TemplateWsCard";
 
 const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 	const { wsList, wsInstance, isChose, methods } = props;
-	const { choseWs, isChosen, toggleShowCreateWs, createWs } = methods;
+	const { choseWs, isChosen, toggleShowCreateWs, createWs, getIdWs } = methods;
 
 	const choseSide = (
 		<AtomPaperG extStyle={styles.list(isChose)}>
 			<Scroll.div>
 				<div css={styles.elem(isChose)}>
 					<MoleculeCardItem
+						// @ts-ignore
 						click={createWs}
 						title={"Создать соединение"}
 						subTitle={"hfgh"}
@@ -26,7 +27,7 @@ const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 
 					<ArrayAnimation type={"sliceA"} uniqueKey={(_item, index) => wsList[index].id}>
 						{wsList.map((el) => (
-							<TemplateWsCard isChose={isChosen(el)} wsInstance={el} onClick={choseWs} />
+							<TemplateWsCard key={getIdWs(el)} isChose={isChosen(el)} wsInstance={el} onClick={choseWs} />
 						))}
 					</ArrayAnimation>
 				</div>

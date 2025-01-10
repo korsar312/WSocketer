@@ -5,7 +5,7 @@ export class GetWsList {
 		return function (): WebSocketInterfaces.TWebSocket[] {
 			const store = module.service.store.getStore();
 
-			return module.domain.getWSList(store);
+			return module.domain.getObjState(store, "WSList");
 		};
 	}
 }

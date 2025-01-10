@@ -7,7 +7,10 @@ export class SetWsList {
 			wsList: WebSocketInterfaces.TWebSocket[],
 			newWs: WebSocketInterfaces.TWebSocket,
 		): WebSocketInterfaces.TObj {
-			return { ...obj, WSList: [...wsList, newWs] };
+			const find = wsList.findIndex((el) => newWs.id === el.id);
+			const WSList = find !== -1 ? wsList.toSpliced(find, 1, newWs) : [...wsList, newWs];
+
+			return { ...obj, WSList };
 		};
 	}
 }

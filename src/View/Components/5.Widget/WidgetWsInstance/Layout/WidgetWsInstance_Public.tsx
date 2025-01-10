@@ -5,11 +5,14 @@ import styles from "./WidgetWsInstance_Public.styles";
 import TemplateWsMessage from "View/Components/4.Templates/TemplateWsMessage";
 
 const WidgetWsInstance_Public: NFC<typeof ChatPageModel> = (props) => {
-	const { wsInstance, openConnect } = props;
+	const { wsInstance, openConnect, wsStatusIcon, isOpenImpossibly } = props;
 
 	return (
 		<div css={styles.chat}>
-			<MoleculeInputControl leftBtn={{ icon: "IconTune" }} rightBtn={{ icon: "IconBlock", click: openConnect }} />
+			<MoleculeInputControl
+				leftBtn={{ icon: "IconTune" }}
+				rightBtn={{ icon: wsStatusIcon, click: openConnect, isDisable: isOpenImpossibly }}
+			/>
 
 			<div css={[styles.content, styles.pub.f1]}>
 				<TemplateWsMessage wsInstance={wsInstance} />

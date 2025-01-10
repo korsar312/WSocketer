@@ -14,8 +14,7 @@ const Index: FC<IComponent> = (props) => {
 	const { wsInstance, isChose, onClick } = props;
 
 	const title = UseCases.interactor("webSocket", "getName", wsInstance);
-	const subTitle = UseCases.interactor("webSocket", "getName", wsInstance);
-	const id = UseCases.interactor("webSocket", "getId", wsInstance);
+	const subTitle = UseCases.interactor("webSocket", "getDesc", wsInstance);
 
 	const propsComponent: ISubstances = {
 		image: { img: "IconHistory" },
@@ -29,7 +28,7 @@ const Index: FC<IComponent> = (props) => {
 		onClick?.(wsInstance);
 	}
 
-	return <Substance key={id} {...propsComponent} />;
+	return <Substance {...propsComponent} />;
 };
 
 export default observer(Index);

@@ -3,13 +3,14 @@ import { CreateNewWS } from "./Methods/CreateNewWS/CreateNewWS";
 import { GetWsById } from "./Methods/GetWsById/GetWsById";
 import { GetMessages } from "./Methods/GetMessages/GetMessages";
 import { GetWSState } from "./Methods/GetWSState/GetWSState";
-import { GetWSList } from "./Methods/GetWSList/GetWSList";
+import { GetObjState } from "./Methods/GetObjState/GetObjState";
 import { SetWsList } from "./Methods/SetWsList/SetWsList";
 import { SetWSState } from "./Methods/SetWSState/SetWSState";
 import { CreateNewMessage } from "./Methods/CreateNewMessage/CreateNewMessage";
 import { GetWSMessageState } from "./Methods/GetWSMessageState/GetWSMessageState";
 import { IsMessageReceive } from "./Methods/IsMessageReceive/IsMessageReceive";
 import { GetWsMessage } from "./Methods/GetWsMessage/GetWsMessage";
+import { SetWsChoice } from "./Methods/SetWsChoice/SetWsChoice";
 
 export class WebSocketDomain extends DomainBase {
 	public createNewMessage = CreateNewMessage.execute();
@@ -19,8 +20,9 @@ export class WebSocketDomain extends DomainBase {
 	public getWSMessageState = GetWSMessageState.execute();
 	public getWsById = GetWsById.execute();
 	public isMessageReceive = IsMessageReceive.execute();
-	public getWSList = GetWSList.execute();
+	public getObjState = GetObjState.execute();
 	public getWSState = GetWSState.execute();
 	public setWsList = SetWsList.execute();
 	public setWSState = SetWSState.execute();
+	public setWsChoice = SetWsChoice.execute();
 }

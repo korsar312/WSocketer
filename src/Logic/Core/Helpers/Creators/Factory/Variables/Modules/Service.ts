@@ -11,7 +11,7 @@ export interface IServiceProps<T extends keyof TStoreFactory> {
 
 export abstract class ServiceBase<T extends keyof TStoreFactory> implements IService {
 	protected api;
-	public _store;
+	private readonly _store;
 
 	protected constructor(props: IServiceProps<T>) {
 		this.api = props.Api;

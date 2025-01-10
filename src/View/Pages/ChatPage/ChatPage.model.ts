@@ -1,6 +1,6 @@
 import { IComponent } from "./index";
 import UseCases from "Logic/Core/UseCases/UseCases";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.interfaces";
 
 type TCreateWs = Pick<WebSocketInterfaces.TWebSocket, "name" | "link" | "protocol" | "desc">;
@@ -9,11 +9,23 @@ function ChatPageModel(props: IComponent) {
 	const {} = props;
 
 	const wsList = UseCases.interactor("webSocket", "getWsList");
+	const wsInstance = UseCases.interactor("webSocket", "getWsChoice");
 
-	const [wsInstance, setWsInstance] = useState<WebSocketInterfaces.TWebSocket>();
 	const [isShowCreateWs, setIsShowCreateWs] = useState(false);
 
-	const methods = { choseWs, isChosen, toggleShowCreateWs, createWs };
+	useEffect(() => {
+		return () => UseCases.interactor("webSocket", "setWsChoice");
+	}, []);
+
+	useEffect(() => {
+		console.log(111);
+	}, [wsInstance]);
+
+	useEffect(() => {
+		setTimeout(() => {}, 1000);
+	}, []);
+
+	const methods = { choseWs, isChosen, toggleShowCreateWs, createWs, getIdWs };
 	const isChose = Boolean(wsInstance);
 
 	function createWs(props: TCreateWs) {
@@ -27,7 +39,7 @@ function ChatPageModel(props: IComponent) {
 	}
 
 	function choseWs(ws: WebSocketInterfaces.TWebSocket) {
-		setWsInstance(ws);
+		UseCases.interactor("webSocket", "setWsChoice", ws);
 	}
 
 	function getIdWs(ws: WebSocketInterfaces.TWebSocket) {

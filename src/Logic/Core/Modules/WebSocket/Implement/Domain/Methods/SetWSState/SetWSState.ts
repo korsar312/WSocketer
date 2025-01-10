@@ -6,8 +6,8 @@ export class SetWSState {
 			obj: WebSocketInterfaces.TWebSocket,
 			field: K,
 			newValue: WebSocketInterfaces.TWebSocket[K],
-		): void {
-			obj[field] = newValue;
+		): WebSocketInterfaces.TWebSocket {
+			return { ...obj, [field]: newValue };
 		};
 	}
 }
