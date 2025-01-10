@@ -5,7 +5,7 @@ import { TImagesSize } from "../index";
 
 class Images_PublicStyles extends Styles {
 	public wrapper: CSSObject = {
-		transition: this.variables.transition,
+		transition: this.variables.fastTransition,
 	};
 
 	public size(size: TImagesSize = 20): CSSObject {
@@ -16,7 +16,7 @@ class Images_PublicStyles extends Styles {
 	}
 
 	public color(colors: StylesInterface.TColorChoice): CSSObject {
-		return { path: { fill: this.getColors(colors) } };
+		return { path: { fill: this.getColors(colors), transition: this.variables.fastTransition } };
 	}
 }
 

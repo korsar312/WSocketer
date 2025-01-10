@@ -5,27 +5,30 @@ import WidgetWsInstance from "View/Components/5.Widget/WidgetWsInstance";
 import AtomPaperG from "../../../Components/1.Atoms/AtomPaper/Variables/AtomPaperG";
 import MoleculeCardItem from "../../../Components/2.Molecules/MoleculeCardItem";
 import Scroll from "../../../Components/0.Cores/Scroll";
+import ArrayAnimation from "../../../Components/0.Cores/ArrayAnimation";
+import TemplateWsCard from "../../../Components/4.Templates/TemplateWsCard";
 
 const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 	const { wsList, wsInstance, isChose, methods } = props;
-	const { getIdWs, createWs, choseWs, getNameWs, getDescWs, isChosen } = methods;
+	const { choseWs, isChosen, toggleShowCreateWs, createWs } = methods;
 
 	const choseSide = (
 		<AtomPaperG extStyle={styles.list(isChose)}>
 			<Scroll.div>
 				<div css={styles.elem(isChose)}>
-					<MoleculeCardItem click={createWs} title={"Создать соединение"} subTitle={"hfgh"} image={{ img: "IconAdd" }} />
+					<MoleculeCardItem
+						click={createWs}
+						title={"Создать соединение"}
+						subTitle={"hfgh"}
+						image={{ img: "IconAdd" }}
+						collapse={isChose}
+					/>
 
-					{wsList.map((el) => (
-						<MoleculeCardItem
-							key={getIdWs(el)}
-							click={() => choseWs(el)}
-							title={getNameWs(el)}
-							subTitle={getDescWs(el)}
-							image={{ img: "IconHistory" }}
-							isChose={isChosen(el)}
-						/>
-					))}
+					<ArrayAnimation type={"sliceA"} uniqueKey={(_item, index) => wsList[index].id}>
+						{wsList.map((el) => (
+							<TemplateWsCard isChose={isChosen(el)} wsInstance={el} onClick={choseWs} />
+						))}
+					</ArrayAnimation>
 				</div>
 			</Scroll.div>
 		</AtomPaperG>

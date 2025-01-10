@@ -1,9 +1,12 @@
 import { IComponent } from "./index";
+import { TImagesSize } from "../../0.Cores/Images";
 
 function MoleculeCardItemModel(props: IComponent) {
-	const { title, subTitle, click, image, isChose } = props;
+	const { title, subTitle, click, image, isChose, collapse } = props;
 
-	return { title, subTitle, click, image, isChose };
+	const imageSize: TImagesSize = 60;
+
+	return { title, subTitle, click, image, isChose, collapse, imageSize };
 }
 
 export default MoleculeCardItemModel;

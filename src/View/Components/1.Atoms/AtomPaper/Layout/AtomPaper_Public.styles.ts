@@ -7,6 +7,7 @@ class AtomPaper_PublicStyles extends Styles {
 		return {
 			borderRadius: this.variables.radiusStandard,
 			background: this.getColors(color || StylesInterface.EColor.PRIME_3),
+			transition: this.variables.fastTransition,
 		};
 	}
 

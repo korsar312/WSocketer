@@ -5,7 +5,7 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 class Text_PublicStyles extends Styles {
 	public wrapper: CSSObject = {
 		textAlign: "center",
-		transition: this.variables.transition,
+		transition: this.variables.fastTransition,
 		whiteSpace: "pre-line",
 	};
 

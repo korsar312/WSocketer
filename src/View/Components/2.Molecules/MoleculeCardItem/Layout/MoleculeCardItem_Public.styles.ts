@@ -1,12 +1,24 @@
 import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react";
+import { TImagesSize } from "../../../0.Cores/Images";
 
 class MoleculeCardItem_PublicStyles extends Styles {
-	public wrapper: CSSObject = {
+	private padding = 10;
+
+	public wrapper(imgSize: TImagesSize): CSSObject {
+		const isFull = typeof imgSize === "string";
+
+		return {
+			//width: `calc(${this.padding * 2}px + ${imgSize}${isFull ? "" : "px"})`,
+			overflow: "hidden",
+		};
+	}
+
+	public content: CSSObject = {
 		...this.mixins.flexVerCenter,
-		padding: 10,
+		padding: this.padding,
 		gap: 6,
-		width: 300,
+		maxWidth: 300,
 		height: 80,
 	};
 
