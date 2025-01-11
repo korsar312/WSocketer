@@ -17,14 +17,6 @@ function ChatPageModel(props: IComponent) {
 		return () => UseCases.interactor("webSocket", "setWsChoice");
 	}, []);
 
-	useEffect(() => {
-		console.log(111);
-	}, [wsInstance]);
-
-	useEffect(() => {
-		setTimeout(() => {}, 1000);
-	}, []);
-
 	const methods = { choseWs, isChosen, toggleShowCreateWs, createWs, getIdWs };
 	const isChose = Boolean(wsInstance);
 
@@ -54,7 +46,7 @@ function ChatPageModel(props: IComponent) {
 		setIsShowCreateWs(isShow || false);
 	}
 
-	return { wsList, wsInstance, isChose, methods };
+	return { wsList, wsInstance, isChose, methods, isShowCreateWs };
 }
 
 export default ChatPageModel;
