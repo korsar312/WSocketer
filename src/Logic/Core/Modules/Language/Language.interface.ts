@@ -15,6 +15,10 @@ export namespace LanguageInterface {
 	 * Список слов
 	 */
 	export enum EWord {
+		CREATE_WS = "CREATE_WS",
+		WS_NAME = "WS_NAME",
+		WS_LINK = "WS_LINK",
+		WS_DESC = "WS_DESC",
 		TEST_SERVER = "TEST_SERVER",
 		WSS = "WSS",
 		WS = "WS",
@@ -45,7 +49,8 @@ export namespace LanguageInterface {
 	};
 
 	export type TAllTranslateWord = keyof typeof allLanguageWord;
-	export type TAllWord = TAllTranslateWord | string | number | undefined | null;
+	export type TSomeWord = TAllTranslateWord | string | number;
+	export type TAllWord = TSomeWord | undefined | null;
 
 	/**
 	 * Список языков для словаря

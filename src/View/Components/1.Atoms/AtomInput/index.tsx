@@ -8,6 +8,7 @@ import { TDeepCSSObject } from "View/ViewUtils";
 export interface IComponent {
 	initText: TAtomInputText;
 	click?: () => void;
+	name?: string;
 	onChange?: (val: string) => void;
 	extStyle?: TDeepCSSObject;
 }

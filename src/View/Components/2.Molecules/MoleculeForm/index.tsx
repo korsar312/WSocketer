@@ -3,8 +3,8 @@ import Model from "./MoleculeForm.model";
 import View from "./Layout/MoleculeForm_Public";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TDeepCSSObject } from "../../../ViewUtils";
-import { IComponent as IDropdown } from "View/Components/1.Atoms/AtomDropdown/Variables/AtomDropdownForm";
-import { IComponent as IInput } from "View/Components/1.Atoms/AtomInput/Variables/AtomInputForm";
+import { IComponent as IDropdown } from "View/Components/1.Atoms/AtomDropdown/";
+import { IComponent as IInput } from "View/Components/1.Atoms/AtomInput";
 
 export type TMoleculeFormRow = {
 	value: TMoleculeFormField | TMoleculeFormRow[];
@@ -12,7 +12,6 @@ export type TMoleculeFormRow = {
 };
 
 export type TMoleculeFormField = {
-	name: string;
 	label?: string;
 	required?: boolean;
 } & (TTextField | TSelectField);
@@ -24,7 +23,7 @@ export enum EMoleculeFormField {
 
 type TTextField = {
 	type: EMoleculeFormField.TEXT;
-	options?: IInput;
+	options: IInput;
 };
 
 type TSelectField = {

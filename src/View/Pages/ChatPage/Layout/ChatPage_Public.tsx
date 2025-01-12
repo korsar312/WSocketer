@@ -7,9 +7,11 @@ import MoleculeCardItem from "../../../Components/2.Molecules/MoleculeCardItem";
 import Scroll from "../../../Components/0.Cores/Scroll";
 import ArrayAnimation from "../../../Components/0.Cores/ArrayAnimation";
 import TemplateWsCard from "../../../Components/4.Templates/TemplateWsCard";
+import TemplateModalCreateWs from "../../../Components/4.Templates/TemplateModalCreateWs";
+import { LanguageInterface } from "../../../../Logic/Core/Modules/Language/Language.interface";
 
 const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
-	const { wsList, wsInstance, isChose, methods } = props;
+	const { wsList, wsInstance, isChose, methods, isShowCreateWs } = props;
 	const { choseWs, isChosen, toggleShowCreateWs, createWs, getIdWs } = methods;
 
 	const choseSide = (
@@ -17,9 +19,8 @@ const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 			<Scroll.div>
 				<div css={styles.elem(isChose)}>
 					<MoleculeCardItem
-						// @ts-ignore
-						click={createWs}
-						title={"Создать соединение"}
+						click={() => toggleShowCreateWs(true)}
+						title={LanguageInterface.EWord.CREATE_WS}
 						subTitle={"hfgh"}
 						image={{ img: "IconAdd" }}
 						collapse={isChose}
@@ -43,6 +44,8 @@ const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 
 	return (
 		<div css={styles.wrapper}>
+			<TemplateModalCreateWs isShow={isShowCreateWs} />
+
 			{choseSide}
 			{chosenSide}
 		</div>

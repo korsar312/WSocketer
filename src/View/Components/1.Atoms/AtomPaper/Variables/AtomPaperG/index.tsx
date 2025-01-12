@@ -1,13 +1,13 @@
 import { FC } from "react";
-import Component, { IComponent as IPaper } from "../../index";
+import Component, { IComponent as IParent } from "../../index";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
-export interface IComponent extends Pick<IPaper, "children" | "onClick" | "extStyle"> {}
+export interface IComponent extends Pick<IParent, "children" | "onClick" | "extStyle"> {}
 
 const Index: FC<IComponent> = (props) => {
 	const {} = props;
 
-	const propsComponent: IPaper = {
+	const propsComponent: IParent = {
 		...props,
 		color: StylesInterface.EColor.PRIME_4,
 	};

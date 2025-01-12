@@ -1,6 +1,22 @@
 import { LanguageInterface } from "../../Core/Modules/Language/Language.interface";
 
 export const DictionaryList: LanguageInterface.TLanguage = {
+	CREATE_WS: {
+		EN: "Create WS",
+		RU: "Создать WS",
+	},
+	WS_NAME: {
+		EN: "Name WS",
+		RU: "Имя WS",
+	},
+	WS_LINK: {
+		EN: "Link WS",
+		RU: "Ссылка WS",
+	},
+	WS_DESC: {
+		EN: "Description WS",
+		RU: "Описание WS",
+	},
 	TEST_SERVER: {
 		EN: "insertServer.com",
 		RU: "insertServer.com",

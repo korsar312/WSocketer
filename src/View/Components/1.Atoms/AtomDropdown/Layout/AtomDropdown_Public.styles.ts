@@ -12,6 +12,8 @@ class AtomDropdown_PublicStyles extends Styles {
 			background: this.getColors(color),
 			padding: this.pad,
 			borderRadius: this.bRad,
+			outline: "none",
+			border: "none",
 		};
 	}
 

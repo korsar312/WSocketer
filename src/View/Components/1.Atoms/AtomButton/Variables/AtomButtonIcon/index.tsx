@@ -1,16 +1,16 @@
 import { FC } from "react";
-import Component, { IComponent as IButton } from "../../index";
+import Component, { IComponent as IParent } from "../../index";
 import { TImageComponent } from "View/Components/0.Cores/Images";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
-export interface IComponent extends Pick<IButton, "isDisable" | "click"> {
+export interface IComponent extends Pick<IParent, "isDisable" | "click"> {
 	icon: TImageComponent;
 }
 
 const Index: FC<IComponent> = (props) => {
 	const { icon } = props;
 
-	const propsComponent: IButton = {
+	const propsComponent: IParent = {
 		...props,
 		color: false,
 		icons: {

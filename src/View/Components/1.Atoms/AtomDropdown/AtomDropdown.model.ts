@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 function AtomDropdownModel(props: IComponent) {
-	const { options, onChange, style, color } = props;
+	const { options, onChange, style, color, name } = props;
 
 	const [isOpen, setIsOpen] = useState(false);
 	const [choice, setChoice] = useState(options[0]?.id);
@@ -63,7 +63,7 @@ function AtomDropdownModel(props: IComponent) {
 		setChoice(id);
 	}
 
-	return { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop };
+	return { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name };
 }
 
 export default AtomDropdownModel;

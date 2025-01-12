@@ -5,7 +5,7 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import UseCases from "Logic/Core/UseCases/UseCases";
 
 function AtomInputModel(props: IComponent) {
-	const { initText, click, onChange, extStyle } = props;
+	const { initText, click, onChange, extStyle, name } = props;
 
 	const [value, setValue] = useState(initText.text);
 
@@ -26,7 +26,7 @@ function AtomInputModel(props: IComponent) {
 		setValue(newValue);
 	}
 
-	return { textObj, handleClick, handleChange, text, extStyle };
+	return { textObj, handleClick, handleChange, text, extStyle, name };
 }
 
 export default AtomInputModel;

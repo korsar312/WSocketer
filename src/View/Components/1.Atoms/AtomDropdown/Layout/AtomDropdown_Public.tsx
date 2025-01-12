@@ -4,20 +4,18 @@ import { NFC } from "Logic/Libs/Util/TypesUtils";
 import Text from "View/Components/0.Cores/Text";
 import Images from "View/Components/0.Cores/Images";
 import { TAtomDropdownEl, TAtomDropdownGroup } from "../index";
-import Scroll from "View/Components/0.Cores/Scroll";
 import { FC } from "react";
-import BaseAnimation from "View/Components/0.Cores/BaseAnimation";
 
 const AtomDropdown_Public: NFC<typeof AtomDropdownModel> = (props) => {
-	const { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop } = props;
+	const { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name } = props;
 
 	function row(elementList: TAtomDropdownEl) {
 		return (
-			<div css={styles.element} onClick={() => handleClickElement(elementList.id)}>
+			<option value={elementList.value} css={styles.element} onClick={() => handleClickElement(elementList.id)}>
 				{elementList.iconLeft && rowElement(elementList.iconLeft, Images)}
 				{elementList.text && rowElement(elementList.text, Text)}
 				{elementList.iconRight && rowElement(elementList.iconRight, Images)}
-			</div>
+			</option>
 		);
 	}
 
@@ -32,21 +30,11 @@ const AtomDropdown_Public: NFC<typeof AtomDropdownModel> = (props) => {
 	}
 
 	return (
-		<div css={[styles.wrapper(colorMain), style?.drop]} onClick={handleClick}>
+		<select css={[styles.wrapper(colorMain), style?.drop]} onClick={handleClick} name={name}>
 			{row(titleMain)}
 
-			<BaseAnimation deps={isOpen}>
-				{isOpen && (
-					<Scroll.div extStyleScroll={styles.scrollCorrect} extStyle={[styles.variable(colorDrop), style?.drop]}>
-						{titleDrop.map((el) => (
-							<li key={el.id} css={styles.list}>
-								{row(el)}
-							</li>
-						))}
-					</Scroll.div>
-				)}
-			</BaseAnimation>
-		</div>
+			{titleDrop.map((el) => row(el))}
+		</select>
 	);
 };
 

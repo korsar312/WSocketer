@@ -5,9 +5,11 @@ import { IComponent as IText } from "View/Components/0.Cores/Text";
 import { IComponent as IImage } from "View/Components/0.Cores/Images";
 import { TDeepCSSObject } from "View/ViewUtils";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
+import { LanguageInterface } from "../../../../Logic/Core/Modules/Language/Language.interface";
 
 export interface IComponent {
 	options: TAtomDropdownEl[];
+	name?: string;
 	onChange?: (val: TAtomDropdownEl) => void;
 	color?: TGroupOpt<StylesInterface.TColorChoice>;
 	style?: TGroupOpt<TDeepCSSObject>;
@@ -15,6 +17,7 @@ export interface IComponent {
 
 export type TAtomDropdownEl = {
 	id: string | number;
+	value?: LanguageInterface.TSomeWord;
 	text?: TAtomDropdownGroup<IText[]>;
 	iconLeft?: TAtomDropdownGroup<IImage[]>;
 	iconRight?: TAtomDropdownGroup<IImage[]>;
