@@ -1,5 +1,5 @@
-import BaseAnimationModel from "../BaseAnimation.model";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
+import BaseAnimationModel from "../BaseAnimation.model";
 import { AnimatePresence, motion } from "framer-motion";
 
 const BaseAnimation_Public: NFC<typeof BaseAnimationModel> = (props) => {

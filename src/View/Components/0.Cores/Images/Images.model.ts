@@ -1,7 +1,7 @@
 import { IComponent } from "./index";
+import getImage from "./ImageList/ImageList";
 import { SyntheticEvent, useEffect, useState } from "react";
 import IconError from "Assets/Icons/icon-error.svg";
-import getImage from "./ImageList/ImageList";
 
 function ImagesModel(props: IComponent) {
 	const { img, color, extStyle, size } = props;

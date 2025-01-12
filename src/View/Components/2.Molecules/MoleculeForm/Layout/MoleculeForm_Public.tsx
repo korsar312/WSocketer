@@ -1,13 +1,15 @@
 import { NFC } from "Logic/Libs/Util/TypesUtils";
-import MoleculeFormModel from "../MoleculeForm.model";
-import AtomPaper from "View/Components/1.Atoms/AtomPaper";
 import { EMoleculeFormField, TMoleculeFormField, TMoleculeFormRow } from "../index";
 import { TDeepCSSObject } from "View/ViewUtils";
 import { ReactElement } from "react";
-import styles from "./MoleculeForm_Public.styles";
+import MoleculeFormModel from "../MoleculeForm.model";
+import AtomPaper from "View/Components/1.Atoms/AtomPaper";
 import AtomDropdown from "View/Components/1.Atoms/AtomDropdown/";
 import AtomInput from "View/Components/1.Atoms/AtomInput/";
 import AtomButtonForm from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonForm";
+
+import styles from "./MoleculeForm_Public.styles";
+
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 const MoleculeForm_Public: NFC<typeof MoleculeFormModel> = (props) => {
