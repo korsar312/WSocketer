@@ -1,7 +1,7 @@
 import { IComponent } from "./index";
-import UseCases from "../../../../Logic/Core/UseCases/UseCases";
-import { TImageComponent } from "../../0.Cores/Images";
-import { WebSocketInterfaces } from "../../../../Logic/Core/Modules/WebSocket/WebSocket.interfaces";
+import UseCases from "Logic/Core/UseCases/UseCases";
+import { TImageComponent } from "View/Components/0.Cores/Images";
+import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.interfaces";
 import { useEffect } from "react";
 
 function WidgetWsInstanceModel(props: IComponent) {

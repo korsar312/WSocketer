@@ -1,5 +1,5 @@
 import { IComponent } from "./index";
-import { TImagesSize } from "../../0.Cores/Images";
+import { TImagesSize } from "View/Components/0.Cores/Images";
 
 function MoleculeCardItemModel(props: IComponent) {
 	const { title, subTitle, click, image, isChose, collapse } = props;

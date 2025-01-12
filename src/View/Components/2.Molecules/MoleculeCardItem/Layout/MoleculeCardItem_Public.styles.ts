@@ -1,6 +1,6 @@
 import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react";
-import { TImagesSize } from "../../../0.Cores/Images";
+import { TImagesSize } from "View/Components/0.Cores/Images";
 
 class MoleculeCardItem_PublicStyles extends Styles {
 	private padding = 10;

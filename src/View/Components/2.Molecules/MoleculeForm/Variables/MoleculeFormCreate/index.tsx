@@ -10,12 +10,20 @@ export interface IComponent {
 	nameLabel: LanguageInterface.EWord;
 	midLabel: LanguageInterface.EWord;
 	descLabel: LanguageInterface.EWord;
+	submit: (val: TMoleculeFormCreateForm) => void;
 }
+
+export type TMoleculeFormCreateForm = {
+	topText: string;
+	midText: string;
+	botText: string;
+	drop: LanguageInterface.TSomeWord;
+};
 
 const { EFont } = StylesInterface;
 
 const Index: FC<IComponent> = (props) => {
-	const { nameLabel, dropVars, midLabel, descLabel } = props;
+	const { nameLabel, dropVars, midLabel, descLabel, submit } = props;
 
 	const textEl: TAtomInputText = { text: "", font: EFont.Mont_B_22 };
 
@@ -43,6 +51,8 @@ const Index: FC<IComponent> = (props) => {
 				{ value: { type: EMoleculeFormField.TEXT, options: botTextOptions } },
 			],
 		},
+		onSubmit: (val) => submit(val as TMoleculeFormCreateForm),
+		buttonList: [{ text: LanguageInterface.EWord.CREATE_WS }],
 	};
 
 	return <Component {...propsComponent} />;

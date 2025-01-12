@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Model from "./MoleculeCardItem.model";
 import View from "./Layout/MoleculeCardItem_Public";
-import { IComponent as IImage } from "../../0.Cores/Images";
+import { IComponent as IImage } from "View/Components/0.Cores/Images";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 
 export interface IComponent {

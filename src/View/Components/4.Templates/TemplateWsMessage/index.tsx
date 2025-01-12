@@ -4,7 +4,7 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.interfaces";
 import UseCases from "Logic/Core/UseCases/UseCases";
 import { observer } from "mobx-react";
-import { EMoleculeTextBubbleTextVar, TMoleculeTextBubbleText } from "../../2.Molecules/MoleculeTextBubble";
+import { EMoleculeTextBubbleTextVar, TMoleculeTextBubbleText } from "View/Components/2.Molecules/MoleculeTextBubble";
 
 export interface IComponent {
 	wsInstance?: WebSocketInterfaces.TWebSocket;

@@ -2,6 +2,7 @@ import { IComponent } from "./index";
 import UseCases from "Logic/Core/UseCases/UseCases";
 import { useEffect, useState } from "react";
 import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.interfaces";
+import { TMoleculeFormCreateForm } from "View/Components/2.Molecules/MoleculeForm/Variables/MoleculeFormCreate";
 
 type TCreateWs = Pick<WebSocketInterfaces.TWebSocket, "name" | "link" | "protocol" | "desc">;
 
@@ -17,15 +18,24 @@ function ChatPageModel(props: IComponent) {
 		return () => UseCases.interactor("webSocket", "setWsChoice");
 	}, []);
 
-	const methods = { choseWs, isChosen, toggleShowCreateWs, createWs, getIdWs };
+	const methods = { choseWs, isChosen, toggleShowCreateWs, facadeCreateWs, getIdWs };
 	const isChose = Boolean(wsInstance);
 
-	function createWs(props: TCreateWs) {
-		props.name = "czx";
-		props.desc = "fhg";
-		props.link = "192.168.0.109" + ":5010/WS_Server";
-		props.protocol = WebSocketInterfaces.EProtocol.ws;
+	function adapterForm(props: TMoleculeFormCreateForm): TCreateWs {
+		return {
+			name: props.topText,
+			desc: props.botText,
+			link: props.midText,
+			protocol: props.drop as WebSocketInterfaces.EProtocol,
+		};
+	}
 
+	function facadeCreateWs(props: TMoleculeFormCreateForm) {
+		setIsShowCreateWs(false);
+		createWs(adapterForm(props));
+	}
+
+	function createWs(props: TCreateWs) {
 		const ws = UseCases.interactor("webSocket", "createNewWs", props.name, props.link, props.protocol, props.desc);
 		choseWs(ws);
 	}

@@ -1,10 +1,10 @@
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 import MoleculeCardItemModel from "../MoleculeCardItem.model";
 import styles from "./MoleculeCardItem_Public.styles";
-import Images from "../../../0.Cores/Images";
-import Text from "../../../0.Cores/Text";
+import Images from "View/Components/0.Cores/Images";
+import Text from "View/Components/0.Cores/Text";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
-import AtomPaper from "../../../1.Atoms/AtomPaper";
+import AtomPaper from "View/Components/1.Atoms/AtomPaper";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 
 const color = StylesInterface.EColor;
