@@ -7,6 +7,9 @@ import { ReactElement } from "react";
 import styles from "./MoleculeForm_Public.styles";
 import AtomDropdown from "../../../1.Atoms/AtomDropdown/";
 import AtomInput from "../../../1.Atoms/AtomInput/";
+import AtomButtonForm from "../../../1.Atoms/AtomButton/Variables/AtomButtonForm";
+import { LanguageInterface } from "../../../../../Logic/Core/Modules/Language/Language.interface";
+import { StylesInterface } from "../../../../../Logic/Core/Modules/Styles/Styles.interface";
 
 const MoleculeForm_Public: NFC<typeof MoleculeFormModel> = (props) => {
 	const { schema, extStyle, color, handleSubmit } = props;
@@ -32,13 +35,15 @@ const MoleculeForm_Public: NFC<typeof MoleculeFormModel> = (props) => {
 	}
 
 	return (
-		<AtomPaper color={color}>
-			<form onSubmit={handleSubmit} css={[styles.wrapper, extStyle]}>
+		<form onSubmit={handleSubmit}>
+			<AtomPaper extStyle={[styles.form, extStyle]} color={color}>
 				{typeChoice(schema)}
+			</AtomPaper>
 
-				<button type="submit">Отправить</button>
-			</form>
-		</AtomPaper>
+			<AtomPaper extStyle={styles.bottom} color={StylesInterface.EColor.SECOND_4}>
+				<AtomButtonForm text={LanguageInterface.EWord.CREATE_WS} />
+			</AtomPaper>
+		</form>
 	);
 };
 

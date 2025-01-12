@@ -1,5 +1,5 @@
 import { IComponent } from "./index";
-import { StylesInterface } from "../../../../Logic/Core/Modules/Styles/Styles.interface";
+import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { FormEvent } from "react";
 
 function MoleculeFormModel(props: IComponent) {

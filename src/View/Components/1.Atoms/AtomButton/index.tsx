@@ -6,7 +6,7 @@ import { IComponent as IImage } from "View/Components/0.Cores/Images";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TDeepCSSObject } from "View/ViewUtils";
 
-export interface IComponent {
+export interface IComponent extends Partial<Pick<HTMLButtonElement, "type">> {
 	textVars?: TAtomButtonText;
 	color: StylesInterface.TColorChoice;
 	isDisable?: boolean;
