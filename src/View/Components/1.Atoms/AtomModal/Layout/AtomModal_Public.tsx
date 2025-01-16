@@ -6,7 +6,7 @@ const AtomModal_Public: NFC<typeof AtomModalModel> = (props) => {
 	const { children, refDialog, close, isShow } = props;
 
 	return (
-		<dialog ref={refDialog} onCancel={close} css={styles.wrapper}>
+		<dialog ref={refDialog} css={styles.wrapper}>
 			{children}
 		</dialog>
 	);

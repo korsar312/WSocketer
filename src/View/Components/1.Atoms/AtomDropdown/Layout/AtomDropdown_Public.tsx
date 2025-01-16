@@ -5,19 +5,10 @@ import Text from "View/Components/0.Cores/Text";
 import Images from "View/Components/0.Cores/Images";
 import { TAtomDropdownEl, TAtomDropdownGroup } from "../index";
 import { FC } from "react";
+import Scroll from "../../../0.Cores/Scroll";
 
 const AtomDropdown_Public: NFC<typeof AtomDropdownModel> = (props) => {
 	const { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name } = props;
-
-	function row(elementList: TAtomDropdownEl) {
-		return (
-			<option value={elementList.value} css={styles.element} onClick={() => handleClickElement(elementList.id)}>
-				{elementList.iconLeft && rowElement(elementList.iconLeft, Images)}
-				{elementList.text && rowElement(elementList.text, Text)}
-				{elementList.iconRight && rowElement(elementList.iconRight, Images)}
-			</option>
-		);
-	}
 
 	function rowElement<T>(ads: TAtomDropdownGroup<Array<T>>, El: FC<TAtomDropdownGroup<Array<T>>["value"][number]>) {
 		return (
@@ -29,12 +20,26 @@ const AtomDropdown_Public: NFC<typeof AtomDropdownModel> = (props) => {
 		);
 	}
 
-	return (
-		<select css={[styles.wrapper(colorMain), style?.drop]} onClick={handleClick} name={name}>
-			{row(titleMain)}
+	function row(elementList: TAtomDropdownEl) {
+		return (
+			<div key={elementList.id} css={styles.element} onClick={() => handleClickElement(elementList.id)}>
+				{elementList.iconLeft && rowElement(elementList.iconLeft, Images)}
+				{elementList.text && rowElement(elementList.text, Text)}
+				{elementList.iconRight && rowElement(elementList.iconRight, Images)}
+			</div>
+		);
+	}
 
-			{titleDrop.map((el) => row(el))}
-		</select>
+	return (
+		<div css={[styles.wrapper(colorMain), style?.drop]} onClick={handleClick}>
+			<Scroll.div>{row(titleMain)}</Scroll.div>
+
+			<div css={styles.listWrap}>
+				<Scroll.div extStyle={[styles.dropWrap, isOpen && styles.openDrop]}>
+					<div css={styles.drop(colorDrop)}>{titleDrop.map((el) => row(el))}</div>
+				</Scroll.div>
+			</div>
+		</div>
 	);
 };
 

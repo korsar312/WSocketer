@@ -19,6 +19,7 @@ class AtomModal_PublicStyles extends Styles {
 	private closeAnim = `${this.close} ${this.timeAnim} forwards`;
 
 	public wrapper: CSSObject = {
+		overflow: "visible",
 		background: "none",
 		border: "none",
 		outline: "none",
