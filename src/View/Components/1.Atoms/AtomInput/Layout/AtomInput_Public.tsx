@@ -9,7 +9,7 @@ const AtomInput_Public: NFC<typeof AtomInputModel> = (props) => {
 		<input
 			name={name}
 			defaultValue={String(text)}
-			css={[styles.wrapper(textObj.font), styles.text(textObj), extStyle]}
+			css={[styles.wrapper, styles.text(textObj), extStyle]}
 			onClick={handleClick}
 			onInput={handleChange}
 		/>

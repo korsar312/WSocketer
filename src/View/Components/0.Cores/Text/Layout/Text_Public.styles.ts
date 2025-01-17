@@ -19,8 +19,8 @@ class Text_PublicStyles extends Styles {
 		};
 	}
 
-	public font(font: StylesInterface.EFont) {
-		return { ...this.getFonts(font) };
+	public font(font?: StylesInterface.EFont) {
+		return { ...this.getFonts(font || StylesInterface.EFont.Mont_B_10) };
 	}
 }
 

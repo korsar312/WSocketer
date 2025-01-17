@@ -21,7 +21,6 @@ const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 					<MoleculeCardItem
 						click={() => toggleShowCreateWs(true)}
 						title={LanguageInterface.EWord.CREATE_WS}
-						subTitle={"hfgh"}
 						image={{ img: "IconAdd" }}
 						collapse={isChose}
 					/>

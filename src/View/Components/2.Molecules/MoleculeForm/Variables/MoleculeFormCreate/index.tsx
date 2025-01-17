@@ -2,8 +2,10 @@ import { FC } from "react";
 import Component, { EMoleculeFormField, IComponent as IParent } from "../../index";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
-import { IComponent as IInput, TAtomInputText } from "View/Components/1.Atoms/AtomInput";
-import { IComponent as IDropdown, TAtomDropdownEl } from "View/Components/1.Atoms/AtomDropdown/";
+import { IComponent as IInput } from "View/Components/1.Atoms/AtomInput/Variables/AtomInputForm";
+import { IComponent as IDropdown } from "View/Components/1.Atoms/AtomDropdown/Variables/AtomDropdownForm";
+import { TAtomInputText } from "View/Components/1.Atoms/AtomInput";
+import { TAtomDropdownEl } from "View/Components/1.Atoms/AtomDropdown";
 
 export interface IComponent {
 	dropVars: LanguageInterface.TSomeWord[];
@@ -25,7 +27,7 @@ const { EFont } = StylesInterface;
 const Index: FC<IComponent> = (props) => {
 	const { nameLabel, dropVars, midLabel, descLabel, submit } = props;
 
-	const textEl: TAtomInputText = { text: "", font: EFont.Mont_B_22 };
+	const textEl: TAtomInputText = { text: "" };
 
 	const topTextOptions: IInput = { initText: textEl, name: "topText" };
 	const midTextOptions: IInput = { initText: textEl, name: "midText" };
@@ -33,19 +35,23 @@ const Index: FC<IComponent> = (props) => {
 	const dropOptions: IDropdown = { name: "drop", options: dropVars.map(dropEl) };
 
 	function dropEl(value: LanguageInterface.TSomeWord): TAtomDropdownEl {
-		return { id: value, value, text: { value: [{ text: value, font: EFont.Mont_S_22 }] } };
+		return { id: value, value, text: { value: [{ text: value }] } };
 	}
 
 	const propsComponent: IParent = {
 		...props,
 		schema: {
+			extStyle: { display: "flex", flexDirection: "column", gap: 12, width: 400 },
 			value: [
 				{ value: { type: EMoleculeFormField.TEXT, options: topTextOptions } },
 				{
-					extStyle: { display: "flex", gap: 6 },
+					extStyle: { display: "flex", alignItems: "center", gap: 12 },
 					value: [
 						{ value: { type: EMoleculeFormField.SELECT, options: dropOptions } },
-						{ value: { type: EMoleculeFormField.TEXT, options: midTextOptions } },
+						{
+							extStyle: { flex: 1 },
+							value: { type: EMoleculeFormField.TEXT, options: midTextOptions },
+						},
 					],
 				},
 				{ value: { type: EMoleculeFormField.TEXT, options: botTextOptions } },

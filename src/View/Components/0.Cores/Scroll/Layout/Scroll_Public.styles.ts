@@ -2,7 +2,7 @@ import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react";
 
 class Scroll_PublicStyles extends Styles {
-	private scrollSize = 4;
+	private scrollSize = this.variables.scrollSize;
 	private scrollPad = 6;
 
 	public scroll(isHiddenScroll?: boolean): CSSObject {

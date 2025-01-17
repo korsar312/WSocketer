@@ -20,7 +20,7 @@ const MoleculeCardItem_Public: NFC<typeof MoleculeCardItemModel> = (props) => {
 	);
 
 	function textFn(text: LanguageInterface.TAllWord, font: StylesInterface.EFont, color: StylesInterface.EColor) {
-		return <Text pos={"left"} text={text} font={font} color={color} />;
+		return text && <Text pos={"left"} text={text} font={font} color={color} />;
 	}
 
 	return (

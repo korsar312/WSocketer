@@ -10,7 +10,7 @@ import { TDeepCSSObject } from "View/ViewUtils";
  */
 export interface IComponent {
 	text: LanguageInterface.TAllWord;
-	font: StylesInterface.EFont;
+	font?: StylesInterface.EFont;
 	caseWord?: LanguageInterface.TTextCaseWord;
 	color?: StylesInterface.TColorChoice;
 	opacity?: number;

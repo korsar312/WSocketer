@@ -15,7 +15,7 @@ export interface IComponent {
 
 export type TAtomInputText = {
 	text: LanguageInterface.TAllWord;
-	font: StylesInterface.EFont;
+	font?: StylesInterface.EFont;
 	color?: StylesInterface.TColorChoice;
 };
 

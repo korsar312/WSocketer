@@ -6,7 +6,7 @@ import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interfac
 
 export interface IComponent {
 	title: LanguageInterface.TAllWord;
-	subTitle: LanguageInterface.TAllWord;
+	subTitle?: LanguageInterface.TAllWord;
 	image: IImage;
 	click?: () => void;
 	isChose?: boolean;

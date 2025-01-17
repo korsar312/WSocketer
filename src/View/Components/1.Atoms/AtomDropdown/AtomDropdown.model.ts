@@ -6,27 +6,29 @@ function AtomDropdownModel(props: IComponent) {
 	const { options, onChange, style, color, name } = props;
 
 	const [isOpen, setIsOpen] = useState(false);
-	const [choice, setChoice] = useState(options[0]?.id);
+	const [choice, setChoice] = useState(options[0]);
 
 	const colorMain = color?.main || StylesInterface.EColor.SECOND_3;
 	const colorDrop = color?.drop || StylesInterface.EColor.SECOND_3;
 
-	const titleObj = getElement(choice);
-	const variablesObj = options.filter((el) => el.id !== titleObj.id);
+	const variablesObj = options.filter((el) => el.id !== choice.id);
 
-	const titleMain: TAtomDropdownEl = changeOptions(titleObj, colorMain);
+	const titleMain: TAtomDropdownEl = changeOptions(choice, colorMain);
 	const titleDrop: TAtomDropdownEl[] = variablesObj.map((el) => changeOptions(el, colorDrop));
 
 	useEffect(() => {
 		handleChoiceChange();
 	}, [choice]);
 
-	function changeOptions(val: TAtomDropdownEl, mainColor: StylesInterface.TColorChoice) {
+	function changeOptions(val: TAtomDropdownEl, mainColor: StylesInterface.TColorChoice): TAtomDropdownEl {
 		return {
 			...val,
 			text: val.text && {
-				...val.text,
-				value: val.text.value.map((el) => ({ ...el, color: el.color ?? choiceColor(mainColor) })),
+				value: val.text.value.map((el) => ({
+					...el,
+					color: el.color ?? choiceColor(mainColor),
+					extStyle: { ...el.extStyle, textWrap: "nowrap" },
+				})),
 			},
 			iconRight: val.iconRight && {
 				...val.iconRight,
@@ -48,7 +50,7 @@ function AtomDropdownModel(props: IComponent) {
 	}
 
 	function handleChoiceChange() {
-		onChange?.(titleObj);
+		onChange?.(choice);
 	}
 
 	function getElement(id: string | number): TAtomDropdownEl {
@@ -60,10 +62,10 @@ function AtomDropdownModel(props: IComponent) {
 	}
 
 	function handleClickElement(id: string | number) {
-		setChoice(id);
+		setChoice(getElement(id));
 	}
 
-	return { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name };
+	return { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name, choice };
 }
 
 export default AtomDropdownModel;

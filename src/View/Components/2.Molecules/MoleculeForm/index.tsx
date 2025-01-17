@@ -3,8 +3,8 @@ import Model from "./MoleculeForm.model";
 import View from "./Layout/MoleculeForm_Public";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TDeepCSSObject } from "View/ViewUtils";
-import { IComponent as IDropdown } from "View/Components/1.Atoms/AtomDropdown/";
-import { IComponent as IInput } from "View/Components/1.Atoms/AtomInput";
+import { IComponent as IDropdown } from "View/Components/1.Atoms/AtomDropdown/Variables/AtomDropdownForm";
+import { IComponent as IInput } from "View/Components/1.Atoms/AtomInput/Variables/AtomInputForm";
 import { IComponent as IButton } from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonForm";
 
 export interface IComponent {
