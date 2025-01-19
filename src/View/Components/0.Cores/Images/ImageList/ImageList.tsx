@@ -15,6 +15,7 @@ import IconBlock from "@material-icons/svg/svg/block/outline.svg?react";
 import IconAdd from "@material-icons/svg/svg/add/outline.svg?react";
 import IconPlay from "@material-icons/svg/svg/play_arrow/outline.svg?react";
 import IconPending from "@material-icons/svg/svg/pending/outline.svg?react";
+import IconSend from "@material-icons/svg/svg/send/outline.svg?react";
 
 type TIcons = Record<string, FunctionComponent<SVGProps<SVGSVGElement>>>;
 
@@ -33,6 +34,7 @@ const icons = {
 	IconAdd,
 	IconPlay,
 	IconPending,
+	IconSend,
 } satisfies TIcons;
 
 const Images = {

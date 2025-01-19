@@ -1,9 +1,9 @@
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 import ChatPageModel from "../WidgetWsInstance.model";
-import MoleculeInputControl from "View/Components/2.Molecules/MoleculeInputControl";
 import styles from "./WidgetWsInstance_Public.styles";
 import TemplateWsMessage from "View/Components/4.Templates/TemplateWsMessage";
 import TemplateLinkControl from "View/Components/4.Templates/TemplateLinkControl";
+import TemplateSendMessage from "View/Components/4.Templates/TemplateSendMessage";
 
 const WidgetWsInstance_Public: NFC<typeof ChatPageModel> = (props) => {
 	const { wsInstance } = props;
@@ -16,7 +16,7 @@ const WidgetWsInstance_Public: NFC<typeof ChatPageModel> = (props) => {
 				<TemplateWsMessage wsInstance={wsInstance} />
 			</div>
 
-			<MoleculeInputControl leftBtn={{ icon: "IconTune" }} rightBtn={{ icon: "IconTune" }} />
+			<TemplateSendMessage wsInstance={wsInstance} />
 		</div>
 	);
 };

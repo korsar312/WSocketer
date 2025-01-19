@@ -3,7 +3,7 @@ import Component, { IComponent as IParent } from "../../index";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
-export interface IComponent extends Pick<IParent, "onChange"> {
+export interface IComponent extends Pick<IParent, "onChange" | "defaultValue"> {
 	text: LanguageInterface.TSomeWord[];
 }
 

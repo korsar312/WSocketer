@@ -13,6 +13,7 @@ export interface IComponent {
 	onChange?: (val: TAtomDropdownEl) => void;
 	color?: TGroupOpt<StylesInterface.TColorChoice>;
 	style?: TGroupOpt<TDeepCSSObject>;
+	defaultValue?: string;
 }
 
 export type TAtomDropdownEl = {

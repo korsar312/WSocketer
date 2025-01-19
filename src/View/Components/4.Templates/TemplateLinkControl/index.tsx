@@ -12,16 +12,20 @@ export interface IComponent {
 const Index: FC<IComponent> = (props) => {
 	const { wsInstance } = props;
 
+	const protocols = UseCases.interactor("webSocket", "getAllProtocolsConnect");
+	const curProtocol = UseCases.interactor("webSocket", "getWSProtocol", wsInstance);
 	const wsStatusConnect = UseCases.interactor("webSocket", "getStatus", wsInstance);
-	const protocol = UseCases.interactor("webSocket", "getAllProtocolsConnect");
+	const wsLink = UseCases.interactor("webSocket", "getWSLink", wsInstance);
+	const id = UseCases.interactor("webSocket", "getId", wsInstance);
 
 	const wsStatusIcon = imageChoice(wsStatusConnect);
 	const isOpenImpossibly = wsStatusConnect !== WebSocketInterfaces.EStateWS.CLOSED;
 
 	const propsComponent: ISubstances = {
 		leftBtn: { icon: "IconTune" },
+		drop: { text: protocols, defaultValue: curProtocol },
+		input: { text: wsLink },
 		rightBtn: { icon: wsStatusIcon, click: openConnect, isDisable: isOpenImpossibly },
-		drop: { text: protocol },
 	};
 
 	function imageChoice(status: WebSocketInterfaces.EStateWS): TImageComponent {
@@ -39,7 +43,7 @@ const Index: FC<IComponent> = (props) => {
 		UseCases.interactor("webSocket", "openConnection", wsInstance);
 	}
 
-	return <Substance {...propsComponent} />;
+	return <Substance key={id} {...propsComponent} />;
 };
 
 export default observer(Index);

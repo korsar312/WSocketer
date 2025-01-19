@@ -9,6 +9,11 @@ class MoleculeInputControl_PublicStyles extends Styles {
 		height: 70,
 		boxSizing: "border-box",
 	};
+
+	public element: CSSObject = {
+		...this.mixins.flexGorCenter,
+		flex: 1,
+	};
 }
 
 export default new MoleculeInputControl_PublicStyles();

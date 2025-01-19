@@ -1,24 +1,16 @@
-import { IComponent, IMoleculeInputControlBtn, IMoleculeInputControlDrop } from "./index";
-import { IComponent as IBtn } from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonIcon";
-import { IComponent as IDrop } from "View/Components/1.Atoms/AtomDropdown/Variables/AtomDropdownMain";
+import { IComponent } from "./index";
+import Util from "../../../../Logic/Libs/Util";
 
 function MoleculeInputControlModel(props: IComponent) {
-	const { leftBtn, rightBtn, drop } = props;
+	const { leftBtn, rightBtn, drop, input } = props;
 
-	const [leftBtnNorm, rightBtnNorm, centerDropNorm] = [btnNorm(leftBtn), btnNorm(rightBtn), dropNorm(drop)];
+	const normalize = Util.toArray;
+	const [leftBtnNorm, rightBtnNorm, dropNorm, inputNorm] = [normalize(leftBtn), normalize(rightBtn), normalize(drop), normalize(input)];
 
 	const isLeftLint = Boolean(leftBtnNorm?.length);
-	const isRightLint = Boolean(rightBtnNorm?.length);
+	const isRightLint = Boolean(rightBtnNorm?.length && dropNorm?.length && inputNorm?.length);
 
-	function btnNorm(btn?: IMoleculeInputControlBtn): IBtn[] | undefined {
-		return btn && (Array.isArray(btn) ? btn : [btn]);
-	}
-
-	function dropNorm(drop?: IMoleculeInputControlDrop): IDrop[] | undefined {
-		return drop && (Array.isArray(drop) ? drop : [drop]);
-	}
-
-	return { leftBtnNorm, rightBtnNorm, centerDropNorm, isLeftLint, isRightLint };
+	return { leftBtnNorm, rightBtnNorm, dropNorm, inputNorm, isLeftLint, isRightLint };
 }
 
 export default MoleculeInputControlModel;

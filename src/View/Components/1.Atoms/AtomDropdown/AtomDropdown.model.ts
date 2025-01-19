@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 function AtomDropdownModel(props: IComponent) {
-	const { options, onChange, style, color, name } = props;
+	const { options, onChange, style, color, name, defaultValue } = props;
 
 	const [isOpen, setIsOpen] = useState(false);
-	const [choice, setChoice] = useState(options[0]);
+	const [choice, setChoice] = useState(getElement(defaultValue));
 	const dropdownRef = useRef<HTMLDivElement>(null);
 
 	const colorMain = color?.main || StylesInterface.EColor.SECOND_3;
@@ -71,8 +71,8 @@ function AtomDropdownModel(props: IComponent) {
 		onChange?.(choice);
 	}
 
-	function getElement(id: string | number): TAtomDropdownEl {
-		return options.find((el) => el.id === id) || { id };
+	function getElement(id?: string | number): TAtomDropdownEl {
+		return options.find((el) => el.id === id) || options[0];
 	}
 
 	function handleClickElement(id: string | number) {
