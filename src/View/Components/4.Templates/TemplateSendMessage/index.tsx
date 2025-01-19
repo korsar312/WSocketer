@@ -13,6 +13,7 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: ISubstances = {
 		leftBtn: { icon: "IconTune" },
+		inputArea: { text: "" },
 		rightBtn: { icon: "IconSend", click: openConnect },
 	};
 

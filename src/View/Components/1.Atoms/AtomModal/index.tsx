@@ -1,8 +1,9 @@
-import { FC, HTMLAttributes, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import Model from "./AtomModal.model";
 import View from "./Layout/AtomModal_Public";
+import { TTagPartial } from "../../../ViewUtils";
 
-export interface IComponent extends Pick<HTMLAttributes<HTMLDivElement>, "onClick"> {
+export interface IComponent extends TTagPartial<HTMLDivElement, "onClick"> {
 	children: ReactNode;
 	isShow: boolean;
 }

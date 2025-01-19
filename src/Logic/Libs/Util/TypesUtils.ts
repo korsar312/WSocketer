@@ -12,4 +12,11 @@ export namespace typesUtils {
 		[index: number]: RecursiveArray<type> | type;
 		length: number;
 	};
+
+	/**
+	 * Необходимо только 1 из нескольких свойств
+	 */
+	export type ExclusiveKeys<T> = {
+		[K in keyof T]: { [P in K]: T[K] } & Partial<Record<Exclude<keyof T, K>, never>>;
+	}[keyof T];
 }

@@ -7,9 +7,10 @@ import AtomInputFull from "View/Components/1.Atoms/AtomInput/Variables/AtomInput
 import AtomLineVW from "View/Components/1.Atoms/AtomLine/Variables/AtomLineVW";
 import AtomPaperB from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperB";
 import { ReactNode } from "react";
+import AtomInputArea from "../../../1.Atoms/AtomInput/Variables/AtomInputArea";
 
 const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (props) => {
-	const { leftBtnNorm, rightBtnNorm, dropNorm, inputNorm, isLeftLint, isRightLint } = props;
+	const { leftBtnNorm, rightBtnNorm, inputAreaNorm, inputNorm, dropNorm, isLeftLint, isRightLint } = props;
 
 	function elementRender(child: ReactNode) {
 		return <div css={styles.element}>{child}</div>;
@@ -23,6 +24,7 @@ const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (prop
 
 			{dropNorm && elementRender(dropNorm?.map((el) => <AtomDropdownMain key={el.text[0]} {...el} />))}
 			{inputNorm?.map((el) => <AtomInputFull key={el.text} {...el} />)}
+			{inputAreaNorm?.map((el) => <AtomInputArea key={el.text} {...el} />)}
 
 			{isRightLint && <AtomLineVW />}
 
