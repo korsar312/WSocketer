@@ -15,6 +15,7 @@ import { GetDesc } from "./Methods/GetDesc/GetDesc";
 import { GetStatus } from "./Methods/GetStatus/GetStatus";
 import { GetWsChoice } from "./Methods/GetWsChoice/GetWsChoice";
 import { SetWsChoice } from "./Methods/SetWsChoice/SetWsChoice";
+import { GetAllProtocolsConnect } from "./Methods/GetAllProtocolsConnect/GetAllProtocolsConnect";
 
 export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	constructor() {
@@ -23,6 +24,7 @@ export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 
 	public createNewWs = CreateNewWs.execute(this.module);
 	public openConnection = OpenConnection.execute(this.module);
+	public getAllProtocolsConnect = GetAllProtocolsConnect.execute(this.module);
 	public getWsList = GetWsList.execute(this.module);
 	public getWsChoice = GetWsChoice.execute(this.module);
 	public setWsChoice = SetWsChoice.execute(this.module);

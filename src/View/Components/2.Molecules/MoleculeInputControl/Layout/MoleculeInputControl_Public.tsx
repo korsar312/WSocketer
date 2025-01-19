@@ -9,24 +9,20 @@ import AtomLineVW from "View/Components/1.Atoms/AtomLine/Variables/AtomLineVW";
 import AtomPaperB from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperB";
 
 const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (props) => {
-	const { leftBtnNorm, rightBtnNorm } = props;
+	const { leftBtnNorm, rightBtnNorm, centerDropNorm, isLeftLint, isRightLint } = props;
 
 	return (
-		<AtomPaperB>
-			<div css={[styles.wrapper, styles.pub.pd8]}>
-				{leftBtnNorm.map((el) => (
-					<AtomButtonIcon key={el.icon} {...el} />
-				))}
+		<AtomPaperB extStyle={[styles.wrapper, styles.pub.pd8]}>
+			{leftBtnNorm?.map((el) => <AtomButtonIcon key={el.icon} {...el} />)}
 
-				<AtomLineVW />
-				<AtomDropdownMain text={[LanguageInterface.EWord.WS, LanguageInterface.EWord.WSS]} />
-				<AtomInputFull text={LanguageInterface.EWord.TEST_SERVER} />
-				<AtomLineVW />
+			{isLeftLint && <AtomLineVW />}
 
-				{rightBtnNorm.map((el) => (
-					<AtomButtonIcon key={el.icon} {...el} />
-				))}
-			</div>
+			{centerDropNorm?.map((el) => <AtomDropdownMain key={el.text[0]} {...el} />)}
+			<AtomInputFull text={LanguageInterface.EWord.TEST_SERVER} />
+
+			{isRightLint && <AtomLineVW />}
+
+			{rightBtnNorm?.map((el) => <AtomButtonIcon key={el.icon} {...el} />)}
 		</AtomPaperB>
 	);
 };

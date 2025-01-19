@@ -11,9 +11,11 @@ import { GetWSMessageState } from "./Methods/GetWSMessageState/GetWSMessageState
 import { IsMessageReceive } from "./Methods/IsMessageReceive/IsMessageReceive";
 import { GetWsMessage } from "./Methods/GetWsMessage/GetWsMessage";
 import { SetWsChoice } from "./Methods/SetWsChoice/SetWsChoice";
+import { GetAllProtocolsConnect } from "./Methods/GetAllProtocolsConnect/GetAllProtocolsConnect";
 
 export class WebSocketDomain extends DomainBase {
 	public createNewMessage = CreateNewMessage.execute();
+	public getAllProtocolsConnect = GetAllProtocolsConnect.execute();
 	public createNewWS = CreateNewWS.execute();
 	public getMessages = GetMessages.execute();
 	public getWsMessage = GetWsMessage.execute();

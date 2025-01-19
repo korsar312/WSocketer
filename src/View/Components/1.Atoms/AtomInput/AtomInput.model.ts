@@ -4,7 +4,7 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import UseCases from "Logic/Core/UseCases/UseCases";
 
 function AtomInputModel(props: IComponent) {
-	const { initText, click, onChange, extStyle, name } = props;
+	const { initText, onClick, onChange, extStyle, name, type } = props;
 
 	const [value, setValue] = useState(initText.text);
 
@@ -15,17 +15,13 @@ function AtomInputModel(props: IComponent) {
 		return { ...text, text: value, color: text.color || StylesInterface.EColor.SECOND_1 };
 	}
 
-	function handleClick() {
-		click?.();
-	}
-
 	function handleChange(e: ChangeEvent<HTMLInputElement>) {
 		const newValue = e.currentTarget.value;
 		onChange?.(newValue);
 		setValue(newValue);
 	}
 
-	return { textObj, handleClick, handleChange, text, extStyle, name };
+	return { textObj, onClick, handleChange, text, extStyle, name, type };
 }
 
 export default AtomInputModel;

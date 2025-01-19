@@ -42,10 +42,10 @@ export namespace WebSocketInterfaces {
 	}
 
 	export enum EProtocol {
-		ws = "ws",
-		wss = "wss",
-		http = "http",
-		https = "https",
+		WS = "WS",
+		WSS = "WSS",
+		HTTP = "HTTP",
+		HTTPS = "HTTPS",
 	}
 
 	/**

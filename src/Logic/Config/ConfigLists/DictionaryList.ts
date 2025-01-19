@@ -21,13 +21,21 @@ export const DictionaryList: LanguageInterface.TLanguage = {
 		EN: "insertServer.com",
 		RU: "insertServer.com",
 	},
+	WS: {
+		EN: "WS",
+		RU: "WS",
+	},
 	WSS: {
 		EN: "WSS",
 		RU: "WSS",
 	},
-	WS: {
-		EN: "WS",
-		RU: "WS",
+	HTTP: {
+		EN: "HTTP",
+		RU: "HTTP",
+	},
+	HTTPS: {
+		EN: "HTTPS",
+		RU: "HTTPS",
 	},
 	W_SOCKETER: {
 		EN: "WSocketer",

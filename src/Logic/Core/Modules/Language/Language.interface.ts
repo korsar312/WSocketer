@@ -1,6 +1,7 @@
 import { CSSObject } from "@emotion/react";
 import { ReactNode } from "react";
 import { TTypeModule } from "../../Helpers/Creators/Factory/Factory.enam";
+import { WebSocketInterfaces } from "../WebSocket/WebSocket.interfaces";
 
 export namespace LanguageInterface {
 	/**
@@ -38,7 +39,9 @@ export namespace LanguageInterface {
 	/**
 	 * Список слов из смежных доменов
 	 */
-	const EOtherDomainWord = {};
+	const EOtherDomainWord = {
+		...WebSocketInterfaces.EProtocol,
+	};
 
 	/**
 	 * Список всех слов

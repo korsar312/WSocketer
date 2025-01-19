@@ -4,7 +4,7 @@ import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interfac
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 export interface IComponent extends Pick<IParent, "onChange"> {
-	text: LanguageInterface.EWord[];
+	text: LanguageInterface.TSomeWord[];
 }
 
 const Index: FC<IComponent> = (props) => {

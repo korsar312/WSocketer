@@ -13,11 +13,11 @@ const Index: FC<IComponent> = (props) => {
 	const propsComponent: IParent = {
 		...props,
 		initText: textProp(props.initText),
-		extStyle: [extStyle, { outline: `2px solid ${color}`, padding: 6, borderRadius: 12, boxSizing: "border-box" }],
+		extStyle: [extStyle, { outline: `2px solid ${color}`, padding: "2px 6px", borderRadius: 12, boxSizing: "border-box" }],
 	};
 
 	function textProp(el: TAtomInputText): TAtomInputText {
-		return el && { ...el, font: el.font || StylesInterface.EFont.Mont_B_22 };
+		return el && { ...el, font: el.font || StylesInterface.EFont.Mont_B_30 };
 	}
 
 	return <Component {...propsComponent} />;
