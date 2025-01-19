@@ -13,6 +13,7 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: ISubstances = {
 		form: {
+			title: LanguageInterface.EWord.BUTTON,
 			nameLabel: LanguageInterface.EWord.WS_NAME,
 			midLabel: LanguageInterface.EWord.WS_LINK,
 			descLabel: LanguageInterface.EWord.WS_DESC,

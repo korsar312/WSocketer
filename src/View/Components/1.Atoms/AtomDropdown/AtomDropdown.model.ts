@@ -1,5 +1,5 @@
 import { IComponent, TAtomDropdownEl } from "./index";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
 function AtomDropdownModel(props: IComponent) {
@@ -7,6 +7,7 @@ function AtomDropdownModel(props: IComponent) {
 
 	const [isOpen, setIsOpen] = useState(false);
 	const [choice, setChoice] = useState(options[0]);
+	const dropdownRef = useRef<HTMLDivElement>(null);
 
 	const colorMain = color?.main || StylesInterface.EColor.SECOND_3;
 	const colorDrop = color?.drop || StylesInterface.EColor.SECOND_3;
@@ -15,6 +16,13 @@ function AtomDropdownModel(props: IComponent) {
 
 	const titleMain: TAtomDropdownEl = changeOptions(choice, colorMain);
 	const titleDrop: TAtomDropdownEl[] = variablesObj.map((el) => changeOptions(el, colorDrop));
+
+	useEffect(() => {
+		const controller = new AbortController();
+		window.addEventListener("click", handleOutsideClick, { signal: controller.signal });
+
+		return () => controller.abort();
+	}, []);
 
 	useEffect(() => {
 		handleChoiceChange();
@@ -49,6 +57,16 @@ function AtomDropdownModel(props: IComponent) {
 		}
 	}
 
+	function handleOutsideClick(event: MouseEvent) {
+		if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+			setIsOpen(false);
+		}
+	}
+
+	function handleClick() {
+		setIsOpen((old) => !old);
+	}
+
 	function handleChoiceChange() {
 		onChange?.(choice);
 	}
@@ -57,15 +75,11 @@ function AtomDropdownModel(props: IComponent) {
 		return options.find((el) => el.id === id) || { id };
 	}
 
-	function handleClick() {
-		setIsOpen((el) => !el);
-	}
-
 	function handleClickElement(id: string | number) {
 		setChoice(getElement(id));
 	}
 
-	return { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name, choice };
+	return { handleClick, dropdownRef, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name, choice };
 }
 
 export default AtomDropdownModel;

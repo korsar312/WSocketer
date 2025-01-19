@@ -8,7 +8,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import Scroll from "../../../0.Cores/Scroll";
 
 const AtomDropdown_Public: NFC<typeof AtomDropdownModel> = (props) => {
-	const { handleClick, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name, choice } = props;
+	const { handleClick, dropdownRef, titleMain, titleDrop, handleClickElement, isOpen, style, colorMain, colorDrop, name, choice } = props;
 
 	function rowElement<T>(ads: TAtomDropdownGroup<Array<T>>, El: FC<TAtomDropdownGroup<Array<T>>["value"][number]>) {
 		return (
@@ -21,11 +21,13 @@ const AtomDropdown_Public: NFC<typeof AtomDropdownModel> = (props) => {
 	}
 
 	function row(elementList: TAtomDropdownEl) {
+		const { id, iconLeft, text, iconRight } = elementList;
+
 		return (
-			<div key={elementList.id} css={styles.element} onClick={() => handleClickElement(elementList.id)}>
-				{elementList.iconLeft && rowElement(elementList.iconLeft, Images)}
-				{elementList.text && rowElement(elementList.text, Text)}
-				{elementList.iconRight && rowElement(elementList.iconRight, Images)}
+			<div key={id} css={styles.element} onClick={() => handleClickElement(id)}>
+				{iconLeft && rowElement(iconLeft, Images)}
+				{text && rowElement(text, Text)}
+				{iconRight && rowElement(iconRight, Images)}
 			</div>
 		);
 	}
@@ -44,7 +46,7 @@ const AtomDropdown_Public: NFC<typeof AtomDropdownModel> = (props) => {
 	}, [isOpen]);
 
 	return (
-		<div css={[styles.wrapper, styles.color(colorMain), style?.drop]} onClick={handleClick}>
+		<div css={[styles.wrapper, styles.color(colorMain), style?.drop]} onClick={handleClick} ref={dropdownRef}>
 			{row(titleMain)}
 
 			<div css={[styles.listWrap, isOpen && styles.openList(size[0])]}>
