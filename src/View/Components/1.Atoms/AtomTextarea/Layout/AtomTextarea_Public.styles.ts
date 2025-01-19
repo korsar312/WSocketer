@@ -3,14 +3,8 @@ import { CSSObject } from "@emotion/react";
 import { TAtomInputText } from "../index";
 import { StylesInterface } from "../../../../../Logic/Core/Modules/Styles/Styles.interface";
 
-class AtomInput_PublicStyles extends Styles {
-	public wrapper: CSSObject = {
-		width: "100%",
-		background: this.getColors(false),
-		outline: "none",
-		border: "none",
-		padding: "0",
-	};
+class AtomTextarea_PublicStyles extends Styles {
+	public wrapper: CSSObject = {};
 
 	public text(textProp: TAtomInputText): CSSObject {
 		return {
@@ -20,4 +14,4 @@ class AtomInput_PublicStyles extends Styles {
 	}
 }
 
-export default new AtomInput_PublicStyles();
+export default new AtomTextarea_PublicStyles();
