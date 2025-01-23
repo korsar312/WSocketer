@@ -4,9 +4,11 @@ import { WebsocketIsConnect } from "./Methods/WebsocketIsConnect/WebsocketIsConn
 import { LogAction } from "./Methods/LogAction/LogAction";
 import { WebsocketEmit } from "./Methods/WebsocketEmit/WebsocketEmit";
 import { WebsocketEmitRemove } from "./Methods/WebsocketEmitRemove/WebsocketEmitRemove";
+import { GetChooseWs } from "./Methods/GetChooseWs/GetChooseWs";
 
 export class PublicCase {
 	public logAction;
+	public getChooseWs;
 	public siteNotWork;
 	public websocketEmit;
 	public websocketIsConnect;
@@ -14,6 +16,7 @@ export class PublicCase {
 
 	constructor(useCases: typeof UseCases) {
 		this.logAction = LogAction.execute(useCases);
+		this.getChooseWs = GetChooseWs.execute(useCases);
 		this.siteNotWork = SiteNotWork.execute(useCases);
 		this.websocketEmit = WebsocketEmit.execute(useCases);
 		this.websocketIsConnect = WebsocketIsConnect.execute(useCases);

@@ -10,7 +10,6 @@ import { CreateNewMessage } from "./Methods/CreateNewMessage/CreateNewMessage";
 import { GetWSMessageState } from "./Methods/GetWSMessageState/GetWSMessageState";
 import { IsMessageReceive } from "./Methods/IsMessageReceive/IsMessageReceive";
 import { GetWsMessage } from "./Methods/GetWsMessage/GetWsMessage";
-import { SetWsChoice } from "./Methods/SetWsChoice/SetWsChoice";
 import { GetAllProtocolsConnect } from "./Methods/GetAllProtocolsConnect/GetAllProtocolsConnect";
 
 export class WebSocketDomain extends DomainBase {
@@ -26,5 +25,4 @@ export class WebSocketDomain extends DomainBase {
 	public getWSState = GetWSState.execute();
 	public setWsList = SetWsList.execute();
 	public setWSState = SetWSState.execute();
-	public setWsChoice = SetWsChoice.execute();
 }

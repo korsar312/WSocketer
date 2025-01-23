@@ -13,11 +13,10 @@ import { GetName } from "./Methods/GetName/GetName";
 import { GetId } from "./Methods/GetId/GetId";
 import { GetDesc } from "./Methods/GetDesc/GetDesc";
 import { GetStatus } from "./Methods/GetStatus/GetStatus";
-import { GetWsChoice } from "./Methods/GetWsChoice/GetWsChoice";
-import { SetWsChoice } from "./Methods/SetWsChoice/SetWsChoice";
 import { GetAllProtocolsConnect } from "./Methods/GetAllProtocolsConnect/GetAllProtocolsConnect";
 import { GetWSProtocol } from "./Methods/GetWSProtocol/GetWSProtocol";
 import { GetWSLink } from "./Methods/GetWSLink/GetWSLink";
+import { GetWsById } from "./Methods/GetWsById/GetWsById";
 
 export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	constructor() {
@@ -29,8 +28,6 @@ export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	public getAllProtocolsConnect = GetAllProtocolsConnect.execute(this.module);
 	public getWSLink = GetWSLink.execute(this.module);
 	public getWsList = GetWsList.execute(this.module);
-	public getWsChoice = GetWsChoice.execute(this.module);
-	public setWsChoice = SetWsChoice.execute(this.module);
 	public getWSProtocol = GetWSProtocol.execute(this.module);
 	public getName = GetName.execute(this.module);
 	public getId = GetId.execute(this.module);
@@ -40,6 +37,7 @@ export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	public getMessageId = GetMessageId.execute(this.module);
 	public getMessageValue = GetMessageValue.execute(this.module);
 	public isMessageReceive = IsMessageReceive.execute(this.module);
+	public getWsById = GetWsById.execute(this.module);
 
 	//public closeConnection = closeConnection.execute(this.module);
 	//public getConnectionStatus = getConnectionStatus.execute(this.module);

@@ -10,12 +10,12 @@ function ChatPageModel(props: IComponent) {
 	const {} = props;
 
 	const wsList = UseCases.interactor("webSocket", "getWsList");
-	const wsInstance = UseCases.interactor("webSocket", "getWsChoice");
+	const wsInstance = UseCases.public.getChooseWs();
 
 	const [isShowCreateWs, setIsShowCreateWs] = useState(false);
 
 	useEffect(() => {
-		return () => UseCases.interactor("webSocket", "setWsChoice");
+		return () => UseCases.interactor("appStatus", "setWsIdChoice");
 	}, []);
 
 	const methods = { choseWs, isChosen, toggleShowCreateWs, facadeCreateWs, getIdWs };
@@ -41,7 +41,7 @@ function ChatPageModel(props: IComponent) {
 	}
 
 	function choseWs(ws: WebSocketInterfaces.TWebSocket) {
-		UseCases.interactor("webSocket", "setWsChoice", ws);
+		UseCases.interactor("appStatus", "setWsIdChoice", getIdWs(ws));
 	}
 
 	function getIdWs(ws: WebSocketInterfaces.TWebSocket) {

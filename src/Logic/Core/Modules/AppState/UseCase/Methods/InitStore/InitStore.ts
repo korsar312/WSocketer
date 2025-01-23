@@ -9,6 +9,7 @@ export class InitStore {
 				websocketIsDisabled: true,
 				isAwaitRequest: false,
 				isDone: false,
+				WSChoiceId: undefined,
 			});
 		};
 	}

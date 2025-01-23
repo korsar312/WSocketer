@@ -11,6 +11,7 @@ export namespace AppStatusInterfaces {
 		isDone: boolean;
 		modalError: TErrorData | null;
 		updating: TStatusUpdate[];
+		WSChoiceId: string | undefined;
 	};
 
 	export type TErrorData = {

@@ -11,6 +11,8 @@ import { WebsocketIsDisabled } from "./Methods/WebsocketIsDisabled/WebsocketIsDi
 import { ToggleErrorModals } from "./Methods/ToggleErrorModals/ToggleErrorModals";
 import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
 import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
+import { SetWsIdChoice } from "./Methods/SetWsIdChoice/SetWsIdChoice";
+import { GetWsIdChoice } from "./Methods/GetWsIdChoice/GetWsIdChoice";
 
 export class AppStatusUseCase extends UseCaseBase<EModuleList.AppStatusModule> {
 	constructor() {
@@ -20,6 +22,8 @@ export class AppStatusUseCase extends UseCaseBase<EModuleList.AppStatusModule> {
 	public initDone = InitDone.execute(this.module);
 	public isInitDone = IsInitDone.execute(this.module);
 	public resetFront = ResetFront.execute(this.module);
+	public getWsIdChoice = GetWsIdChoice.execute(this.module);
+	public setWsIdChoice = SetWsIdChoice.execute(this.module);
 	public toggleErrorModals = ToggleErrorModals.execute(this.module);
 	public getStatusUpdating = GetStatusUpdating.execute(this.module);
 	public addStatusUpdating = AddStatusUpdating.execute(this.module);

@@ -9,11 +9,15 @@ import { ToggleErrorModals } from "./Methods/ToggleErrorModals/ToggleErrorModals
 import { SetWebsocketStatus } from "./Methods/SetWebsocketStatus/SetWebsocketStatus";
 import { WebsocketIsDisabled } from "./Methods/WebsocketIsDisabled/WebsocketIsDisabled";
 import { DomainBase } from "../../../../Helpers/Creators/Factory/Variables/Modules/Domain";
+import { GetWsIdChoice } from "./Methods/GetWsIdChoice/GetWsIdChoice";
+import { SetWsIdChoice } from "./Methods/SetWsIdChoice/SetWsIdChoice";
 
 export class AppStatusDomain extends DomainBase {
 	public initDone = InitDone.execute();
 	public isInitDone = IsInitDone.execute();
 	public resetFront = ResetFront.execute();
+	public getWsIdChoice = GetWsIdChoice.execute();
+	public setWsIdChoice = SetWsIdChoice.execute();
 	public getStatusUpdating = GetStatusUpdating.execute();
 	public addStatusUpdating = AddStatusUpdating.execute();
 	public toggleErrorModals = ToggleErrorModals.execute();
