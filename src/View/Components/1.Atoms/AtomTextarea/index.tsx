@@ -5,7 +5,7 @@ import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interfac
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TDeepCSSObject, TTagPartial } from "View/ViewUtils";
 
-export interface IComponent extends TTagPartial<HTMLTextAreaElement, "name" | "onClick" | "type"> {
+export interface IComponent extends TTagPartial<HTMLTextAreaElement, "name" | "onClick"> {
 	initText: TAtomInputText;
 	onChange?: (val: string) => void;
 	extStyle?: TDeepCSSObject;

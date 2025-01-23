@@ -4,7 +4,15 @@ import { TAtomInputText } from "../index";
 import { StylesInterface } from "../../../../../Logic/Core/Modules/Styles/Styles.interface";
 
 class AtomTextarea_PublicStyles extends Styles {
-	public wrapper: CSSObject = {};
+	public wrapper: CSSObject = {
+		...this.mixins.flexCenter,
+		width: "100%",
+		background: this.getColors(false),
+		outline: "none",
+		border: "none",
+		padding: "0",
+		wordBreak: "break-all",
+	};
 
 	public text(textProp: TAtomInputText): CSSObject {
 		return {

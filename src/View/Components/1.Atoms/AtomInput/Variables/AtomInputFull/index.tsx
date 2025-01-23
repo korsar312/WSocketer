@@ -13,11 +13,7 @@ const Index: FC<IComponent> = (props) => {
 	const propsComponent: IParent = {
 		...props,
 		extStyle: { height: "100%" },
-		initText: {
-			text,
-			font: StylesInterface.EFont.Mont_S_22,
-			color: StylesInterface.EColor.PRIME_1,
-		},
+		initText: { text, font: StylesInterface.EFont.Mont_S_22, color: StylesInterface.EColor.PRIME_1 },
 	};
 
 	return <Component {...propsComponent} />;

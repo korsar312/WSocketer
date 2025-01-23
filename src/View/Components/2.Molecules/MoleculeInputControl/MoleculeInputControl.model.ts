@@ -13,7 +13,7 @@ function MoleculeInputControlModel(props: IComponent) {
 	const dropNorm = normalize(drop);
 
 	const isLeftLint = Boolean(leftBtnNorm?.length);
-	const isRightLint = Boolean(rightBtnNorm?.length && dropNorm?.length && inputNorm?.length);
+	const isRightLint = Boolean(rightBtnNorm?.length || dropNorm?.length || inputNorm?.length || inputAreaNorm?.length);
 
 	return { leftBtnNorm, rightBtnNorm, inputAreaNorm, inputNorm, dropNorm, isLeftLint, isRightLint };
 }

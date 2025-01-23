@@ -1,5 +1,5 @@
 import { IComponent, TAtomInputText } from "./index";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import UseCases from "Logic/Core/UseCases/UseCases";
 
@@ -7,9 +7,22 @@ function AtomTextareaModel(props: IComponent) {
 	const { initText, onClick, onChange, extStyle, name } = props;
 
 	const [value, setValue] = useState(initText.text);
+	const textareaRef = useRef<HTMLTextAreaElement>(null);
 
 	const textObj = changeText(initText);
 	const text = UseCases.interactor("language", "getText", initText.text);
+
+	useEffect(() => {
+		autoSize();
+	}, [value]);
+
+	function autoSize() {
+		const textarea = textareaRef.current;
+		if (!textarea) return;
+
+		textarea.style.height = "0px";
+		textarea.style.height = `${textarea.scrollHeight > 200 ? 200 : textarea.scrollHeight}px`;
+	}
 
 	function changeText(text: TAtomInputText): TAtomInputText {
 		return { ...text, text: value, color: text.color || StylesInterface.EColor.SECOND_1 };
@@ -21,7 +34,7 @@ function AtomTextareaModel(props: IComponent) {
 		setValue(newValue);
 	}
 
-	return { textObj, onClick, handleChange, text, extStyle, name };
+	return { textObj, onClick, handleChange, text, extStyle, name, textareaRef };
 }
 
 export default AtomTextareaModel;
