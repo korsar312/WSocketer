@@ -17,6 +17,7 @@ import { GetWSProtocol } from "./Methods/GetWSProtocol/GetWSProtocol";
 import { GetWSLink } from "./Methods/GetWSLink/GetWSLink";
 import { GetWsById } from "./Methods/GetWsById/GetWsById";
 import { WsOpenConnect } from "./Methods/WsOpenConnect/WsOpenConnect";
+import { SendWsMessage } from "./Methods/SendWsMessage/SendWsMessage";
 
 export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	constructor() {
@@ -38,6 +39,7 @@ export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	public isMessageReceive = IsMessageReceive.execute(this.module);
 	public getWsById = GetWsById.execute(this.module);
 	public wsOpenConnect = WsOpenConnect.execute(this.module);
+	public sendWsMessage = SendWsMessage.execute(this.module);
 
 	//public closeConnection = closeConnection.execute(this.module);
 	//public getConnectionStatus = getConnectionStatus.execute(this.module);

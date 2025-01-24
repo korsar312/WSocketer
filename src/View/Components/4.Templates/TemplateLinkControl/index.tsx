@@ -20,7 +20,6 @@ const Index: FC<IComponent> = (props) => {
 
 	const wsStatusIcon = imageChoice(wsStatusConnect);
 	const isOpenImpossibly = wsStatusConnect !== WebSocketInterfaces.EStateWS.CLOSED;
-	console.log(Math.random(), wsStatusConnect);
 
 	const propsComponent: ISubstances = {
 		rightBtn: { icon: wsStatusIcon, click: openConnect, isDisable: isOpenImpossibly },

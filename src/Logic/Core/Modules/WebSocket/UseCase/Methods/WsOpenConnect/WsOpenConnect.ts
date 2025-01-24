@@ -9,12 +9,7 @@ export class WsOpenConnect {
 			module.domain.modifyWsState(wsInstance, "status", WebSocketInterfaces.EStateWS.AWAIT);
 
 			const handlers: WebSocketInterfaces.TOpenConnectEvent = {
-				openFn: () => {
-					module.domain.modifyWsState(wsInstance, "status", WebSocketInterfaces.EStateWS.OPEN);
-					console.log(111111);
-					console.log(module.domain.getWSState(wsInstance, "status"));
-					console.log(22222);
-				},
+				openFn: () => module.domain.modifyWsState(wsInstance, "status", WebSocketInterfaces.EStateWS.OPEN),
 				errorFn: () => module.domain.modifyWsState(wsInstance, "status", WebSocketInterfaces.EStateWS.CLOSED),
 				closeFn: () => module.domain.modifyWsState(wsInstance, "status", WebSocketInterfaces.EStateWS.CLOSED),
 				messageFn: (val: WebSocketInterfaces.TMessageValue) => {
