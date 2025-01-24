@@ -20,6 +20,7 @@ const Index: FC<IComponent> = (props) => {
 
 	const wsStatusIcon = imageChoice(wsStatusConnect);
 	const isOpenImpossibly = wsStatusConnect !== WebSocketInterfaces.EStateWS.CLOSED;
+	console.log(Math.random(), wsStatusConnect);
 
 	const propsComponent: ISubstances = {
 		rightBtn: { icon: wsStatusIcon, click: openConnect, isDisable: isOpenImpossibly },
@@ -40,7 +41,7 @@ const Index: FC<IComponent> = (props) => {
 	}
 
 	function openConnect() {
-		UseCases.interactor("webSocket", "openConnection", wsInstance);
+		UseCases.interactor("webSocket", "wsOpenConnect", wsInstance);
 	}
 
 	return <Substance key={id} {...propsComponent} />;

@@ -1,22 +1,15 @@
 import { WebSocketInterfaces } from "../../../../WebSocket.interfaces";
 
-type TEvent = {
-	messageFn: (val: WebSocketInterfaces.TMessageValue) => void;
-	setOpenFn: () => void;
-	setCloseFn: () => void;
-	errorFn: () => void;
-};
-
 export class OpenConnection {
 	static execute() {
-		return function (link: string, protocol: WebSocketInterfaces.EProtocol, fn: TEvent): WebSocket {
+		return function (link: string, protocol: WebSocketInterfaces.EProtocol, fn: WebSocketInterfaces.TOpenConnectEvent): WebSocket {
 			const socket = new WebSocket(`${protocol}://${link}`);
 
-			const { messageFn, setOpenFn, setCloseFn, errorFn } = fn;
+			const { messageFn, openFn, closeFn, errorFn } = fn;
 
 			socket.onmessage = (val) => messageFn(val.data);
-			socket.onopen = setOpenFn;
-			socket.onclose = setCloseFn;
+			socket.onopen = openFn;
+			socket.onclose = closeFn;
 			socket.onerror = errorFn;
 
 			return socket;

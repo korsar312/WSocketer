@@ -1,7 +1,6 @@
 import { FC } from "react";
 import Substance, { IComponent as ISubstances } from "View/Components/2.Molecules/MoleculeInputControl";
 import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.interfaces";
-import UseCases from "Logic/Core/UseCases/UseCases";
 import { observer } from "mobx-react";
 
 export interface IComponent {
@@ -18,7 +17,7 @@ const Index: FC<IComponent> = (props) => {
 	};
 
 	function openConnect() {
-		UseCases.interactor("webSocket", "openConnection", wsInstance);
+		//UseCases.interactor("webSocket", "wsOpenConnect", wsInstance);
 	}
 
 	return <Substance {...propsComponent} />;

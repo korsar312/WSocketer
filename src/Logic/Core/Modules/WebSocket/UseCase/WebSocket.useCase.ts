@@ -3,7 +3,6 @@ import Modules from "../Implement/Modules";
 import { EModuleList } from "../../../Helpers/Creators/Factory/Factory.enam";
 import { UseCaseBase } from "../../../Helpers/Creators/Factory/Variables/Modules/UseCase";
 import { CreateNewWs } from "./Methods/CreateNewWs/CreateNewWs";
-import { OpenConnection } from "./Methods/OpenConnection/OpenConnection";
 import { GetWsList } from "./Methods/GetWsList/GetWsList";
 import { GetMessages } from "./Methods/GetMessages/GetMessages";
 import { IsMessageReceive } from "./Methods/IsMessageReceive/IsMessageReceive";
@@ -17,6 +16,7 @@ import { GetAllProtocolsConnect } from "./Methods/GetAllProtocolsConnect/GetAllP
 import { GetWSProtocol } from "./Methods/GetWSProtocol/GetWSProtocol";
 import { GetWSLink } from "./Methods/GetWSLink/GetWSLink";
 import { GetWsById } from "./Methods/GetWsById/GetWsById";
+import { WsOpenConnect } from "./Methods/WsOpenConnect/WsOpenConnect";
 
 export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	constructor() {
@@ -24,7 +24,6 @@ export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	}
 
 	public createNewWs = CreateNewWs.execute(this.module);
-	public openConnection = OpenConnection.execute(this.module);
 	public getAllProtocolsConnect = GetAllProtocolsConnect.execute(this.module);
 	public getWSLink = GetWSLink.execute(this.module);
 	public getWsList = GetWsList.execute(this.module);
@@ -38,6 +37,7 @@ export class WebSocketUseCase extends UseCaseBase<EModuleList.WebSocketModule> {
 	public getMessageValue = GetMessageValue.execute(this.module);
 	public isMessageReceive = IsMessageReceive.execute(this.module);
 	public getWsById = GetWsById.execute(this.module);
+	public wsOpenConnect = WsOpenConnect.execute(this.module);
 
 	//public closeConnection = closeConnection.execute(this.module);
 	//public getConnectionStatus = getConnectionStatus.execute(this.module);

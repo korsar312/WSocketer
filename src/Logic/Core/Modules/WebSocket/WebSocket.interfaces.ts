@@ -47,6 +47,13 @@ export namespace WebSocketInterfaces {
 		HTTPS = "HTTPS",
 	}
 
+	export type TOpenConnectEvent = {
+		messageFn: (val: WebSocketInterfaces.TMessageValue) => void;
+		openFn: () => void;
+		closeFn: () => void;
+		errorFn: () => void;
+	};
+
 	/**
 	 * Домен и сервис
 	 */

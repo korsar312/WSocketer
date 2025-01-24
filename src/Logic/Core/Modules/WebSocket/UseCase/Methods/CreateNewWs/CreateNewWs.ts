@@ -12,8 +12,7 @@ export class CreateNewWs {
 			const store = module.service.store.getStore();
 			const newWs = module.domain.createNewWS(name, link, protocol, desc);
 			const wsList = module.domain.getObjState(store, "WSList");
-			const newStore = module.domain.setWsList(store, wsList, newWs);
-			module.service.store.setStore(newStore);
+			module.domain.addWsList(wsList, newWs);
 
 			return newWs;
 		};

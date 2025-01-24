@@ -1,13 +1,15 @@
 import { WebSocketInterfaces } from "../../../../WebSocket.interfaces";
 
-export class SetWSState {
+type TPrimitive = Omit<WebSocketInterfaces.TWebSocket, "messages">;
+
+export class ModifyWsState {
 	static execute() {
-		return function <K extends keyof WebSocketInterfaces.TWebSocket>(
+		return function <K extends keyof TPrimitive>(
 			obj: WebSocketInterfaces.TWebSocket,
 			field: K,
 			newValue: WebSocketInterfaces.TWebSocket[K],
-		): WebSocketInterfaces.TWebSocket {
-			return { ...obj, [field]: newValue };
+		): void {
+			obj[field] = newValue;
 		};
 	}
 }
