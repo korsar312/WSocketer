@@ -14,13 +14,15 @@ type TForm = { [key in keyof typeof FormFields]: (typeof FormFields)[key] };
 const Index: FC<IComponent> = (props) => {
 	const { wsInstance } = props;
 
+	const isOpen = UseCases.interactor("webSocket", "isConnectOpen", wsInstance);
+
 	const [isDisableSend, setIsDisableSend] = useState(true);
 
 	const propsComponent: ISubstances = {
 		form: { onSubmit: sendMessage },
 		leftBtn: { icon: "IconTune" },
 		inputArea: { text: "", name: FormFields.input, onChange: checkInput },
-		rightBtn: { icon: "IconSend", type: "submit", isDisable: isDisableSend },
+		rightBtn: { icon: "IconSend", type: "submit", isDisable: !isOpen || isDisableSend },
 	};
 
 	function checkInput(val: string) {

@@ -11,6 +11,7 @@ import { GetWsMessage } from "./Methods/GetWsMessage/GetWsMessage";
 import { GetAllProtocolsConnect } from "./Methods/GetAllProtocolsConnect/GetAllProtocolsConnect";
 import { AddWsList } from "./Methods/AddWsList/AddWsList";
 import { AddWsMessage } from "./Methods/AddWsMessage/AddWsMessage";
+import { IsWsStatusOpen } from "./Methods/IsWsStatusOpen/IsWsStatusOpen";
 
 export class WebSocketDomain extends DomainBase {
 	public createNewMessage = CreateNewMessage.execute();
@@ -25,4 +26,5 @@ export class WebSocketDomain extends DomainBase {
 	public modifyWsState = ModifyWsState.execute();
 	public addWsList = AddWsList.execute();
 	public addWsMessage = AddWsMessage.execute();
+	public isWsStatusOpen = IsWsStatusOpen.execute();
 }
