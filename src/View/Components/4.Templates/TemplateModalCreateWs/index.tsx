@@ -1,12 +1,12 @@
 import { FC } from "react";
 import Substance, { IComponent as ISubstances } from "View/Components/3.Substances/SubstanceModalCreate";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
-import { TMoleculeFormCreateForm } from "View/Components/2.Molecules/MoleculeForm/Variables/MoleculeFormCreate";
+import { TMoleculeFormSchemaCreateForm } from "View/Components/2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaCreate";
 import UseCases from "../../../../Logic/Core/UseCases/UseCases";
 
 export interface IComponent {
 	isShow: boolean;
-	submit: (val: TMoleculeFormCreateForm) => void;
+	submit: (val: TMoleculeFormSchemaCreateForm) => void;
 }
 
 const Index: FC<IComponent> = (props) => {

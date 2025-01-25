@@ -1,49 +1,50 @@
 import { FC } from "react";
-import Model from "./MoleculeForm.model";
-import View from "./Layout/MoleculeForm_Public";
+import Model from "./MoleculeFormSchema.model";
+import View from "./Layout/MoleculeFormSchema_Public";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { TDeepCSSObject } from "View/ViewUtils";
 import { IComponent as IDropdown } from "View/Components/1.Atoms/AtomDropdown/Variables/AtomDropdownForm";
 import { IComponent as IButton } from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonForm";
 import { IComponent as IInput } from "View/Components/1.Atoms/AtomInput/Variables/AtomInputForm";
 import { IComponent as IText } from "View/Components/0.Cores/Text";
+import { IComponent as IForm } from "View/Components/0.Cores/Form";
 
 export interface IComponent {
-	schema: TMoleculeFormRow;
-	onSubmit: (val: unknown) => void;
+	form: Pick<IForm, "onSubmit">;
+	schema: TMoleculeFormSchemaRow;
 	buttonList: IButton[];
 	extStyle?: TDeepCSSObject;
 	color?: StylesInterface.TColorChoice;
 }
 
-export type TMoleculeFormRow = {
-	value: TMoleculeFormField | TMoleculeFormRow[];
+export type TMoleculeFormSchemaRow = {
+	value: TMoleculeFormSchemaField | TMoleculeFormSchemaRow[];
 	extStyle?: TDeepCSSObject;
 };
 
-export type TMoleculeFormField = {
+export type TMoleculeFormSchemaField = {
 	label?: string;
 	required?: boolean;
 } & (TInputField | TSelectField | TTextField);
 
-export enum EMoleculeFormField {
+export enum EMoleculeFormSchemaField {
 	TEXT = "TEXT",
 	INPUT = "INPUT",
 	SELECT = "SELECT",
 }
 
 type TTextField = {
-	type: EMoleculeFormField.TEXT;
+	type: EMoleculeFormSchemaField.TEXT;
 	options: IText;
 };
 
 type TInputField = {
-	type: EMoleculeFormField.INPUT;
+	type: EMoleculeFormSchemaField.INPUT;
 	options: IInput;
 };
 
 type TSelectField = {
-	type: EMoleculeFormField.SELECT;
+	type: EMoleculeFormSchemaField.SELECT;
 	options: IDropdown;
 };
 

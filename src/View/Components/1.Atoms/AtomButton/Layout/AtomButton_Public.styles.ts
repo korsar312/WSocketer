@@ -15,6 +15,10 @@ class AtomButton_PublicStyles extends Styles {
 			"&:hover": {
 				opacity: 0.5,
 			},
+
+			"&[disabled]": {
+				opacity: 0.3,
+			},
 		};
 	}
 

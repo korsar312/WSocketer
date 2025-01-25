@@ -2,7 +2,7 @@ import { IComponent } from "./index";
 import UseCases from "Logic/Core/UseCases/UseCases";
 import { useEffect, useState } from "react";
 import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.interfaces";
-import { TMoleculeFormCreateForm } from "View/Components/2.Molecules/MoleculeForm/Variables/MoleculeFormCreate";
+import { TMoleculeFormSchemaCreateForm } from "View/Components/2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaCreate";
 
 type TCreateWs = Pick<WebSocketInterfaces.TWebSocket, "name" | "link" | "protocol" | "desc">;
 
@@ -21,7 +21,7 @@ function ChatPageModel(props: IComponent) {
 	const methods = { choseWs, isChosen, toggleShowCreateWs, facadeCreateWs, getIdWs };
 	const isChose = Boolean(wsInstance);
 
-	function adapterForm(props: TMoleculeFormCreateForm): TCreateWs {
+	function adapterForm(props: TMoleculeFormSchemaCreateForm): TCreateWs {
 		return {
 			name: props.topText,
 			desc: props.botText,
@@ -30,7 +30,7 @@ function ChatPageModel(props: IComponent) {
 		};
 	}
 
-	function facadeCreateWs(props: TMoleculeFormCreateForm) {
+	function facadeCreateWs(props: TMoleculeFormSchemaCreateForm) {
 		setIsShowCreateWs(false);
 		createWs(adapterForm(props));
 	}

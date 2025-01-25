@@ -1,35 +1,38 @@
 import styles from "./MoleculeInputControl_Public.styles";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
+import { ReactNode } from "react";
 import MoleculeInputControlModel from "../MoleculeInputControl.model";
 import AtomDropdownMain from "View/Components/1.Atoms/AtomDropdown/Variables/AtomDropdownMain";
+import AtomTextareaFull from "View/Components/1.Atoms/AtomTextarea/Variables/AtomTextareaFull";
 import AtomButtonIcon from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonIcon";
 import AtomInputFull from "View/Components/1.Atoms/AtomInput/Variables/AtomInputFull";
 import AtomLineVW from "View/Components/1.Atoms/AtomLine/Variables/AtomLineVW";
 import AtomPaperB from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperB";
-import { ReactNode } from "react";
-import AtomTextareaFull from "../../../1.Atoms/AtomTextarea/Variables/AtomTextareaFull";
+import Form from "View/Components/0.Cores/Form";
 
 const MoleculeInputControl_Public: NFC<typeof MoleculeInputControlModel> = (props) => {
-	const { leftBtnNorm, rightBtnNorm, inputAreaNorm, inputNorm, dropNorm, isLeftLint, isRightLint } = props;
+	const { leftBtnNorm, rightBtnNorm, inputAreaNorm, inputNorm, dropNorm, isLeftLint, isRightLint, form } = props;
 
 	function elementRender(child: ReactNode) {
 		return <div css={styles.element}>{child}</div>;
 	}
 
 	return (
-		<AtomPaperB extStyle={[styles.wrapper, styles.pub.pd8]}>
-			{leftBtnNorm && elementRender(leftBtnNorm?.map((el) => <AtomButtonIcon key={el.icon} {...el} />))}
+		<Form {...form}>
+			<AtomPaperB extStyle={[styles.wrapper, styles.pub.pd8]}>
+				{leftBtnNorm && elementRender(leftBtnNorm?.map((el) => <AtomButtonIcon key={el.icon} {...el} />))}
 
-			{isLeftLint && <AtomLineVW />}
+				{isLeftLint && <AtomLineVW />}
 
-			{dropNorm && elementRender(dropNorm?.map((el) => <AtomDropdownMain key={el.text[0]} {...el} />))}
-			{inputNorm?.map((el) => <AtomInputFull key={el.text} {...el} />)}
-			{inputAreaNorm?.map((el) => <AtomTextareaFull key={el.text} {...el} />)}
+				{dropNorm && elementRender(dropNorm?.map((el) => <AtomDropdownMain key={el.text[0]} {...el} />))}
+				{inputNorm?.map((el) => <AtomInputFull key={el.text} {...el} />)}
+				{inputAreaNorm?.map((el) => <AtomTextareaFull key={el.text} {...el} />)}
 
-			{isRightLint && <AtomLineVW />}
+				{isRightLint && <AtomLineVW />}
 
-			{rightBtnNorm && elementRender(rightBtnNorm?.map((el) => <AtomButtonIcon key={el.icon} {...el} />))}
-		</AtomPaperB>
+				{rightBtnNorm && elementRender(rightBtnNorm?.map((el) => <AtomButtonIcon key={el.icon} {...el} />))}
+			</AtomPaperB>
+		</Form>
 	);
 };
 

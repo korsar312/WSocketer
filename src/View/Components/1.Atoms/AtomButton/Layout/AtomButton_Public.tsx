@@ -6,7 +6,7 @@ import Images from "View/Components/0.Cores/Images";
 import { TAtomButtonIcon } from "../index";
 
 const AtomButton_Public: NFC<typeof AtomButtonModel> = (props) => {
-	const { textChanged, color, extStyles, rightIcon, leftIcon, isFullWidth, handleClick, type } = props;
+	const { textChanged, color, extStyles, rightIcon, leftIcon, isFullWidth, handleClick, type, isDisable } = props;
 
 	function iconRender(icon: TAtomButtonIcon) {
 		return (
@@ -19,7 +19,7 @@ const AtomButton_Public: NFC<typeof AtomButtonModel> = (props) => {
 	}
 
 	return (
-		<button type={type} onClick={handleClick} css={[styles.wrapper(isFullWidth), styles.color(color), extStyles]}>
+		<button disabled={isDisable} type={type} onClick={handleClick} css={[styles.wrapper(isFullWidth), styles.color(color), extStyles]}>
 			{leftIcon && iconRender(leftIcon)}
 
 			{textChanged && (

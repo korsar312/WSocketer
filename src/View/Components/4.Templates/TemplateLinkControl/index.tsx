@@ -22,10 +22,10 @@ const Index: FC<IComponent> = (props) => {
 	const isOpenImpossibly = wsStatusConnect !== WebSocketInterfaces.EStateWS.CLOSED;
 
 	const propsComponent: ISubstances = {
-		rightBtn: { icon: wsStatusIcon, click: choseAction, isDisable: isOpenImpossibly },
 		leftBtn: { icon: "IconTune" },
-		input: { text: wsLink },
 		drop: { text: protocols, defaultValue: curProtocol },
+		input: { text: wsLink },
+		rightBtn: { icon: wsStatusIcon, click: choseAction, isDisable: isOpenImpossibly },
 	};
 
 	function imageChoice(status: WebSocketInterfaces.EStateWS): TImageComponent {

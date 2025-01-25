@@ -2,7 +2,7 @@ import { IComponent } from "./index";
 import Util from "../../../../Logic/Libs/Util";
 
 function MoleculeInputControlModel(props: IComponent) {
-	const { leftBtn, rightBtn, drop, inputArea, input } = props;
+	const { leftBtn, rightBtn, drop, inputArea, input, form } = props;
 
 	const normalize = Util.toArray;
 
@@ -15,7 +15,7 @@ function MoleculeInputControlModel(props: IComponent) {
 	const isLeftLint = Boolean(leftBtnNorm?.length);
 	const isRightLint = Boolean(rightBtnNorm?.length || dropNorm?.length || inputNorm?.length || inputAreaNorm?.length);
 
-	return { leftBtnNorm, rightBtnNorm, inputAreaNorm, inputNorm, dropNorm, isLeftLint, isRightLint };
+	return { leftBtnNorm, rightBtnNorm, inputAreaNorm, inputNorm, dropNorm, isLeftLint, isRightLint, form };
 }
 
 export default MoleculeInputControlModel;

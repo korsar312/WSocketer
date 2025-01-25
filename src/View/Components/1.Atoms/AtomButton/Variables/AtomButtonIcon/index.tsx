@@ -3,7 +3,7 @@ import Component, { IComponent as IParent } from "../../index";
 import { TImageComponent } from "View/Components/0.Cores/Images";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 
-export interface IComponent extends Pick<IParent, "isDisable" | "click" | "isFullWidth"> {
+export interface IComponent extends Pick<IParent, "isDisable" | "click" | "isFullWidth" | "type"> {
 	icon: TImageComponent;
 }
 

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Component, { EMoleculeFormField, IComponent as IParent } from "../../index";
+import Component, { EMoleculeFormSchemaField, IComponent as IParent } from "../../index";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { IComponent as IInput } from "View/Components/1.Atoms/AtomInput/Variables/AtomInputForm";
@@ -13,10 +13,10 @@ export interface IComponent {
 	nameLabel: LanguageInterface.EWord;
 	midLabel: LanguageInterface.EWord;
 	descLabel: LanguageInterface.EWord;
-	submit: (val: TMoleculeFormCreateForm) => void;
+	submit: (val: TMoleculeFormSchemaCreateForm) => void;
 }
 
-export type TMoleculeFormCreateForm = {
+export type TMoleculeFormSchemaCreateForm = {
 	topText: string;
 	midText: string;
 	botText: string;
@@ -48,7 +48,7 @@ const Index: FC<IComponent> = (props) => {
 				{
 					extStyle: { display: "flex", flexDirection: "column" },
 					value: {
-						type: EMoleculeFormField.TEXT,
+						type: EMoleculeFormSchemaField.TEXT,
 						options: {
 							text: EWord.CREATE_WS,
 							color: EColor.SECOND_3,
@@ -58,7 +58,7 @@ const Index: FC<IComponent> = (props) => {
 				},
 				{
 					value: {
-						type: EMoleculeFormField.INPUT,
+						type: EMoleculeFormSchemaField.INPUT,
 						options: topTextOptions,
 					},
 				},
@@ -67,14 +67,14 @@ const Index: FC<IComponent> = (props) => {
 					value: [
 						{
 							value: {
-								type: EMoleculeFormField.SELECT,
+								type: EMoleculeFormSchemaField.SELECT,
 								options: dropOptions,
 							},
 						},
 						{
 							extStyle: { flex: 1 },
 							value: {
-								type: EMoleculeFormField.INPUT,
+								type: EMoleculeFormSchemaField.INPUT,
 								options: midTextOptions,
 							},
 						},
@@ -82,13 +82,13 @@ const Index: FC<IComponent> = (props) => {
 				},
 				{
 					value: {
-						type: EMoleculeFormField.INPUT,
+						type: EMoleculeFormSchemaField.INPUT,
 						options: botTextOptions,
 					},
 				},
 			],
 		},
-		onSubmit: (val) => submit(val as TMoleculeFormCreateForm),
+		form: { onSubmit: submit },
 		buttonList: [{ text: EWord.CREATE_WS }],
 	};
 

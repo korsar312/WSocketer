@@ -1,33 +1,34 @@
 import { NFC } from "Logic/Libs/Util/TypesUtils";
-import { EMoleculeFormField, TMoleculeFormField, TMoleculeFormRow } from "../index";
+import { EMoleculeFormSchemaField, TMoleculeFormSchemaField, TMoleculeFormSchemaRow } from "../index";
 import { TDeepCSSObject } from "View/ViewUtils";
 import { ReactElement } from "react";
-import MoleculeFormModel from "../MoleculeForm.model";
+import MoleculeFormSchemaModel from "../MoleculeFormSchema.model";
 import AtomPaper from "View/Components/1.Atoms/AtomPaper";
 import AtomDropdownForm from "View/Components/1.Atoms/AtomDropdown/Variables/AtomDropdownForm";
 import AtomInputForm from "View/Components/1.Atoms/AtomInput/Variables/AtomInputForm";
 import AtomButtonForm from "View/Components/1.Atoms/AtomButton/Variables/AtomButtonForm";
-import styles from "./MoleculeForm_Public.styles";
+import styles from "./MoleculeFormSchema_Public.styles";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import Text from "View/Components/0.Cores/Text";
+import Form from "../../../0.Cores/Form";
 
-const MoleculeForm_Public: NFC<typeof MoleculeFormModel> = (props) => {
-	const { schema, extStyle, color, handleSubmit, buttonList } = props;
+const MoleculeFormSchema_Public: NFC<typeof MoleculeFormSchemaModel> = (props) => {
+	const { schema, extStyle, color, form, buttonList } = props;
 
-	function typeChoice(field: TMoleculeFormRow, id: number): ReactElement {
+	function typeChoice(field: TMoleculeFormSchemaRow, id: number): ReactElement {
 		const { value: element, extStyle } = field;
 		const value = Array.isArray(element) ? element.map((el, i) => typeChoice(el, i)) : fieldChoice(element);
 
 		return elementWrapper(value, id, extStyle);
 	}
 
-	function fieldChoice(field: TMoleculeFormField) {
+	function fieldChoice(field: TMoleculeFormSchemaField) {
 		switch (field.type) {
-			case EMoleculeFormField.TEXT:
+			case EMoleculeFormSchemaField.TEXT:
 				return <Text {...field.options} />;
-			case EMoleculeFormField.INPUT:
+			case EMoleculeFormSchemaField.INPUT:
 				return <AtomInputForm {...field.options} />;
-			case EMoleculeFormField.SELECT:
+			case EMoleculeFormSchemaField.SELECT:
 				return <AtomDropdownForm {...field.options} />;
 		}
 	}
@@ -41,7 +42,7 @@ const MoleculeForm_Public: NFC<typeof MoleculeFormModel> = (props) => {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<Form {...form}>
 			<AtomPaper extStyle={[styles.form, extStyle]} color={color}>
 				{typeChoice(schema, 1)}
 			</AtomPaper>
@@ -51,8 +52,8 @@ const MoleculeForm_Public: NFC<typeof MoleculeFormModel> = (props) => {
 					<AtomButtonForm key={el.text} {...el} />
 				))}
 			</AtomPaper>
-		</form>
+		</Form>
 	);
 };
 
-export default MoleculeForm_Public;
+export default MoleculeFormSchema_Public;

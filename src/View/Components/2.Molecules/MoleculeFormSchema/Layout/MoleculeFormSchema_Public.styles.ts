@@ -1,7 +1,7 @@
 import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react";
 
-class MoleculeForm_PublicStyles extends Styles {
+class MoleculeFormSchema_PublicStyles extends Styles {
 	private pad = 8;
 
 	public form: CSSObject = {
@@ -15,4 +15,4 @@ class MoleculeForm_PublicStyles extends Styles {
 	};
 }
 
-export default new MoleculeForm_PublicStyles();
+export default new MoleculeFormSchema_PublicStyles();

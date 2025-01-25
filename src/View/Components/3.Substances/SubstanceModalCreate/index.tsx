@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Model from "./SubstanceModalCreate.model";
 import View from "./Layout/SubstanceModalCreate_Public";
-import { IComponent as IForm } from "View/Components/2.Molecules/MoleculeForm/Variables/MoleculeFormCreate";
+import { IComponent as IForm } from "View/Components/2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaCreate";
 
 export interface IComponent {
 	isShow: boolean;
