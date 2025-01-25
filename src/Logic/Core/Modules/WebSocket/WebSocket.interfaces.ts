@@ -27,7 +27,7 @@ export namespace WebSocketInterfaces {
 		date: string;
 	};
 
-	export type TMessageValue = string | Blob | ArrayBuffer | null;
+	export type TMessageValue = string | ArrayBufferLike | Blob | ArrayBufferView;
 
 	export enum EMessageType {
 		SEND = "SEND",

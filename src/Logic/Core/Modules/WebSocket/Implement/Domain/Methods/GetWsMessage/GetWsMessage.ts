@@ -5,7 +5,11 @@ export class GetWsMessage {
 		return function (messageValue: WebSocketInterfaces.TMessageValue): unknown {
 			switch (typeof messageValue) {
 				case "string":
-					return JSON.parse(messageValue);
+					try {
+						return JSON.parse(messageValue);
+					} catch (e) {
+						return messageValue;
+					}
 				default:
 					return null;
 			}
