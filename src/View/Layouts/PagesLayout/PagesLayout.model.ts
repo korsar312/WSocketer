@@ -7,7 +7,7 @@ function PagesLayoutModel(props: IComponent) {
 	const {} = props;
 
 	const Pages = useRoutes(RouteList);
-	const pathname = UseCases.interactor("router", "getCurrentPageName");
+	const pathname = UseCases.interactor("router", "getCurrentPage");
 
 	return { Pages, pathname };
 }

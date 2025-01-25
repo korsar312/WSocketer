@@ -1,7 +1,9 @@
-import React, { ReactHTML, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import Model from "./Scroll.model";
 import View from "./Layout/Scroll_Public";
 import { TDeepCSSObject } from "View/ViewUtils";
+import { jsx } from "@emotion/react";
+import IntrinsicElements = jsx.JSX.IntrinsicElements;
 
 export interface IComponent extends TExtendComponent {
 	children: ReactNode;
@@ -13,7 +15,7 @@ export interface IComponent extends TExtendComponent {
 type TExtendComponent = Partial<Pick<React.RefAttributes<HTMLDivElement>, "ref"> & Pick<React.DOMAttributes<HTMLElement>, "onScroll">>;
 type TElementComponent = { [K in TScrollAvailableEl]: (props: IComponent) => any };
 
-export type TScrollAvailableEl = keyof Pick<ReactHTML, "div" | "span">;
+export type TScrollAvailableEl = keyof Pick<IntrinsicElements, "div" | "span">;
 
 const proxyEl = {} as TElementComponent;
 

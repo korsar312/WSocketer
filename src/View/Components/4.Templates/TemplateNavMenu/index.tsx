@@ -9,7 +9,7 @@ export interface IComponent {}
 const Index: FC<IComponent> = (props) => {
 	const {} = props;
 
-	const currentPageName = UseCases.interactor("router", "getCurrentPageName");
+	const currentPageName = UseCases.interactor("router", "getCurrentPage");
 
 	const propsComponent: ISubstances = {
 		head: {

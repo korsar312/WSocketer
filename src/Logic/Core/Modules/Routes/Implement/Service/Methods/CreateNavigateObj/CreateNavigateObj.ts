@@ -5,7 +5,7 @@ export class CreateNavigateObj {
 		return function (): RouteInterfaces.TObj {
 			return {
 				navigateFunc: null,
-				location: null,
+				currentPage: null,
 			};
 		};
 	}
