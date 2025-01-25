@@ -6,7 +6,7 @@ class MoleculeFormSchema_PublicStyles extends Styles {
 
 	public form: CSSObject = {
 		position: "relative",
-		padding: 16,
+		padding: this.variables.radiusStandard,
 	};
 
 	public bottom: CSSObject = {

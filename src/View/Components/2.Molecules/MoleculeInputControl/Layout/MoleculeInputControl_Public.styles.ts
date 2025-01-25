@@ -7,6 +7,7 @@ class MoleculeInputControl_PublicStyles extends Styles {
 		gap: 10,
 		width: "100%",
 		boxSizing: "border-box",
+		height: "100%",
 	};
 
 	public element: CSSObject = {

@@ -9,7 +9,7 @@ class ChatPage_PublicStyles extends Styles {
 	};
 
 	public chosen: CSSObject = {
-		padding: 16,
+		padding: this.variables.radiusStandard,
 		flex: 1,
 	};
 
@@ -19,7 +19,7 @@ class ChatPage_PublicStyles extends Styles {
 
 	public elem(isLong: boolean): CSSObject {
 		return {
-			padding: 16,
+			padding: this.variables.radiusStandard,
 			display: "flex",
 			flexDirection: isLong ? "column" : "initial",
 			flexWrap: "wrap",

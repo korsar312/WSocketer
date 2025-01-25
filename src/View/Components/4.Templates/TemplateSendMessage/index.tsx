@@ -9,7 +9,6 @@ export interface IComponent {
 }
 
 const FormFields = { input: "input" };
-
 type TForm = { [key in keyof typeof FormFields]: (typeof FormFields)[key] };
 
 const Index: FC<IComponent> = (props) => {
