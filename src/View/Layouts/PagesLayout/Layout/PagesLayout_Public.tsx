@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import styles from "./PagesLayout_Public.styles";
 import { NFC } from "Logic/Libs/Util/TypesUtils";
 import PagesLayoutModel from "../PagesLayout.model";
@@ -17,11 +16,9 @@ const PagesLayout_Public: NFC<typeof PagesLayoutModel> = (props) => {
 
 			<div css={styles.pagesWrap}>
 				<BaseAnimation type={"slice"} deps={pathname}>
-					<Suspense>
-						<Scroll.div extStyle={styles.pages} extStyleScroll={styles.scroll}>
-							{Pages}
-						</Scroll.div>
-					</Suspense>
+					<Scroll.div extStyle={styles.pages} extStyleScroll={styles.scroll}>
+						{Pages}
+					</Scroll.div>
 				</BaseAnimation>
 			</div>
 		</div>

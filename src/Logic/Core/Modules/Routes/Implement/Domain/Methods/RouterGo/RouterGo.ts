@@ -18,7 +18,7 @@ export class RouterGo {
 		): void {
 			if (!navigate) return;
 
-			navigate(generatePath(String(RouteInterfaces.PathName[path]), params), { replace: false, state });
+			navigate(generatePath("/" + RouteInterfaces.PathName[path], params), { replace: false, state });
 		};
 	}
 }
