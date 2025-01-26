@@ -4,27 +4,51 @@ import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.inte
 import UseCases from "Logic/Core/UseCases/UseCases";
 import { observer } from "mobx-react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
+import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 
-export type IComponent = {
-	onClick: (val?: WebSocketInterfaces.TWebSocket) => void;
+export type IComponent = TMessage | TAdd;
+
+type TMessage = {
+	onClick: (val: WebSocketInterfaces.TWebSocket) => void;
 	messageGroup: WebSocketInterfaces.TWebSocket;
 	isChose?: boolean;
 };
 
+type TAdd = {
+	onClick: () => void;
+};
+
 const Index: FC<IComponent> = (props) => {
-	const { onClick, messageGroup, isChose } = props;
+	const propsComponent: ISubstances = getState();
 
-	const title = UseCases.interactor("webSocket", "getName", messageGroup);
+	function getState(): ISubstances {
+		if ("messageGroup" in props) {
+			const { onClick, messageGroup, isChose } = props as TMessage;
 
-	const propsComponent: ISubstances = {
-		click: click,
-		color: StylesInterface.EColor.SECOND_1,
-		title: { text: title, color: StylesInterface.EColor.PRIME_1, font: StylesInterface.EFont.Mont_B_18 },
-		image: { color: StylesInterface.EColor.PRIME_1, img: "IconBlock", size: 40 },
-	};
+			return {
+				click: () => onClick?.(props.messageGroup),
+				color: StylesInterface.EColor.SECOND_1,
+				title: {
+					text: UseCases.interactor("webSocket", "getName", messageGroup),
+					color: StylesInterface.EColor.PRIME_1,
+					font: StylesInterface.EFont.Mont_B_18,
+				},
+				image: { color: StylesInterface.EColor.PRIME_1, img: "IconBlock", size: 40 },
+			};
+		} else {
+			const { onClick } = props as TAdd;
 
-	function click() {
-		onClick?.(messageGroup);
+			return {
+				click: onClick,
+				color: StylesInterface.EColor.SECOND_1,
+				title: {
+					text: LanguageInterface.EWord.CREATE_GROUP,
+					color: StylesInterface.EColor.PRIME_1,
+					font: StylesInterface.EFont.Mont_B_18,
+				},
+				image: { color: StylesInterface.EColor.PRIME_1, img: "IconAdd", size: 40 },
+			};
+		}
 	}
 
 	return <Substance {...propsComponent} />;

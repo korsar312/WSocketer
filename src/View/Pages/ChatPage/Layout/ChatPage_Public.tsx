@@ -7,7 +7,6 @@ import Scroll from "View/Components/0.Cores/Scroll";
 import ArrayAnimation from "View/Components/0.Cores/ArrayAnimation";
 import TemplateCardWs from "View/Components/4.Templates/TemplateCardWs";
 import TemplateModalCreateWs from "View/Components/4.Templates/TemplateModalCreateWs";
-import TemplateCardWsAdd from "../../../Components/4.Templates/TemplateCardWsAdd";
 
 const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 	const { wsList, wsInstance, isChose, methods, isShowCreateWs } = props;
@@ -17,7 +16,7 @@ const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 		<AtomPaperG extStyle={styles.list(isChose)}>
 			<Scroll.div>
 				<div css={styles.elem(isChose)}>
-					<TemplateCardWsAdd onClick={() => toggleShowCreateWs(true)} />
+					<TemplateCardWs onClick={() => toggleShowCreateWs(true)} />
 
 					<ArrayAnimation type={"sliceA"} uniqueKey={(_item, index) => wsList[index].id}>
 						{wsList.map((el) => (

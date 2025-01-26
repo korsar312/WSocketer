@@ -4,8 +4,8 @@ import MessagePageModel from "../MessagePage.model";
 import AtomPaperG from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperG";
 import Scroll from "../../../Components/0.Cores/Scroll";
 import AtomTextareaFull from "../../../Components/1.Atoms/AtomTextarea/Variables/AtomTextareaFull";
-import TemplateCardMessageGroupAdd from "../../../Components/4.Templates/TemplateCardMessageGroupAdd";
 import TemplateModalCreateMessageGroup from "../../../Components/4.Templates/TemplateModalCreateMessageGroup";
+import TemplateCardMessageGroup from "../../../Components/4.Templates/TemplateCardMessageGroup";
 
 const MessagePage_Public: NFC<typeof MessagePageModel> = (props) => {
 	const { isShowCreateGroup, toggleShowCreateWs, facadeCreateGroup } = props;
@@ -16,7 +16,7 @@ const MessagePage_Public: NFC<typeof MessagePageModel> = (props) => {
 
 			<AtomPaperG extStyle={styles.dirList}>
 				<Scroll.div>
-					<TemplateCardMessageGroupAdd onClick={() => toggleShowCreateWs(true)} />
+					<TemplateCardMessageGroup onClick={() => toggleShowCreateWs(true)} />
 				</Scroll.div>
 			</AtomPaperG>
 

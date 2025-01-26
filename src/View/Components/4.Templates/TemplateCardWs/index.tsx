@@ -3,29 +3,43 @@ import Substance, { IComponent as ISubstances } from "View/Components/2.Molecule
 import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.interfaces";
 import UseCases from "Logic/Core/UseCases/UseCases";
 import { observer } from "mobx-react";
+import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 
-export type IComponent = {
-	onClick?: (val: WebSocketInterfaces.TWebSocket) => void;
+export type IComponent = TWs | TAdd;
+
+type TWs = {
+	onClick: (val: WebSocketInterfaces.TWebSocket) => void;
 	wsInstance: WebSocketInterfaces.TWebSocket;
 	isChose?: boolean;
 };
 
+type TAdd = {
+	onClick: () => void;
+};
+
 const Index: FC<IComponent> = (props) => {
-	const { onClick, wsInstance, isChose } = props;
+	const propsComponent: ISubstances = getState();
 
-	const title = UseCases.interactor("webSocket", "getName", wsInstance);
-	const subTitle = UseCases.interactor("webSocket", "getDesc", wsInstance);
+	function getState(): ISubstances {
+		if ("wsInstance" in props) {
+			const { onClick, wsInstance, isChose } = props as TWs;
 
-	const propsComponent: ISubstances = {
-		image: { img: "IconHistory" },
-		isChose: isChose,
-		click,
-		title,
-		subTitle,
-	};
+			return {
+				title: UseCases.interactor("webSocket", "getName", wsInstance),
+				image: { img: "IconHistory" },
+				click: () => onClick?.(wsInstance),
+				isChose: isChose,
+				subTitle: UseCases.interactor("webSocket", "getDesc", wsInstance),
+			};
+		} else {
+			const { onClick } = props as TAdd;
 
-	function click() {
-		onClick?.(wsInstance);
+			return {
+				title: LanguageInterface.EWord.CREATE_WS,
+				image: { img: "IconAdd" },
+				click: onClick,
+			};
+		}
 	}
 
 	return <Substance {...propsComponent} />;
