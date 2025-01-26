@@ -10,7 +10,6 @@ export interface IComponent {
 	image: IImage;
 	click?: () => void;
 	isChose?: boolean;
-	collapse?: boolean;
 }
 
 const Index: FC<IComponent> = (props) => {

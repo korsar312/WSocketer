@@ -1,6 +1,10 @@
 import { LanguageInterface } from "../../Core/Modules/Language/Language.interface";
 
 export const DictionaryList: LanguageInterface.TLanguage = {
+	CREATE_GROUP: {
+		EN: "Create group",
+		RU: "Создать группу",
+	},
 	CREATE_WS: {
 		EN: "Create WS",
 		RU: "Создать WS",

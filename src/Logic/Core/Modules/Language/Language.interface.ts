@@ -16,6 +16,7 @@ export namespace LanguageInterface {
 	 * Список слов
 	 */
 	export enum EWord {
+		CREATE_GROUP = "CREATE_GROUP",
 		CREATE_WS = "CREATE_WS",
 		WS_NAME = "WS_NAME",
 		WS_LINK = "WS_LINK",

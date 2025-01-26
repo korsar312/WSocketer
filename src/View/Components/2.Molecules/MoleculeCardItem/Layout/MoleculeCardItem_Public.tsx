@@ -10,21 +10,14 @@ import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interfac
 const color = StylesInterface.EColor;
 
 const MoleculeCardItem_Public: NFC<typeof MoleculeCardItemModel> = (props) => {
-	const { title, subTitle, click, image, isChose, collapse, imageSize } = props;
-
-	const textCol = (
-		<>
-			{textFn(title, StylesInterface.EFont.Mont_M_18, isChose ? color.PRIME_3 : color.SECOND_3)}
-			{textFn(subTitle, StylesInterface.EFont.Mont_M_14, isChose ? color.PRIME_4 : color.SECOND_4)}
-		</>
-	);
+	const { title, subTitle, click, image, isChose, imageSize } = props;
 
 	function textFn(text: LanguageInterface.TAllWord, font: StylesInterface.EFont, color: StylesInterface.EColor) {
 		return text && <Text pos={"left"} text={text} font={font} color={color} />;
 	}
 
 	return (
-		<AtomPaper color={isChose ? color.SECOND_4 : color.PRIME_3} onClick={click} extStyle={styles.wrapper(imageSize)}>
+		<AtomPaper color={isChose ? color.SECOND_4 : color.PRIME_3} onClick={click}>
 			<div css={styles.content}>
 				<Images size={imageSize} color={isChose ? color.PRIME_1 : color.SECOND_4} {...image} />
 

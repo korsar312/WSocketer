@@ -1,13 +1,18 @@
 import { IComponent } from "./index";
-import { useRoutes } from "react-router-dom";
+import { useLocation, useRoutes } from "react-router-dom";
 import { RouteList } from "Logic/Config/ConfigLists/RouteList";
-import UseCases from "Logic/Core/UseCases/UseCases";
+import { useEffect } from "react";
+import UseCases from "../../../Logic/Core/UseCases/UseCases";
 
 function PagesLayoutModel(props: IComponent) {
 	const {} = props;
 
 	const Pages = useRoutes(RouteList);
-	const pathname = UseCases.interactor("router", "getCurrentPage");
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		UseCases.interactor("router", "setCurrentPage", pathname);
+	}, [pathname]);
 
 	return { Pages, pathname };
 }

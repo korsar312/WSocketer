@@ -3,12 +3,11 @@ import ChatPageModel from "../ChatPage.model";
 import styles from "./ChatPage_Public.styles";
 import WidgetWsInstance from "View/Components/5.Widget/WidgetWsInstance";
 import AtomPaperG from "View/Components/1.Atoms/AtomPaper/Variables/AtomPaperG";
-import MoleculeCardItem from "View/Components/2.Molecules/MoleculeCardItem";
 import Scroll from "View/Components/0.Cores/Scroll";
 import ArrayAnimation from "View/Components/0.Cores/ArrayAnimation";
-import TemplateWsCard from "View/Components/4.Templates/TemplateWsCard";
+import TemplateCardWs from "View/Components/4.Templates/TemplateCardWs";
 import TemplateModalCreateWs from "View/Components/4.Templates/TemplateModalCreateWs";
-import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
+import TemplateCardWsAdd from "../../../Components/4.Templates/TemplateCardWsAdd";
 
 const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 	const { wsList, wsInstance, isChose, methods, isShowCreateWs } = props;
@@ -18,16 +17,11 @@ const ChatPage_Public: NFC<typeof ChatPageModel> = (props) => {
 		<AtomPaperG extStyle={styles.list(isChose)}>
 			<Scroll.div>
 				<div css={styles.elem(isChose)}>
-					<MoleculeCardItem
-						click={() => toggleShowCreateWs(true)}
-						title={LanguageInterface.EWord.CREATE_WS}
-						image={{ img: "IconAdd" }}
-						collapse={isChose}
-					/>
+					<TemplateCardWsAdd onClick={() => toggleShowCreateWs(true)} />
 
 					<ArrayAnimation type={"sliceA"} uniqueKey={(_item, index) => wsList[index].id}>
 						{wsList.map((el) => (
-							<TemplateWsCard key={getIdWs(el)} isChose={isChosen(el)} wsInstance={el} onClick={choseWs} />
+							<TemplateCardWs key={getIdWs(el)} isChose={isChosen(el)} wsInstance={el} onClick={choseWs} />
 						))}
 					</ArrayAnimation>
 				</div>

@@ -1,27 +1,21 @@
 import { FC } from "react";
 import Substance, { ESubstanceModalType, IComponent as ISubstances } from "View/Components/3.Substances/SubstanceModal";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
-import { TMoleculeFormSchemaCreateForm } from "View/Components/2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaCreate";
-import UseCases from "../../../../Logic/Core/UseCases/UseCases";
+import { TMoleculeFormSchemaAddForm } from "View/Components/2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaAdd";
 
 export interface IComponent {
 	isShow: boolean;
-	submit: (val: TMoleculeFormSchemaCreateForm) => void;
+	submit: (val: TMoleculeFormSchemaAddForm) => void;
 }
 
 const Index: FC<IComponent> = (props) => {
 	const { isShow, submit } = props;
 
-	const protocols = UseCases.interactor("webSocket", "getAllProtocolsConnect");
-
 	const propsComponent: ISubstances = {
-		type: ESubstanceModalType.CREATE,
+		type: ESubstanceModalType.ADD,
 		form: {
 			title: LanguageInterface.EWord.BUTTON,
-			nameLabel: LanguageInterface.EWord.WS_NAME,
-			midLabel: LanguageInterface.EWord.WS_LINK,
-			descLabel: LanguageInterface.EWord.WS_DESC,
-			dropVars: protocols,
+			nameLabel: LanguageInterface.EWord.BUTTON,
 			submit,
 		},
 		isShow,

@@ -11,6 +11,8 @@ class MessagePage_PublicStyles extends Styles {
 	};
 
 	public dirList: CSSObject = {
+		display: "flex",
+		gap: this.pad,
 		padding: this.pad,
 	};
 
