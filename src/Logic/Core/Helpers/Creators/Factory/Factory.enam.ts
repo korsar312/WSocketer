@@ -19,6 +19,9 @@ import { StylesDomain } from "../../../Modules/Styles/Implement/Domain/Styles.do
 import { WebSocketDomain } from "../../../Modules/WebSocket/Implement/Domain/WebSocket.domain";
 import { WebSocketService } from "../../../Modules/WebSocket/Implement/Service/WebSocket.service";
 import { WebSocketInterfaces } from "../../../Modules/WebSocket/WebSocket.interfaces";
+import { MessagesDomain } from "../../../Modules/Messages/Implement/Domain/Messages.domain";
+import { MessagesService } from "../../../Modules/Messages/Implement/Service/Messages.service";
+import { MessagesInterfaces } from "../../../Modules/Messages/Messages.interfaces";
 
 // @ts-ignore TODO сделать нормально (временное решение)
 export type TModuleImp<D, S, ANY = unknown> = {
@@ -32,6 +35,7 @@ export enum EStoreList {
 	StyleStore = "StyleStore",
 	AppStatusStore = "AppStatusStore",
 	WebSocketStore = "WebSocketStore",
+	MessagesStore = "MessagesStore",
 }
 
 export enum EModuleList {
@@ -40,6 +44,7 @@ export enum EModuleList {
 	StyleModule = "StyleModule",
 	AppStatusModule = "AppStatusModule",
 	WebSocketModule = "WebSocketModule",
+	MessagesModule = "MessagesModule",
 }
 
 export type TStoreFactory = {
@@ -48,6 +53,7 @@ export type TStoreFactory = {
 	[EStoreList.StyleStore]: StoreCreator<StylesInterface.TObj>;
 	[EStoreList.AppStatusStore]: StoreCreator<AppStatusInterfaces.TObj>;
 	[EStoreList.WebSocketStore]: StoreCreator<WebSocketInterfaces.TObj>;
+	[EStoreList.MessagesStore]: StoreCreator<MessagesInterfaces.TObj>;
 };
 
 export type TTypeModule = {
@@ -56,6 +62,7 @@ export type TTypeModule = {
 	[EModuleList.StyleModule]: TModuleImp<StylesDomain, StylesService>;
 	[EModuleList.AppStatusModule]: TModuleImp<AppStatusDomain, AppStatusService>;
 	[EModuleList.WebSocketModule]: TModuleImp<WebSocketDomain, WebSocketService>;
+	[EModuleList.MessagesModule]: TModuleImp<MessagesDomain, MessagesService>;
 };
 
 export type TModuleFactory = {
