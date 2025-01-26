@@ -4,7 +4,7 @@ import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import UseCases from "Logic/Core/UseCases/UseCases";
 
 function AtomTextareaModel(props: IComponent) {
-	const { initText, onClick, onChange, extStyle, name } = props;
+	const { initText, onClick, onChange, extStyle, name, maxHeight } = props;
 
 	const [value, setValue] = useState(initText.text);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -18,10 +18,10 @@ function AtomTextareaModel(props: IComponent) {
 
 	function autoSize() {
 		const textarea = textareaRef.current;
-		if (!textarea) return;
+		if (!textarea || maxHeight === undefined) return;
 
 		textarea.style.height = "0px";
-		textarea.style.height = `${textarea.scrollHeight > 200 ? 200 : textarea.scrollHeight}px`;
+		textarea.style.height = `${textarea.scrollHeight > maxHeight ? maxHeight : textarea.scrollHeight}px`;
 	}
 
 	function changeText(text: TAtomInputText): TAtomInputText {

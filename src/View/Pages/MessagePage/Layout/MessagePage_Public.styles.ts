@@ -15,6 +15,7 @@ class MessagePage_PublicStyles extends Styles {
 	};
 
 	public dirWrap: CSSObject = {
+		minHeight: 0,
 		display: "flex",
 		gap: this.pad,
 		flex: 1,
@@ -22,12 +23,12 @@ class MessagePage_PublicStyles extends Styles {
 
 	public dir: CSSObject = {
 		padding: this.pad,
-		flex: 4,
+		flex: 6,
 	};
 
 	public element: CSSObject = {
 		padding: this.pad,
-		flex: 2,
+		flex: 4,
 	};
 }
 

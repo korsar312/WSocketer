@@ -3,6 +3,7 @@ import Substance, { IComponent as ISubstances } from "View/Components/3.Substanc
 import UseCases from "Logic/Core/UseCases/UseCases";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
 import { RouteInterfaces } from "Logic/Core/Modules/Routes/Route.interfaces";
+import { observer } from "mobx-react";
 
 export interface IComponent {}
 
@@ -73,4 +74,4 @@ const Index: FC<IComponent> = (props) => {
 	return <Substance {...propsComponent} />;
 };
 
-export default Index;
+export default observer(Index);

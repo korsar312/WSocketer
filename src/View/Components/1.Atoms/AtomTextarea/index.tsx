@@ -9,6 +9,7 @@ export interface IComponent extends TTagPartial<HTMLTextAreaElement, "name" | "o
 	initText: TAtomInputText;
 	onChange?: (val: string) => void;
 	extStyle?: TDeepCSSObject;
+	maxHeight?: number;
 }
 
 export type TAtomInputText = {
