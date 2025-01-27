@@ -5,10 +5,21 @@ export namespace MessagesInterfaces {
 	 * Основной объект
 	 */
 	export type TObj = {
-		messageList: TMessage[];
+		messageList: TMessageGroup[];
 	};
 
-	export type TMessage = {};
+	export type TMessageGroup = {
+		id: string;
+		name: string;
+		dir: TMessage[];
+	};
+
+	export type TMessage = {
+		id: string;
+		name: string;
+		disc: string;
+		value: string;
+	};
 
 	/**
 	 * Домен и сервис

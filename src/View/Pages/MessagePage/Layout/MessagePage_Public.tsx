@@ -6,17 +6,24 @@ import Scroll from "../../../Components/0.Cores/Scroll";
 import AtomTextareaFull from "../../../Components/1.Atoms/AtomTextarea/Variables/AtomTextareaFull";
 import TemplateModalCreateMessageGroup from "../../../Components/4.Templates/TemplateModalCreateMessageGroup";
 import TemplateCardMessageGroup from "../../../Components/4.Templates/TemplateCardMessageGroup";
+import ArrayAnimation from "../../../Components/0.Cores/ArrayAnimation";
 
 const MessagePage_Public: NFC<typeof MessagePageModel> = (props) => {
-	const { isShowCreateGroup, toggleShowCreateWs, facadeCreateGroup } = props;
+	const { isShowCreateGroup, toggleShowCreateWs, createGroup, groupList, choseGroup, isChosen, getIdWs } = props;
 
 	return (
 		<div css={styles.wrapper}>
-			<TemplateModalCreateMessageGroup submit={facadeCreateGroup} isShow={isShowCreateGroup} />
+			<TemplateModalCreateMessageGroup submit={createGroup} isShow={isShowCreateGroup} />
 
-			<AtomPaperG extStyle={styles.dirList}>
-				<Scroll.div>
+			<AtomPaperG>
+				<Scroll.div extStyle={styles.elem}>
 					<TemplateCardMessageGroup onClick={() => toggleShowCreateWs(true)} />
+
+					<ArrayAnimation type={"sliceA"} uniqueKey={(_item, index) => groupList[index].id}>
+						{groupList.map((el) => (
+							<TemplateCardMessageGroup key={getIdWs(el)} isChose={isChosen(el)} messageGroup={el} onClick={choseGroup} />
+						))}
+					</ArrayAnimation>
 				</Scroll.div>
 			</AtomPaperG>
 

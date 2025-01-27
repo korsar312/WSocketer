@@ -3,15 +3,12 @@ import { CSSObject } from "@emotion/react";
 
 class Scroll_PublicStyles extends Styles {
 	private scrollSize = this.variables.scrollSize;
-	private scrollPad = 6;
 
 	public scroll(isHiddenScroll?: boolean): CSSObject {
 		return {
-			overflow: "auto",
-			scrollbarGutter: "stable",
+			transitionBehavior: "allow-discrete",
+			overflow: "overlay",
 			height: "100%",
-			paddingRight: this.scrollPad,
-			marginRight: -this.scrollSize - this.scrollPad,
 
 			"&::-webkit-scrollbar": {
 				width: this.scrollSize,

@@ -1,32 +1,40 @@
 import { IComponent } from "./index";
 import { useState } from "react";
 import { TMoleculeFormSchemaAddForm } from "../../Components/2.Molecules/MoleculeFormSchema/Variables/MoleculeFormSchemaAdd";
+import UseCases from "../../../Logic/Core/UseCases/UseCases";
+import { MessagesInterfaces } from "../../../Logic/Core/Modules/Messages/Messages.interfaces";
 
 function MessagePageModel(props: IComponent) {
 	const {} = props;
 
+	const groupList = UseCases.interactor("message", "getGroupList");
+
 	const [isShowCreateGroup, setIsShowCreateGroup] = useState(false);
-	const [isCurrentGroup, setIsCurrentGroup] = useState();
+	const [isCurrentGroupId, setIsCurrentGroupId] = useState<string>();
 	const [isCurrentMessage, setIsCurrentMessage] = useState();
 
-	function adapterForm(props: TMoleculeFormSchemaAddForm): {} {
-		return {
-			name: props.topText,
-		};
+	function createGroup(props: TMoleculeFormSchemaAddForm) {
+		toggleShowCreateWs();
+		UseCases.interactor("message", "addGroup", props.topText);
 	}
-
-	function facadeCreateGroup(props: TMoleculeFormSchemaAddForm) {
-		setIsShowCreateGroup(false);
-		createGroup(adapterForm(props));
-	}
-
-	function createGroup(props: {}) {}
 
 	function toggleShowCreateWs(isShow?: boolean) {
 		setIsShowCreateGroup(isShow || false);
 	}
 
-	return { isShowCreateGroup, toggleShowCreateWs, facadeCreateGroup };
+	function choseGroup(group: MessagesInterfaces.TMessageGroup) {
+		setIsCurrentGroupId(getIdWs(group));
+	}
+
+	function isChosen(group: MessagesInterfaces.TMessageGroup) {
+		return isCurrentGroupId === getIdWs(group);
+	}
+
+	function getIdWs(group: MessagesInterfaces.TMessageGroup) {
+		return UseCases.interactor("message", "getGroupId", group);
+	}
+
+	return { isShowCreateGroup, toggleShowCreateWs, createGroup, groupList, choseGroup, isChosen, getIdWs };
 }
 
 export default MessagePageModel;

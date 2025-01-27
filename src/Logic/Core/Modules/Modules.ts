@@ -3,6 +3,7 @@ import { RoutesUseCase } from "./Routes/UseCase/Routes.useCase";
 import { StylesUseCase } from "./Styles/UseCase/Styles.useCase";
 import { AppStatusUseCase } from "./AppState/UseCase/AppStatus.useCase";
 import { WebSocketUseCase } from "./WebSocket/UseCase/WebSocket.useCase";
+import { MessagesUseCase } from "./Messages/UseCase/Messages.useCase";
 
 export class Modules {
 	style: StylesUseCase;
@@ -10,6 +11,7 @@ export class Modules {
 	language: LanguageUseCase;
 	appStatus: AppStatusUseCase;
 	webSocket: WebSocketUseCase;
+	message: MessagesUseCase;
 
 	constructor() {
 		this.style = new StylesUseCase();
@@ -17,5 +19,6 @@ export class Modules {
 		this.language = new LanguageUseCase();
 		this.appStatus = new AppStatusUseCase();
 		this.webSocket = new WebSocketUseCase();
+		this.message = new MessagesUseCase();
 	}
 }

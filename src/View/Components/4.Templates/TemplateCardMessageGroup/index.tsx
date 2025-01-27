@@ -1,16 +1,16 @@
 import { FC } from "react";
 import Substance, { IComponent as ISubstances } from "View/Components/2.Molecules/MoleculeCardSelector";
-import { WebSocketInterfaces } from "Logic/Core/Modules/WebSocket/WebSocket.interfaces";
 import UseCases from "Logic/Core/UseCases/UseCases";
 import { observer } from "mobx-react";
 import { StylesInterface } from "Logic/Core/Modules/Styles/Styles.interface";
 import { LanguageInterface } from "Logic/Core/Modules/Language/Language.interface";
+import { MessagesInterfaces } from "../../../../Logic/Core/Modules/Messages/Messages.interfaces";
 
 export type IComponent = TMessage | TAdd;
 
 type TMessage = {
-	onClick: (val: WebSocketInterfaces.TWebSocket) => void;
-	messageGroup: WebSocketInterfaces.TWebSocket;
+	onClick: (val: MessagesInterfaces.TMessageGroup) => void;
+	messageGroup: MessagesInterfaces.TMessageGroup;
 	isChose?: boolean;
 };
 
@@ -29,7 +29,7 @@ const Index: FC<IComponent> = (props) => {
 				click: () => onClick?.(props.messageGroup),
 				color: StylesInterface.EColor.SECOND_1,
 				title: {
-					text: UseCases.interactor("webSocket", "getName", messageGroup),
+					text: UseCases.interactor("message", "getGroupName", messageGroup),
 					color: StylesInterface.EColor.PRIME_1,
 					font: StylesInterface.EFont.Mont_B_18,
 				},

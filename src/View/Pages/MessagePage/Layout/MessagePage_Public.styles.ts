@@ -12,8 +12,11 @@ class MessagePage_PublicStyles extends Styles {
 
 	public dirList: CSSObject = {
 		display: "flex",
-		gap: this.pad,
+		height: "100%",
+		alignItems: "center",
 		padding: this.pad,
+		boxSizing: "border-box",
+		gap: this.pad,
 	};
 
 	public dirWrap: CSSObject = {
@@ -31,6 +34,13 @@ class MessagePage_PublicStyles extends Styles {
 	public element: CSSObject = {
 		padding: this.pad,
 		flex: 4,
+	};
+
+	public elem: CSSObject = {
+		padding: this.variables.radiusStandard,
+		boxSizing: "border-box",
+		display: "flex",
+		gap: 16,
 	};
 }
 
