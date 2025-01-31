@@ -6,7 +6,18 @@ export class GetMessageState {
 			obj: MessagesInterfaces.TMessage,
 			field: K,
 		): MessagesInterfaces.TMessage[K] {
-			return obj[field];
+			switch (field) {
+				case "value": {
+					try {
+						return JSON.stringify(JSON.parse(obj[field]));
+					} catch (e) {
+						return obj[field];
+					}
+				}
+				default: {
+					return obj[field];
+				}
+			}
 		};
 	}
 }

@@ -9,8 +9,8 @@ import { MessagesInterfaces } from "Logic/Core/Modules/Messages/Messages.interfa
 export type IComponent = TMessage | TAdd;
 
 type TMessage = {
-	onClick: (val: MessagesInterfaces.TMessageGroup) => void;
-	messageGroup: MessagesInterfaces.TMessageGroup;
+	onClick: (val: MessagesInterfaces.TMessage) => void;
+	message: MessagesInterfaces.TMessage;
 	isChose?: boolean;
 };
 
@@ -22,14 +22,14 @@ const Index: FC<IComponent> = (props) => {
 	const propsComponent: ISubstances = getState();
 
 	function getState(): ISubstances {
-		if ("messageGroup" in props) {
-			const { onClick, messageGroup, isChose } = props as TMessage;
+		if ("message" in props) {
+			const { onClick, message, isChose } = props as TMessage;
 
 			return {
-				click: () => onClick?.(props.messageGroup),
+				click: () => onClick?.(message),
 				color: isChose ? StylesInterface.EColor.GREEN_1 : StylesInterface.EColor.SECOND_1,
 				title: {
-					text: UseCases.interactor("message", "getGroupName", messageGroup),
+					text: UseCases.interactor("message", "getMessageName", message),
 					color: StylesInterface.EColor.PRIME_1,
 					font: StylesInterface.EFont.Mont_B_18,
 				},

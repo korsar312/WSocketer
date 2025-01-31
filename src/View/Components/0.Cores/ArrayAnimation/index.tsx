@@ -3,7 +3,6 @@ import { TDeepCSSObject } from "View/ViewUtils";
 import { AnimatePresenceProps } from "framer-motion";
 import ArrayAnimation_Public from "./Layout/ArrayAnimation_Public";
 import ArrayAnimationModel from "./ArrayAnimation.model";
-import { observer } from "mobx-react";
 
 export interface IComponent extends Pick<AnimatePresenceProps, "mode"> {
 	children: ReactNode[];
@@ -19,4 +18,4 @@ const Index: FC<IComponent> = (props) => {
 	return <ArrayAnimation_Public {...model} />;
 };
 
-export default observer(Index);
+export default Index;

@@ -11,36 +11,45 @@ class MessagePage_PublicStyles extends Styles {
 	};
 
 	public dirList: CSSObject = {
-		display: "flex",
-		height: "100%",
-		alignItems: "center",
-		padding: this.pad,
+		display: "grid",
+		gridTemplateRows: 100,
+		gridAutoColumns: "minmax(200px, 1fr)",
+		gridAutoFlow: "column",
 		boxSizing: "border-box",
+		padding: this.pad,
 		gap: this.pad,
 	};
 
-	public dirWrap: CSSObject = {
+	public dirPlace: CSSObject = {
 		minHeight: 0,
 		display: "flex",
 		gap: this.pad,
 		flex: 1,
 	};
 
-	public dir: CSSObject = {
-		padding: this.pad,
+	public dirWrap: CSSObject = {
+		position: "relative",
 		flex: 6,
 	};
 
-	public element: CSSObject = {
+	public dir: CSSObject = {
+		display: "grid",
+		gridAutoRows: 100,
+		gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
 		padding: this.pad,
+		boxSizing: "border-box",
+		gap: this.pad,
+	};
+
+	public elementWrap: CSSObject = {
+		position: "relative",
 		flex: 4,
 	};
 
-	public elem: CSSObject = {
-		padding: this.variables.radiusStandard,
-		boxSizing: "border-box",
-		display: "flex",
-		gap: 16,
+	public element: CSSObject = {
+		position: "relative",
+		padding: this.pad,
+		flex: 4,
 	};
 }
 
