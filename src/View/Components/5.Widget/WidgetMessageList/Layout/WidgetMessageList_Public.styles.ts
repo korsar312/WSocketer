@@ -17,17 +17,6 @@ class WidgetMessageList_PublicStyles extends Styles {
 		boxSizing: "border-box",
 		gap: this.pad,
 	};
-
-	public elementWrap: CSSObject = {
-		position: "relative",
-		flex: 4,
-	};
-
-	public element: CSSObject = {
-		position: "relative",
-		padding: this.pad,
-		flex: 4,
-	};
 }
 
 export default new WidgetMessageList_PublicStyles();
