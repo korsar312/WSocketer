@@ -30,8 +30,6 @@ function MessagePageModel(props: IComponent) {
 	const isGroupChose = Boolean(curGroup);
 	const isMessageChose = Boolean(curMessage && currentMessageId);
 
-	console.log(curMessage);
-
 	const groupFn = {
 		create(props: TMoleculeFormSchemaAddForm) {
 			toggleShowCreate(false);
