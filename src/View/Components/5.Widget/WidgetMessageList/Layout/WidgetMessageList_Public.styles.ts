@@ -1,34 +1,12 @@
 import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react";
 
-class MessagePage_PublicStyles extends Styles {
+class WidgetMessageList_PublicStyles extends Styles {
 	private pad = this.variables.radiusStandard;
 
-	public wrapper: CSSObject = {
-		...this.mixins.flexCol,
-		height: "100%",
-		gap: this.pad,
-	};
-
-	public dirList: CSSObject = {
-		display: "grid",
-		gridTemplateRows: 100,
-		gridAutoColumns: "minmax(200px, 1fr)",
-		gridAutoFlow: "column",
-		boxSizing: "border-box",
-		padding: this.pad,
-		gap: this.pad,
-	};
-
-	public dirPlace: CSSObject = {
-		minHeight: 0,
-		display: "flex",
-		gap: this.pad,
-		flex: 1,
-	};
-
 	public dirWrap: CSSObject = {
-		flex: 6,
+		position: "relative",
+		height: "100%",
 	};
 
 	public dir: CSSObject = {
@@ -52,4 +30,4 @@ class MessagePage_PublicStyles extends Styles {
 	};
 }
 
-export default new MessagePage_PublicStyles();
+export default new WidgetMessageList_PublicStyles();

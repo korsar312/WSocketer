@@ -15,20 +15,8 @@ function MessagePageModel(props: IComponent) {
 	const currentForm = useRef<ECreate>(ECreate.GROUP);
 
 	const [isShowCreate, setIsShowCreate] = useState(false);
-	const [currentGroupId, setCurrentGroupId] = useState<string>();
-	const [currentMessageId, setCurrentMessageId] = useState<string>();
-
-	const groupList = UseCases.interactor("message", "getGroupList");
-	const curGroup = UseCases.interactor("message", "getGroupById", currentGroupId);
-
-	const messageList = UseCases.interactor("message", "getMessageList", curGroup);
-	const curMessage = UseCases.interactor("message", "getMessageById", curGroup, currentMessageId);
-
-	const messageId = curMessage && UseCases.interactor("message", "getMessageId", curMessage);
-	const messageValue = curMessage && UseCases.interactor("message", "getMessageValue", curMessage);
-
-	const isGroupChose = Boolean(curGroup);
-	const isMessageChose = Boolean(curMessage && currentMessageId);
+	const [groupId, setGroupId] = useState<string>();
+	const [messageId, setMessageId] = useState<string>();
 
 	const groupFn = {
 		create(props: TMoleculeFormSchemaAddForm) {
@@ -45,11 +33,7 @@ function MessagePageModel(props: IComponent) {
 
 		chose(group?: MessagesInterfaces.TMessageGroup) {
 			const id = group && UseCases.interactor("message", "getGroupId", group);
-			setCurrentGroupId(id);
-		},
-
-		isChosen(group: MessagesInterfaces.TMessageGroup) {
-			return currentGroupId === groupFn.getId(group);
+			setGroupId(id);
 		},
 
 		getId(group: MessagesInterfaces.TMessageGroup) {
@@ -61,7 +45,8 @@ function MessagePageModel(props: IComponent) {
 		create(props: TMoleculeFormSchemaAddForm) {
 			toggleShowCreate(false);
 
-			const message = curGroup && UseCases.interactor("message", "addMessage", curGroup, props.topText);
+			const group = UseCases.interactor("message", "getGroupById", groupId);
+			const message = group && UseCases.interactor("message", "addMessage", group, props.topText);
 			messageFn.chose(message);
 		},
 
@@ -72,11 +57,7 @@ function MessagePageModel(props: IComponent) {
 
 		chose(message?: MessagesInterfaces.TMessage) {
 			const id = message && UseCases.interactor("message", "getMessageId", message);
-			setCurrentMessageId(id);
-		},
-
-		isChosen(message: MessagesInterfaces.TMessage) {
-			return currentMessageId === messageFn.getId(message);
+			setMessageId(id);
 		},
 
 		getId(message: MessagesInterfaces.TMessage) {
@@ -99,18 +80,7 @@ function MessagePageModel(props: IComponent) {
 		}
 	}
 
-	return {
-		groupFn,
-		messageFn,
-		groupList,
-		messageList,
-		isShowCreate,
-		handleDriver,
-		isGroupChose,
-		isMessageChose,
-		messageValue,
-		messageId,
-	};
+	return { groupFn, messageFn, isShowCreate, handleDriver, groupId, messageId };
 }
 
 export default MessagePageModel;

@@ -13,6 +13,11 @@ class StyleP {
 	public pd12: CSSObject = { padding: 12 };
 
 	public f1: CSSObject = { flex: 1 };
+	public f2: CSSObject = { flex: 2 };
+	public f3: CSSObject = { flex: 3 };
+	public f4: CSSObject = { flex: 4 };
+	public f5: CSSObject = { flex: 5 };
+	public f6: CSSObject = { flex: 6 };
 }
 
 export default new StyleP();
