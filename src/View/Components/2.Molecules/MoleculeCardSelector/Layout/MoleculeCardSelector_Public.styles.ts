@@ -6,7 +6,7 @@ class MoleculeCardSelector_PublicStyles extends Styles {
 		...this.mixins.flexCenterCol,
 		height: "100%",
 		boxSizing: "border-box",
-		padding: 10,
+		padding: 6,
 	};
 }
 

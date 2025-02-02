@@ -20,6 +20,7 @@ const WidgetMessageControl_Public: NFC<typeof ChatPageModel> = (props) => {
 				choiceId={groupId}
 				click={groupFn.chose}
 				clickCreate={isEditable ? groupFn.openCreate : undefined}
+				extStyle={styles.lists(isMin)}
 			/>
 
 			<div css={styles.dirPlace}>
@@ -30,6 +31,7 @@ const WidgetMessageControl_Public: NFC<typeof ChatPageModel> = (props) => {
 						groupId={groupId}
 						click={messageFn.chose}
 						clickCreate={isEditable ? messageFn.openCreate : undefined}
+						extStyle={styles.lists(isMin)}
 					/>
 				</div>
 

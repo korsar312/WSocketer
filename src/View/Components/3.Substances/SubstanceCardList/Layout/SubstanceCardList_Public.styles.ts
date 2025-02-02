@@ -1,33 +1,28 @@
 import { Styles } from "Styles/Styles";
 import { CSSObject } from "@emotion/react";
+import { TSubstanceCardListSize } from "View/Components/3.Substances/SubstanceCardList/SubstanceCardList.model";
 
 class SubstanceCardList_PublicStyles extends Styles {
-	private pad = this.variables.radiusStandard;
+	public oneRow(size: TSubstanceCardListSize): CSSObject {
+		return {
+			display: "grid",
+			gridAutoFlow: "column",
+			boxSizing: "border-box",
 
-	public oneRow: CSSObject = {
-		display: "grid",
-		gridAutoFlow: "column",
-		boxSizing: "border-box",
-	};
+			gridTemplateRows: size.rowSize,
+			gridAutoColumns: `minmax(${size.minSize}, ${size.maxSize})`,
+		};
+	}
 
-	public sizeList1: CSSObject = {
-		gridTemplateRows: 100,
-		gridAutoColumns: "minmax(200px, 1fr)",
-		padding: this.pad,
-		gap: this.pad,
-	};
+	public manyRow(size: TSubstanceCardListSize): CSSObject {
+		return {
+			display: "grid",
+			boxSizing: "border-box",
 
-	public dir: CSSObject = {
-		display: "grid",
-		boxSizing: "border-box",
-	};
-
-	public sizeList2: CSSObject = {
-		gridAutoRows: 100,
-		padding: this.pad,
-		gap: this.pad,
-		gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
-	};
+			gridAutoRows: size.rowSize,
+			gridTemplateColumns: `repeat(auto-fit, minmax(${size.minSize}, ${size.maxSize}))`,
+		};
+	}
 }
 
 export default new SubstanceCardList_PublicStyles();

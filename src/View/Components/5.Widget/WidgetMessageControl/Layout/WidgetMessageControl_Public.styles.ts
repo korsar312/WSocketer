@@ -25,6 +25,15 @@ class WidgetMessageControl_PublicStyles extends Styles {
 	public element: CSSObject = {
 		padding: this.pad,
 	};
+
+	public lists(isMin?: boolean): CSSObject {
+		const size = isMin ? this.pad / 2 : this.pad;
+
+		return {
+			padding: size,
+			gap: size,
+		};
+	}
 }
 
 export default new WidgetMessageControl_PublicStyles();

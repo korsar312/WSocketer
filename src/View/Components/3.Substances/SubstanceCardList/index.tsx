@@ -4,10 +4,13 @@ import View from "./Layout/SubstanceCardList_Public";
 import { IComponent as IPaper } from "View/Components/1.Atoms/AtomPaper";
 import { IComponent as ICardItem } from "View/Components/2.Molecules/MoleculeCardItem";
 import { IComponent as ICardSelector } from "View/Components/2.Molecules/MoleculeCardSelector";
+import { TDeepCSSObject } from "View/ViewUtils";
 
 export type IComponent = {
 	wrapper: TSubstanceCardListWrapper;
 	styleType: "oneRow" | "manyRow";
+	sizeType: "mid" | "min";
+	extStyle?: TDeepCSSObject;
 } & (TCardItem | TCardSelector);
 
 type TChose<T, P> = {

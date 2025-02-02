@@ -10,7 +10,7 @@ enum ECreate {
 }
 
 function WidgetMessageControlModel(props: IComponent) {
-	const { isEditable, isMin } = props;
+	const { isEditable, isMin, messageClick } = props;
 
 	const currentForm = useRef<ECreate>(ECreate.GROUP);
 
@@ -61,6 +61,8 @@ function WidgetMessageControlModel(props: IComponent) {
 		},
 
 		chose(message?: MessagesInterfaces.TMessage) {
+			if (messageClick) return message && messageClick?.(message);
+
 			const id = message && UseCases.interactor("message", "getMessageId", message);
 			setMessageId(id);
 		},

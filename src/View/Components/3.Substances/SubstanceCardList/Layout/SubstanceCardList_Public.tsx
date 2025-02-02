@@ -8,7 +8,7 @@ import ArrayAnimation from "View/Components/0.Cores/ArrayAnimation";
 import Scroll from "View/Components/0.Cores/Scroll";
 
 const SubstanceCardList_Public: NFC<typeof SubstanceCardListModel> = (props) => {
-	const { type, paramsList, paperNorm, styleChoice } = props;
+	const { type, paramsList, paperNorm, styleChoice, extStyle } = props;
 
 	const Component = (function getComponent() {
 		let Component;
@@ -25,7 +25,7 @@ const SubstanceCardList_Public: NFC<typeof SubstanceCardListModel> = (props) => 
 
 	return (
 		<AtomPaper {...paperNorm}>
-			<Scroll.div extStyle={styleChoice}>
+			<Scroll.div extStyle={[styleChoice, extStyle]}>
 				<ArrayAnimation type={"sliceA"} uniqueKey={(_item, index) => paramsList[index].id}>
 					{paramsList.map((el) => (
 						<Component key={el.id} {...(el as any)} />

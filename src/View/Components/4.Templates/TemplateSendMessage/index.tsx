@@ -6,13 +6,14 @@ import UseCases from "Logic/Core/UseCases/UseCases";
 
 export interface IComponent {
 	wsInstance: WebSocketInterfaces.TWebSocket;
+	leftClick: () => void;
 }
 
 const FormFields = { input: "input" };
 type TForm = { [key in keyof typeof FormFields]: (typeof FormFields)[key] };
 
 const Index: FC<IComponent> = (props) => {
-	const { wsInstance } = props;
+	const { leftClick, wsInstance } = props;
 
 	const isOpen = UseCases.interactor("webSocket", "isConnectOpen", wsInstance);
 
@@ -20,7 +21,7 @@ const Index: FC<IComponent> = (props) => {
 
 	const propsComponent: ISubstances = {
 		form: { onSubmit: sendMessage },
-		leftBtn: { icon: "IconTune" },
+		leftBtn: { icon: "IconTune", click: leftClick },
 		inputArea: { text: "", name: FormFields.input, onChange: checkInput },
 		rightBtn: { icon: "IconSend", type: "submit", isDisable: !isOpen || isDisableSend },
 	};
