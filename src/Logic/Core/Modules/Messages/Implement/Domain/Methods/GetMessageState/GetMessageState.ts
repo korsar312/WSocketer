@@ -9,7 +9,7 @@ export class GetMessageState {
 			switch (field) {
 				case "value": {
 					try {
-						return JSON.stringify(JSON.parse(obj[field]));
+						return JSON.parse(obj[field]);
 					} catch (e) {
 						return obj[field];
 					}

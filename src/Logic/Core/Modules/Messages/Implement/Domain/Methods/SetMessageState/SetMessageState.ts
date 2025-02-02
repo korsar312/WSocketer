@@ -7,7 +7,14 @@ export class SetMessageState {
 			field: K,
 			newValue: MessagesInterfaces.TMessage[K],
 		): MessagesInterfaces.TMessage {
-			return { ...obj, [field]: newValue };
+			switch (field) {
+				case "value": {
+					return { ...obj, [field]: JSON.stringify(newValue) };
+				}
+				default: {
+					return { ...obj, [field]: newValue };
+				}
+			}
 		};
 	}
 }

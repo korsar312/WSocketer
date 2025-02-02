@@ -5,13 +5,14 @@ export namespace MessagesInterfaces {
 	 * Основной объект
 	 */
 	export type TObj = {
-		messageList: TMessageGroup[];
+		messageList: TMessage[];
+		groupList: TMessageGroup[];
 	};
 
 	export type TMessageGroup = {
 		id: string;
 		name: string;
-		dir: TMessage[];
+		dirId: string[];
 	};
 
 	export type TMessage = {
@@ -19,6 +20,7 @@ export namespace MessagesInterfaces {
 		name: string;
 		disc: string;
 		value: string;
+		groupId: string;
 	};
 
 	/**

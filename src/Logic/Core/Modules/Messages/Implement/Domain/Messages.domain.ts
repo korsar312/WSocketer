@@ -13,11 +13,13 @@ import { CreateMessage } from "./Methods/CreateMessage/CreateMessage";
 import { AddMessage } from "./Methods/AddMessage/AddMessage";
 import { GetGroupById } from "./Methods/GetGroupById/GetGroupById";
 import { GetMessageById } from "./Methods/GetMessageById/GetMessageById";
+import { GetGroupMessageList } from "./Methods/GetGroupMessageList/GetGroupMessageList";
 
 export class MessagesDomain extends DomainBase {
 	public addGroup = AddGroup.execute();
 	public createGroup = CreateGroup.execute();
 	public getGroupById = GetGroupById.execute();
+	public getGroupMessageList = GetGroupMessageList.execute();
 
 	public getGroupList = GetGroupList.execute();
 	public setGroupList = SetGroupList.execute();

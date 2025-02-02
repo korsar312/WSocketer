@@ -1,11 +1,11 @@
 import { FC } from "react";
-import Model from "./WidgetMessageValue.model";
-import View from "./Layout/WidgetMessageValue_Public";
+import Model from "View/Components/5.Widget/WidgetMessageControl/WidgetMessageControl.model";
+import View from "View/Components/5.Widget/WidgetMessageControl/Layout/WidgetMessageControl_Public";
 import { observer } from "mobx-react";
 
 export interface IComponent {
-	messageId?: string;
-	groupId?: string;
+	isEditable?: boolean;
+	isMin?: boolean;
 }
 
 const Index: FC<IComponent> = (props) => {

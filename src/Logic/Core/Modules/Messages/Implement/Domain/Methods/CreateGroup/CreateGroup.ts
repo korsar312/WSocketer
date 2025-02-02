@@ -7,7 +7,7 @@ export class CreateGroup {
 			return {
 				id: id(),
 				name: group,
-				dir: [],
+				dirId: [],
 			};
 		};
 	}

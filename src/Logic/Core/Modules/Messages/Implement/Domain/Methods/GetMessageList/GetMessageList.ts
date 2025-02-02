@@ -2,8 +2,8 @@ import { MessagesInterfaces } from "../../../../Messages.interfaces";
 
 export class GetMessageList {
 	static execute() {
-		return function (group?: MessagesInterfaces.TMessageGroup): MessagesInterfaces.TMessage[] {
-			return group?.dir || [];
+		return function (messageList: MessagesInterfaces.TObj): MessagesInterfaces.TMessage[] {
+			return messageList.messageList;
 		};
 	}
 }

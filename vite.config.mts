@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import svgLoader from "vite-plugin-svgr";
 import checker from "vite-plugin-checker";
-
 // https://vitejs.dev/config/
 export default ({ mode }) => {
 	process.env = Object.assign(process.env, loadEnv(mode, process.cwd()))

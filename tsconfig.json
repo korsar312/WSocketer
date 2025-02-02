@@ -17,6 +17,9 @@
 		"jsxImportSource": "@emotion/react",
 		"jsx": "react-jsx",
 		"baseUrl": "src",
+		"paths": {
+			"View/*": ["View/*"]
+		}
 	},
 	"include": ["src"],
 	"exclude": ["/node_modules/", "/.yarn/"],
